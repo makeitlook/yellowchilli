@@ -2,27 +2,28 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "Your Site Name",
-    template: "%s | Your Site Name",
+    default: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
+    template: "%s | Yellow Chilli",
   },
   description:
-    "Your company description goes here. Explain what your service/product does in one or two sentences.",
+    "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
   keywords: [
-    "Your Brand",
-    "Product Name",
-    "Web Services",
-    "Design",
-    "Consulting",
-    "Development",
-    "Business",
+    "Yellow Chilli Southall",
+    "Indian restaurant Southall",
+    "Afghan restaurant Southall",
+    "Indian Afghan cuisine",
+    "best biryani Southall",
+    "kebab Southall",
+    "South Asian food Southall",
+    "tandoori grill Southall",
   ],
-  metadataBase: new URL("https://yoursite.com"),
+  metadataBase: new URL("https://yellowchilli.co.uk"),
   openGraph: {
-    title: "Your Site Name",
+    title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
     description:
-      "A brief and compelling Open Graph description of your website or business for social sharing.",
-    url: "https://yoursite.com",
-    siteName: "Your Site Name",
+      "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
+    url: "https://yellowchilli.co.uk",
+    siteName: "Yellow Chilli",
     images: [
       {
         url: "/images/og-image.png",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   // Optional: Uncomment and update for Twitter Card support
   // twitter: {
   //   card: "summary_large_image",
-  //   title: "Your Site Name",
+  //   title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
   //   description: "Twitter description here",
   //   images: ["/images/og-image.png"],
   //   site: "@yourhandle",

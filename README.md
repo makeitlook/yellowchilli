@@ -74,25 +74,35 @@ Customize your site's metadata in `app/metadata.ts`:
 ```ts
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+    "kebab Southall",
   title: {
-    default: "Your Site Name",
-    template: "%s | Your Site Name",
+    default: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
+    template: "%s | Yellow Chilli",
   },
-  description: "A brief description of your site.",
-  keywords: ["keyword1", "keyword2", "keyword3"],
-  metadataBase: new URL("https://yourdomain.com"),
+  description:
+    "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
+  keywords: [
+    "Yellow Chilli Southall",
+    "Indian restaurant Southall",
+    "Afghan restaurant Southall",
+    "Indian Afghan cuisine",
+    "best kebab Southall",
+    "South Asian food Southall",
+    "tandoori grill Southall",
+  ],
+  metadataBase: new URL("https://yellowchilli.co.uk"),
   openGraph: {
-    title: "Your Site Name",
-    description: "A brief description of your site.",
-    url: "https://yourdomain.com",
-    siteName: "Your Site Name",
+    title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
+    description:
+      "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
+    url: "https://yellowchilli.co.uk",
+    siteName: "Yellow Chilli",
     images: [
       {
         url: "/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Your Site Name",
+        alt: "Yellow Chilli logo",
       },
     ],
     locale: "en_GB",
@@ -249,7 +259,7 @@ export default function AboutPage() {
       <SEO
         title="About Us"
         description="Learn more about our mission and team."
-        url="https://yourdomain.com/about"
+        url="https://yellowchilli.co.uk/about"
         image="/images/about-og.jpg"
         keywords={["About", "Company", "Team"]}
       />

@@ -11,11 +11,21 @@ interface SEOProps {
 }
 
 const defaultMetadata = {
-  title: "Your Website Name",
-  description: "A modern, performant website built with Next.js.",
-  url: "https://yourdomain.com",
+  title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
+  description:
+    "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
+  url: "https://yellowchilli.co.uk",
   image: "/images/og-default.png",
-  keywords: ["Next.js", "Web Development", "Template"],
+  keywords: [
+    "Yellow Chilli Southall",
+    "Indian restaurant Southall",
+    "Afghan restaurant Southall",
+    "Indian Afghan cuisine",
+    "best biryani Southall",
+    "kebab Southall",
+    "South Asian food Southall",
+    "tandoori grill Southall",
+  ],
 };
 
 export const SEO: React.FC<SEOProps> = ({
