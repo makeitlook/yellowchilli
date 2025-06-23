@@ -22,7 +22,7 @@ const defaultMetadata = {
     "Afghan restaurant Southall",
     "Indian Afghan cuisine",
     "best biryani Southall",
-    "halal food Southall",
+    "kebab Southall",
     "South Asian food Southall",
     "tandoori grill Southall",
   ],

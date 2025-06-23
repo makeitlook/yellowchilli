@@ -74,7 +74,7 @@ Customize your site's metadata in `app/metadata.ts`:
 ```ts
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
+    "kebab Southall",
   title: {
     default: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
     template: "%s | Yellow Chilli",
