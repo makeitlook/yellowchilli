@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://yourdomain.com
+Host: https://yellowchilli.co.uk
 
 # Sitemaps
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://yellowchilli.co.uk/sitemap.xml

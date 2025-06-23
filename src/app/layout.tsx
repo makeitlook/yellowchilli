@@ -5,17 +5,28 @@ import ClientLayout from "./client-layout";
 
 export const metadata: Metadata = {
   title: {
-    default: "Your Site Name",
-    template: "%s | Your Site Name",
+    default: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
+    template: "%s | Yellow Chilli",
   },
-  description: "A modern, SEO-ready Next.js template with theme support.",
-  keywords: ["Next.js", "Template", "SEO", "Dark mode", "Design System"],
-  metadataBase: new URL("https://yoursite.com"), // Replace with your actual domain
+  description:
+    "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
+  keywords: [
+    "Yellow Chilli Southall",
+    "Indian restaurant Southall",
+    "Afghan restaurant Southall",
+    "Indian Afghan cuisine",
+    "best biryani Southall",
+    "halal food Southall",
+    "South Asian food Southall",
+    "tandoori grill Southall",
+  ],
+  metadataBase: new URL("https://yellowchilli.co.uk"),
   openGraph: {
-    title: "Your Site Name",
-    description: "A modern, SEO-ready Next.js template with theme support.",
-    url: "https://yoursite.com",
-    siteName: "Your Site Name",
+    title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
+    description:
+      "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
+    url: "https://yellowchilli.co.uk",
+    siteName: "Yellow Chilli",
     images: [
       {
         url: "/images/og-image.jpg", // Replace with your Open Graph image
@@ -28,8 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Site Name",
-    description: "A modern, SEO-ready Next.js template with theme support.",
+    title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
+    description:
+      "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
     images: ["/images/og-image.jpg"],
   },
   icons: {
