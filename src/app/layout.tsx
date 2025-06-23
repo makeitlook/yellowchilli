@@ -3,7 +3,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import ClientLayout from "./client-layout";
 
-    "kebab Southall",
+export const metadata: Metadata = {
   title: {
     default: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
     template: "%s | Yellow Chilli",

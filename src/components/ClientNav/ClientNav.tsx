@@ -38,10 +38,10 @@ export default function ClientNav() {
         navigationItems: convertedItems,
         showNavigation,
       }}
-      navMode="multi"
-      variant="glass"
+      navMode="single"
+      variant="standard"
       glassMorphism={false}
-      showThemeSwitcher={true}
+      showThemeSwitcher={false}
       logo={{
         light: "/images/logo-light.svg",
         dark: "/images/logo-dark.svg",
@@ -50,7 +50,7 @@ export default function ClientNav() {
       }}
       mobileFullScreen={false}
       cta={{
-        show: false,
+        show: true,
         text: "Get in Touch",
         href: "/contact",
       }}
