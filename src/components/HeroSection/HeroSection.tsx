@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import InfoCard from "@/components/InfoCard/InfoCard";
 
 const HeroSection: React.FC = () => {
   return (
@@ -28,6 +29,9 @@ const HeroSection: React.FC = () => {
             Book Now
           </Link>
         </div>
+      </div>
+      <div className="absolute bottom-0 left-1/2 w-full max-w-7xl -translate-x-1/2 translate-y-1/2 px-4">
+        <InfoCard />
       </div>
     </section>
   );
