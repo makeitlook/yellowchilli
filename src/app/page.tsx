@@ -1,14 +1,11 @@
-import AnimatedDiv from "@/components/AnimatedDiv/AnimatedDiv";
 import PageLayout from "@/components/Layouts/PageLayout";
+import HeroSection from "@/components/HeroSection/HeroSection";
 
 export default function Home() {
   return (
-    <PageLayout title="Home">
-      <section id="home">
-        <AnimatedDiv>
-          We`&apos;`d love to hear from you! Drop us a message and let`&apos;`s
-          create something beautiful together.
-        </AnimatedDiv>
+    <PageLayout title="Home" noPadding fullHeight>
+      <section id="home" className="w-full">
+        <HeroSection />
       </section>
     </PageLayout>
   );
