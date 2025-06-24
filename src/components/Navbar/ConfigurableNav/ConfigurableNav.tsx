@@ -716,14 +716,14 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
                 {/* Desktop CTA and Theme Switcher */}
                 <div className="flex items-center gap-4">
-                  <ThemeSwitcher />
+                  {showThemeSwitcher && <ThemeSwitcher />}
                   <CTAButton />
                 </div>
               </div>
 
               {/* Mobile: Menu and Action Buttons */}
               <div className="flex items-center sm:hidden space-x-3">
-                <ThemeSwitcher />
+                {showThemeSwitcher && <ThemeSwitcher />}
                 <CTAButton />
                 {renderMobileMenuButton()}
               </div>

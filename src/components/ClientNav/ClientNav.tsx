@@ -48,7 +48,7 @@ export default function ClientNav() {
         width: 130,
         height: 40,
       }}
-      mobileFullScreen={false}
+      mobileFullScreen={true}
       cta={{
         show: true,
         text: "Get in Touch",

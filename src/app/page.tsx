@@ -1,8 +1,10 @@
 import AnimatedDiv from "@/components/AnimatedDiv/AnimatedDiv";
+import AnimatedGradientBackground from "@/components/GradientBackground/AnimatedGradientBackground";
 import PageLayout from "@/components/Layouts/PageLayout";
 
 export default function Home() {
   return (
+    // <AnimatedGradientBackground>
     <PageLayout title="Home">
       <section id="home">
         <AnimatedDiv>
@@ -11,5 +13,6 @@ export default function Home() {
         </AnimatedDiv>
       </section>
     </PageLayout>
+    // </AnimatedGradientBackground>
   );
 }

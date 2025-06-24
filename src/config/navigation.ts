@@ -7,6 +7,7 @@ import {
   LuFile,
   LuCalendarDays,
   LuPhone,
+  LuUtensilsCrossed,
 } from "react-icons/lu";
 
 // Define navigation item structure
@@ -30,19 +31,19 @@ export function useNavigationConfig(): {
 
   const navigationItems: NavigationItem[] = useMemo(
     () => [
-      {
-        name: "",
-        sectionId: "home",
-        path: "/",
-        current: pathname === "/",
-        icon: LuHouse,
-      },
+      // {
+      //   name: "",
+      //   sectionId: "home",
+      //   path: "/",
+      //   current: pathname === "/",
+      //   icon: LuHouse,
+      // },
       {
         name: "Menu",
         sectionId: "menu",
         path: "/menu",
         current: pathname === "/menu",
-        icon: LuInfo,
+        icon: LuUtensilsCrossed,
       },
     ],
     [pathname]
@@ -60,7 +61,7 @@ export const mainNavigation: {
   showNavigation: boolean;
 } = {
   navigationItems: [
-    { name: "Home", sectionId: "home", path: "/", current: true },
+    // { name: "Home", sectionId: "home", path: "/", current: true },
     { name: "Menu", sectionId: "menu", path: "/menu", current: false },
   ],
   showNavigation: true,
@@ -71,7 +72,7 @@ export const minimalistNavigation: {
   showNavigation: boolean;
 } = {
   navigationItems: [
-    { name: "Home", sectionId: "home", path: "/", current: true },
+    // { name: "Home", sectionId: "home", path: "/", current: true },
     { name: "Menu", sectionId: "menu", path: "/menu", current: false },
   ],
   showNavigation: true,
@@ -82,7 +83,7 @@ export const fullNavigation: {
   showNavigation: boolean;
 } = {
   navigationItems: [
-    { name: "Home", sectionId: "home", path: "/", current: true },
+    // { name: "Home", sectionId: "home", path: "/", current: true },
     { name: "Menu", sectionId: "menu", path: "/menu", current: false },
   ],
   showNavigation: true,
