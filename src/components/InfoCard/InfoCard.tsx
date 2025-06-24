@@ -2,7 +2,7 @@ import React from "react";
 
 const InfoCard = () => {
   return (
-    <section className="relative z-20 mt-12 overflow-hidden bg-card-background text-text-primary md:flex md:justify-between md:gap-12 max-w-7xl mx-auto rounded-2xl shadow-2xl">
+    <section className="relative z-20 overflow-hidden bg-card-background text-text-primary md:flex md:justify-between md:gap-12 max-w-7xl mx-auto rounded-2xl shadow-2xl">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-20 h-20 text-elements-primary-shadow">
