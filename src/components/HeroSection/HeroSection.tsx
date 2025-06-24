@@ -7,7 +7,7 @@ import InfoCard from "@/components/InfoCard/InfoCard";
 const HeroSection: React.FC = () => {
   return (
     <section
-      className="relative h-[100dvh] bg-center bg-cover flex items-center justify-center"
+      className="relative flex flex-col items-center justify-center bg-center bg-cover px-4 py-20 sm:py-32 min-h-[90dvh] sm:min-h-screen"
       style={{ backgroundImage: "url('/images/og-default.png')" }}
     >
       <div className="absolute inset-0 bg-black/40" />
