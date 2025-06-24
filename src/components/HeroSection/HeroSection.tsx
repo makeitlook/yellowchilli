@@ -7,9 +7,9 @@ const HeroSection: React.FC = () => {
   return (
     <section
       className="relative flex flex-col items-center justify-center bg-center bg-cover px-4 py-20 sm:py-32 min-h-screen overflow-hidden"
-      style={{ backgroundImage: "url('/images/og-default.png')" }}
+      style={{ backgroundImage: "url('/images/food/header.png')" }}
     >
-      <div className="absolute inset-0 bg-neutral-shadow-heavy/60" />
+      <div className="absolute inset-0 bg-black/60" />
       <div className="relative text-center space-y-8 px-4">
         <h1 className="text-4xl sm:text-6xl font-bold text-text-clear drop-shadow-md">
           Yellow Chilli

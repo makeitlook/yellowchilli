@@ -4,72 +4,20 @@ const InfoCard = () => {
   return (
     <section className="relative z-20 overflow-hidden bg-card-background text-text-primary md:flex md:justify-between md:gap-12 max-w-7xl mx-auto rounded-2xl shadow-2xl">
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-20 h-20 text-elements-primary-shadow">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <path
-              d="M50 20 C35 20 25 35 25 50 C25 65 35 80 50 80 C55 75 60 70 65 65 C70 60 75 55 75 50 C75 35 65 20 50 20 Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-        <div className="absolute top-40 right-20 w-16 h-16 text-elements-primary-main rotate-45">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <path
-              d="M50 20 C35 20 25 35 25 50 C25 65 35 80 50 80 C55 75 60 70 65 65 C70 60 75 55 75 50 C75 35 65 20 50 20 Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-        <div className="absolute bottom-20 left-1/4 w-12 h-12 text-elements-primary-light -rotate-12">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <path
-              d="M50 20 C35 20 25 35 25 50 C25 65 35 80 50 80 C55 75 60 70 65 65 C70 60 75 55 75 50 C75 35 65 20 50 20 Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
-      </div>
 
       {/* Left Section: Our Story */}
       <div className="relative md:w-2/3 px-8 py-12 mb-8 md:mb-0">
         {/* Decorative Chili Icon */}
-        <div className="absolute top-6 right-6 w-16 h-16 text-elements-primary-shadow opacity-20">
-          <svg viewBox="0 0 100 100" className="w-full h-full">
-            <path
-              d="M50 15 C35 15 20 25 20 40 C20 55 30 70 45 85 C47 87 50 90 50 90 C50 90 53 87 55 85 C70 70 80 55 80 40 C80 25 65 15 50 15 Z M50 25 C60 25 70 30 70 40 C70 50 60 60 50 70 C40 60 30 50 30 40 C30 30 40 25 50 25 Z"
-              fill="currentColor"
-            />
-          </svg>
-        </div>
 
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 text-elements-primary-shadow">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <path
-                  d="M50 20 C35 20 25 35 25 50 C25 65 35 80 50 80 C55 75 60 70 65 65 C70 60 75 55 75 50 C75 35 65 20 50 20 Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
             <h2 className="text-elements-primary-main text-3xl font-bold">
-              Yellow Chilli
+              Our Story
+              <div className="absolute -bottom-1 left-0 w-16 h-1 bg-gradient-to-r from-elements-primary-main to-elements-primary-shadow rounded-full"></div>
             </h2>
           </div>
 
-          <div className="mb-6">
-            <h3 className="text-elements-primary-shadow text-xl font-semibold mb-2 flex items-center gap-2">
-              <span className="w-2 h-2 bg-elements-primary-shadow rounded-full"></span>
-              Southall
-            </h3>
-          </div>
-
           <div className="mb-8">
-            <h4 className="text-2xl font-bold text-text-primary mb-4 relative">
-              Our Story
-              <div className="absolute -bottom-1 left-0 w-16 h-1 bg-gradient-to-r from-elements-primary-main to-elements-primary-shadow rounded-full"></div>
-            </h4>
             <div className="text-text-secondary leading-relaxed space-y-4">
               <p className="text-lg">
                 Nestled in the vibrant heart of Southall, Yellow Chilli is more

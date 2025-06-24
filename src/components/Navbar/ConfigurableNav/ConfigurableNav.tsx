@@ -184,9 +184,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           ? "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6"
           : "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6";
         styles.mobileMenu.container = "rounded-b-xl";
-        styles.navItem.active = [
-          "text-text-primary",
-        ].join(" ");
+        styles.navItem.active = ["text-text-primary"].join(" ");
         styles.navItem.inactive = [
           "text-text-secondary",
           "hover:text-text-primary",
@@ -198,8 +196,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         break;
       case "solid":
         styles.container = "bg-elements-primary-shadow";
-        styles.navItem.active =
-          "text-text-clear";
+        styles.navItem.active = "text-text-clear";
         styles.navItem.inactive =
           "text-text-clear hover:text-elements-secondary-main";
         styles.mobileMenu.container = "bg-elements-primary-shadow";
@@ -209,10 +206,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.container = transparent
           ? "bg-transparent"
           : "bg-neutral-dimmed-heavy";
-        styles.navItem.active =
-          "text-text-primary";
+        styles.navItem.active = "text-elements-primary-main";
         styles.navItem.inactive =
-          "text-text-secondary hover:text-text-primary";
+          "text-text-clear hover:text-elements-primary-main";
         styles.mobileMenu.container = "bg-neutral-dimmed-heavy";
         break;
     }

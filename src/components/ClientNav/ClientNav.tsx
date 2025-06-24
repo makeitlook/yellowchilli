@@ -40,11 +40,12 @@ export default function ClientNav() {
       }}
       navMode="single"
       variant="standard"
-      glassMorphism={false}
+      transparent={true}
+      glassMorphism={true}
       showThemeSwitcher={false}
       logo={{
-        light: "/images/logo-light.svg",
-        dark: "/images/logo-dark.svg",
+        light: "/images/logo.svg",
+        dark: "/images/logo.svg",
         width: 130,
         height: 40,
       }}

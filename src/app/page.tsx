@@ -7,7 +7,7 @@ import PageLayout from "@/components/Layouts/PageLayout";
 export default function Home() {
   return (
     <>
-      <section id="home" className="relative">
+      <section id="home" className="relative bg-neutral">
         <div className="relative">
           <HeroSection />
         </div>
