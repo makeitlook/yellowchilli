@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Didact+Gothic&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "Reddit Sans", sans-serif;
 }
 
 h1,
@@ -16,7 +16,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Crimson Text", "Didact Gothic", serif;
+  font-family: "Crimson Text", "Reddit Sans", serif;
 }
 
 html:not([data-scroll="0"]) .navbar {
