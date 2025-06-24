@@ -185,12 +185,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           : "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6";
         styles.mobileMenu.container = "rounded-b-xl";
         styles.navItem.active = [
-          "border-elements-primary-main",
           "text-text-primary",
-          "border-b-2",
         ].join(" ");
         styles.navItem.inactive = [
-          "border-transparent",
           "text-text-secondary",
           "hover:text-text-primary",
           "transition-all duration-100 ease-out", // smooth transition
@@ -202,9 +199,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
       case "solid":
         styles.container = "bg-elements-primary-shadow";
         styles.navItem.active =
-          "border-elements-secondary-main text-text-clear";
+          "text-text-clear";
         styles.navItem.inactive =
-          "border-transparent text-text-clear hover:border-elements-secondary-main hover:text-elements-secondary-main";
+          "text-text-clear hover:text-elements-secondary-main";
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "standard":
@@ -213,9 +210,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           ? "bg-transparent"
           : "bg-neutral-dimmed-heavy";
         styles.navItem.active =
-          "border-elements-primary-main text-text-primary";
+          "text-text-primary";
         styles.navItem.inactive =
-          "border-transparent text-text-secondary hover:border-text-tertiary hover:text-text-primary";
+          "text-text-secondary hover:text-text-primary";
         styles.mobileMenu.container = "bg-neutral-dimmed-heavy";
         break;
     }
@@ -234,10 +231,10 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           ? "bg-transparent min-h-[80px]"
           : "bg-neutral-dimmed-heavy min-h-[80px]"; // Fixed height
       }
-      styles.navItem.base += " border-b-2";
+      // no underline for top nav
     } else {
       styles.wrapper = "fixed h-full left-0 top-0 z-50 w-64"; // Fixed width for side nav
-      styles.navItem.base += " border-l-2";
+      // no underline for side nav
     }
 
     return styles;
@@ -454,7 +451,6 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           <span
             className={classNames(
               styles.mobileMenu.item.base,
-              "border-l-4 border-transparent",
               styles.navItem.disabled
             )}
             aria-disabled="true"
@@ -600,16 +596,16 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           href={href}
           scroll={href.startsWith("#")}
           className={classNames(
-            "flex items-center rounded-lg p-3 text-md font-medium transition-all duration-200 border-l-4",
+            "flex items-center rounded-lg p-3 text-md font-medium transition-all duration-200",
             variant === "glass"
               ? "hover:bg-neutral/20 active:bg-neutral/30"
               : "hover:bg-neutral-dimmed active:bg-neutral-shadow",
             isActive
               ? variant === "glass"
-                ? "bg-neutral/30 text-text-primary border-elements-primary-main"
+                ? "bg-neutral/30 text-text-primary"
                 : styles.navItem.active
               : variant === "glass"
-              ? "text-text-secondary border-transparent"
+              ? "text-text-secondary"
               : styles.navItem.inactive
           )}
           onClick={closeMenu}
