@@ -10,7 +10,7 @@ const HeroSection: React.FC = () => {
       style={{ backgroundImage: "url('/images/og-default.png')" }}
     >
       <div className="absolute inset-0 bg-neutral-shadow-heavy/60" />
-      <div className="relative z-10 text-center space-y-8 px-4">
+      <div className="relative text-center space-y-8 px-4">
         <h1 className="text-4xl sm:text-6xl font-bold text-text-clear drop-shadow-md">
           Yellow Chilli
         </h1>

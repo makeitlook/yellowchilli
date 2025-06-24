@@ -7,13 +7,22 @@ import PageLayout from "@/components/Layouts/PageLayout";
 export default function Home() {
   return (
     <>
-      <section id="home">
-        <HeroSection />
-        <PageLayout noPadding className="pb-12">
-          <div className="-mt-20 px-4">
+      <section id="home" className="relative">
+        <div className="relative">
+          <HeroSection />
+        </div>
+        <div
+          className="relative -mt-20 px-4"
+          style={{
+            zIndex: 99999,
+            position: "relative",
+            transform: "translateZ(0)",
+          }}
+        >
+          <PageLayout noPadding className="pb-12">
             <InfoCard />
-          </div>
-        </PageLayout>
+          </PageLayout>
+        </div>
       </section>
     </>
   );

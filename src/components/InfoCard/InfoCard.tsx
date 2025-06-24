@@ -127,11 +127,15 @@ const InfoCard = () => {
             </h4>
             <div className="bg-neutral-dimmed rounded-lg p-4 space-y-2">
               <p className="flex justify-between">
-                <span className="font-medium text-text-secondary">Sun – Tues:</span>
+                <span className="font-medium text-text-secondary">
+                  Sun – Tues:
+                </span>
                 <span className="text-text-tertiary">11am – 9pm</span>
               </p>
               <p className="flex justify-between">
-                <span className="font-medium text-text-secondary">Wed – Sat:</span>
+                <span className="font-medium text-text-secondary">
+                  Wed – Sat:
+                </span>
                 <span className="text-text-tertiary">11am – 10pm</span>
               </p>
             </div>
@@ -184,7 +188,9 @@ const InfoCard = () => {
               Contact
             </h4>
             <div className="bg-neutral-dimmed rounded-lg p-4">
-              <p className="text-text-primary font-medium text-lg">0204 123 4567</p>
+              <p className="text-text-primary font-medium text-lg">
+                0204 123 4567
+              </p>
             </div>
           </div>
 
