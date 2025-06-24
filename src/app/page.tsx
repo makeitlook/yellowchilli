@@ -1,5 +1,6 @@
 import AnimatedDiv from "@/components/AnimatedDiv/AnimatedDiv";
 import AnimatedGradientBackground from "@/components/GradientBackground/AnimatedGradientBackground";
+import RestaurantInfo from "@/components/InfoCard/InfoCard";
 import PageLayout from "@/components/Layouts/PageLayout";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
           create something beautiful together.
         </AnimatedDiv>
       </section>
+      <RestaurantInfo />
     </PageLayout>
     // </AnimatedGradientBackground>
   );
