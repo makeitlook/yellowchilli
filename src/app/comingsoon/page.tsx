@@ -12,7 +12,7 @@ export default function ComingSoon() {
       >
         <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-card-background/40 backdrop-blur-sm" />
+      <div className="absolute inset-0 w-full h-full bg-card-background/40 backdrop-blur-sm" />
       <div className="relative z-10 max-w-md w-full mx-4 p-8 text-center rounded-3xl border border-border-dimmed bg-card-background/70 backdrop-blur-md shadow-xl">
         <Image
           src="/images/logo.svg"

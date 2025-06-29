@@ -41,7 +41,7 @@ export default function ClientLayout({
 }) {
   const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
-  const hideNav = pathname === "/comingsoon";
+  const isComingSoon = pathname === "/comingsoon";
 
   useEffect(() => {
     // Simulate initial loading state (can be customised)
@@ -63,11 +63,11 @@ export default function ClientLayout({
       ) : (
         <ThemeProvider defaultTheme="light">
           <div className="flex flex-col min-h-screen overflow-x-hidden">
-            {!hideNav && <ClientNav />}
+            {!isComingSoon && <ClientNav />}
 
             <main className="flex-1 h-full">{children}</main>
 
-            <Footer />
+            {!isComingSoon && <Footer />}
 
             {/* Optional Analytics */}
             <Analytics />
