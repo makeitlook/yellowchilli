@@ -1,4 +1,5 @@
 import AnimatedDiv from "@/components/AnimatedDiv/AnimatedDiv";
+import CateringSection from "@/components/CateringSection/CateringSection";
 import AnimatedGradientBackground from "@/components/GradientBackground/AnimatedGradientBackground";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import InfoCard from "@/components/InfoCard/InfoCard";
@@ -21,6 +22,7 @@ export default function Home() {
         >
           <PageLayout noPadding className="pb-12">
             <InfoCard />
+            <CateringSection />
           </PageLayout>
         </div>
       </section>
