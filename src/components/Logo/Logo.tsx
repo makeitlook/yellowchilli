@@ -18,13 +18,9 @@ const Logo = () => {
   return (
     <Link href="/" className="relative z-10">
       <Image
-        src={
-          resolvedTheme === "dark"
-            ? "/images/logo-light.svg"
-            : "/images/logo-dark.svg"
-        }
+        src={resolvedTheme === "dark" ? "/images/logo.svg" : "/images/logo.svg"}
         alt="Logo"
-        width={130}
+        width={200}
         height={40}
         priority // makes sure it's loaded early
       />
