@@ -1,5 +1,6 @@
 import Web3ContactForm from "@/components/ContactForm/ContactForm";
 import PageLayout from "@/components/Layouts/PageLayout";
+import { redirectIfProduction } from "@/utils/redirectIfProduction";
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -7,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Contact() {
+  redirectIfProduction();
   return (
     <section id="contact">
       <PageLayout>

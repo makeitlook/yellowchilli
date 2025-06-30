@@ -6,11 +6,13 @@ import { MdErrorOutline } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner"; // Or your own Spinner
 import { IconBaseProps } from "react-icons";
+import { useRouter } from "next/navigation";
 
 const ErrorIcon = MdErrorOutline as unknown as React.FC<IconBaseProps>;
 
 export default function ServerErrorPage() {
   const [showPage, setShowPage] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,6 +20,12 @@ export default function ServerErrorPage() {
     }, 1000); // Show loader for 1s
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_SITE_MODE === "production") {
+      router.replace("/comingsoon");
+    }
+  }, [router]);
 
   if (!showPage) {
     return (

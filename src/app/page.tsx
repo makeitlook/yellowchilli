@@ -4,8 +4,10 @@ import AnimatedGradientBackground from "@/components/GradientBackground/Animated
 import HeroSection from "@/components/HeroSection/HeroSection";
 import InfoCard from "@/components/InfoCard/InfoCard";
 import PageLayout from "@/components/Layouts/PageLayout";
+import { redirectIfProduction } from "@/utils/redirectIfProduction";
 
 export default function Home() {
+  redirectIfProduction();
   return (
     <>
       <section id="home" className="relative bg-neutral">
