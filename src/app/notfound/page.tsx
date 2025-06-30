@@ -5,8 +5,16 @@ import { motion } from "framer-motion";
 import { FaGhost } from "react-icons/fa";
 import IconWrapper from "@/components/IconWrapper/IconWrapper";
 import PageLayout from "@/components/Layouts/PageLayout";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function NotFound() {
+  const router = useRouter();
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_SITE_MODE === "production") {
+      router.replace("/comingsoon");
+    }
+  }, [router]);
   return (
     <PageLayout noPadding fullHeight>
       <div className="flex flex-col items-center justify-center">

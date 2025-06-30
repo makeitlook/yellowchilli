@@ -204,6 +204,10 @@ You can deploy this template instantly using [Vercel](https://vercel.com), the p
 4. **Set Environment Variables (if needed)**
    If your project uses any `.env.local` values, you can configure them under **Settings > Environment Variables** in your Vercel dashboard.
 
+   This template also supports a simple `NEXT_PUBLIC_SITE_MODE` variable to
+   switch between `development` and `production` modes. Use `.env.development`
+   for your dev branch and `.env.production` for the live site.
+
 5. **Build the Project Locally (Optional but Recommended)**
    Run the build locally to make sure everything compiles before deploying:
 
