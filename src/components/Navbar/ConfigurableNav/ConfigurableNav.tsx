@@ -208,7 +208,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.container = "bg-elements-primary-shadow";
         styles.navItem.active = "text-text-clear";
         styles.navItem.inactive =
-          "text-text-clear hover:text-elements-secondary-main";
+          "text-text-clear hover:text-elements-primary-main";
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "split":
@@ -220,7 +220,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           styles.navItem.active = "text-text-primary";
           styles.navItem.inactive = [
             "text-text-clear",
-            "hover:text-text-primary",
+            "hover:text-elements-primary-main",
             "transition-all duration-100 ease-out",
             "hover:scale-105",
           ].join(" ");
@@ -232,7 +232,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             : "bg-neutral-dimmed-heavy transition-all duration-300 ease-in-out";
           styles.navItem.active = "text-text-clear";
           styles.navItem.inactive =
-            "text-text-clear hover:text-elements-secondary-main";
+            "text-text-clear hover:text-elements-primary-main transition-all duration-100 ease-out hover:scale-105";
           styles.mobileMenu.container = "bg-elements-primary-shadow";
         }
         break;
@@ -740,6 +740,25 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
     );
   };
 
+  // Split nav decorative line component
+  const SplitNavDecorations = () => {
+    if (variant !== "split") return null;
+
+    return (
+      <>
+        {/* Left decorative line */}
+        <div className="hidden sm:flex flex-1 items-center justify-end pr-8">
+          <div className="w-full max-w-xs h-px bg-gradient-to-r from-transparent to-gray-200/40"></div>
+        </div>
+
+        {/* Right decorative line */}
+        <div className="hidden sm:flex flex-1 items-center justify-start pl-8">
+          <div className="w-full max-w-xs h-px bg-gradient-to-l from-transparent to-gray-200/40"></div>
+        </div>
+      </>
+    );
+  };
+
   return (
     <motion.div
       initial={{
@@ -757,16 +776,31 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             <div className="flex h-20 items-center justify-between w-full">
               {variant === "split" ? (
                 <>
-                  <div className="hidden sm:flex items-center space-x-8 flex-1">
-                    {leftItems.map(renderNavItem)}
+                  {/* Left nav items and decorative line */}
+                  <div className="hidden sm:flex items-center flex-1">
+                    <div className="flex items-center space-x-8">
+                      {leftItems.map(renderNavItem)}
+                    </div>
+                    <div className="flex-1 flex items-center justify-end px-8">
+                      <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent to-white/90"></div>
+                    </div>
                   </div>
-                  <div className="flex flex-shrink-0 items-center justify-center z-10 mx-4">
+
+                  {/* Center logo */}
+                  <div className="flex flex-shrink-0 items-center justify-center z-10">
                     <Link href="/" className="relative z-10">
                       <LogoComponent />
                     </Link>
                   </div>
-                  <div className="hidden sm:flex items-center space-x-8 flex-1 justify-end">
-                    {rightItems.map(renderNavItem)}
+
+                  {/* Right decorative line and nav items */}
+                  <div className="hidden sm:flex items-center flex-1">
+                    <div className="flex-1 flex items-center justify-start px-8">
+                      <div className="w-full max-w-[200px] h-px bg-gradient-to-l from-transparent to-white/90"></div>
+                    </div>
+                    <div className="flex items-center space-x-8">
+                      {rightItems.map(renderNavItem)}
+                    </div>
                   </div>
                   {showThemeSwitcher && (
                     <div className="hidden sm:flex items-center ml-4">
