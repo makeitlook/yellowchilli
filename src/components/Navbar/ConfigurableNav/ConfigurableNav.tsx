@@ -137,13 +137,13 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
   // Detect scroll for split variant
   useEffect(() => {
-    if (variant !== "split") return;
+    if (variant !== "split" || !transparent) return;
     const onScroll = () => {
-      setScrolled(window.scrollY > 0);
+      setScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, [variant]);
+  }, [variant, transparent]);
 
   // Handle body scroll when mobile menu is open
   useEffect(() => {
@@ -213,9 +213,21 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "split":
-        styles.container = scrolled
-          ? "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg"
-          : "bg-transparent";
+        if (transparent && glassMorphism) {
+          styles.container = scrolled
+            ? "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg transition-all duration-300"
+            : "bg-transparent transition-all duration-300";
+        } else if (transparent && !glassMorphism) {
+          styles.container = scrolled
+            ? "bg-card-background border-b border-border-dimmed shadow-lg transition-all duration-300"
+            : "bg-transparent transition-all duration-300";
+        } else if (!transparent && glassMorphism) {
+          styles.container =
+            "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg";
+        } else {
+          styles.container =
+            "bg-card-background border-b border-border-dimmed shadow-lg";
+        }
         styles.wrapper = "sticky top-0 z-50 w-full";
         styles.navItem.active = "text-text-primary";
         styles.navItem.inactive =
@@ -262,9 +274,15 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
   const styles = getNavStyles();
 
-  const midIndex = Math.ceil(navigationItems.length / 2);
-  const leftItems = navigationItems.slice(0, midIndex);
-  const rightItems = navigationItems.slice(midIndex);
+  // For split variant, divide navigation items into left and right groups
+  const leftItems =
+    variant === "split"
+      ? navigationItems.slice(0, 2)
+      : navigationItems.slice(0, Math.ceil(navigationItems.length / 2));
+  const rightItems =
+    variant === "split"
+      ? navigationItems.slice(2, 4)
+      : navigationItems.slice(Math.ceil(navigationItems.length / 2));
 
   // Logo component
   const LogoComponent = () => {
@@ -286,7 +304,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
   // CTA Button component
   const CTAButton = () => {
-    if (!cta.show) return null;
+    if (!cta.show || variant === "split") return null;
 
     return (
       <Link
@@ -723,21 +741,22 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             <div className="flex h-20 items-center justify-between w-full">
               {variant === "split" ? (
                 <>
-                  <div className="hidden sm:flex items-center space-x-8">
+                  <div className="hidden sm:flex items-center space-x-8 flex-1">
                     {leftItems.map(renderNavItem)}
                   </div>
-                  <div className="flex flex-shrink-0 items-center z-10 mx-4">
+                  <div className="flex flex-shrink-0 items-center justify-center z-10 mx-4">
                     <Link href="/" className="relative z-10">
                       <LogoComponent />
                     </Link>
                   </div>
-                  <div className="hidden sm:flex items-center space-x-8">
+                  <div className="hidden sm:flex items-center space-x-8 flex-1 justify-end">
                     {rightItems.map(renderNavItem)}
                   </div>
-                  <div className="hidden sm:flex items-center gap-4 ml-4">
-                    {showThemeSwitcher && <ThemeSwitcher />}
-                    <CTAButton />
-                  </div>
+                  {showThemeSwitcher && (
+                    <div className="hidden sm:flex items-center ml-4">
+                      <ThemeSwitcher />
+                    </div>
+                  )}
                 </>
               ) : (
                 <>
