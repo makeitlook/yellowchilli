@@ -123,43 +123,32 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
     }
   }, [glassMorphism, transparent]);
 
+  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen && mobileFullScreen) {
+    if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     }
     return () => {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     };
-  }, [mobileMenuOpen, mobileFullScreen]);
+  }, [mobileMenuOpen]);
 
   if (!showNavigation) return null;
 
-  const containerBase = glassMorphism || scrolled
-    ? "backdrop-blur-md bg-black/40 border-b border-gray-200/20"
-    : transparent
-    ? "bg-transparent border-b border-gray-200/30"
-    : "bg-neutral-dimmed-heavy border-b border-gray-200/30";
-
-  const styles = {
-    wrapper: position === "top" ? "fixed w-full top-0 z-50" : "fixed h-full left-0 top-0 z-50 w-64",
-    container: `${containerBase} min-h-[80px] transition-all duration-300 ease-in-out`,
-    navItem: {
-      base: "inline-flex items-center px-1 text-md font-medium",
-      active: glassMorphism || scrolled ? "text-text-primary" : "text-text-clear",
-      inactive:
-        glassMorphism || scrolled
-          ? "text-text-clear hover:text-text-primary transition-all duration-100 ease-out hover:scale-105"
-          : "text-text-clear hover:text-elements-secondary-main",
-      disabled: "opacity-50 cursor-not-allowed",
-    },
-    mobileMenu: {
-      container: glassMorphism || scrolled
-        ? "backdrop-blur-md bg-black/40 border-t border-white/10"
-        : "fixed inset-0 backdrop-blur-xl bg-black/60 z-50",
-    },
-  } as const;
+  const containerBase =
+    glassMorphism || scrolled
+      ? "backdrop-blur-md bg-black/40"
+      : transparent
+      ? "bg-transparent "
+      : "bg-neutral-dimmed-heavy";
 
   const leftItems = navigationItems.slice(0, 2);
   const rightItems = navigationItems.slice(2, 4);
@@ -167,18 +156,35 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
   const LogoComponent = () => {
     if (logo) {
       const logoSrc = isDark ? logo.light : logo.dark;
-      return <Image src={logoSrc} alt="Logo" width={logo.width || 130} height={logo.height || 40} />;
+      return (
+        <Image
+          src={logoSrc}
+          alt="Logo"
+          width={logo.width || 130}
+          height={logo.height || 40}
+        />
+      );
     }
     return <span className="text-lg font-bold">LOGO</span>;
   };
 
   const renderNavItem = (item: NavItem) => {
-    const href = navMode === "single" && item.sectionId ? `#${item.sectionId}` : item.path || item.href || "/";
-    const isActive = navMode === "single" ? activeSection === item.sectionId : pathname === item.path;
+    const href =
+      navMode === "single" && item.sectionId
+        ? `#${item.sectionId}`
+        : item.path || item.href || "/";
+    const isActive =
+      navMode === "single"
+        ? activeSection === item.sectionId
+        : pathname === item.path;
 
     if (item.disabled) {
       return (
-        <span key={item.name} className={classNames(styles.navItem.base, styles.navItem.disabled)} aria-disabled="true">
+        <span
+          key={item.name}
+          className="inline-flex items-center px-1 text-md font-medium opacity-50 cursor-not-allowed"
+          aria-disabled="true"
+        >
           {item.name}
         </span>
       );
@@ -188,12 +194,29 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
       return (
         <div key={item.name} className="relative self-center">
           <button
-            className={classNames(styles.navItem.base, isActive ? styles.navItem.active : styles.navItem.inactive)}
-            onClick={() => setDropdownOpen(dropdownOpen === item.name ? null : item.name)}
+            className={classNames(
+              "inline-flex items-center px-1 text-md font-medium",
+              isActive
+                ? glassMorphism || scrolled
+                  ? "text-text-primary"
+                  : "text-text-clear"
+                : glassMorphism || scrolled
+                ? "text-text-clear hover:text-text-primary transition-all duration-100 ease-out hover:scale-105"
+                : "text-text-clear hover:text-elements-secondary-main"
+            )}
+            onClick={() =>
+              setDropdownOpen(dropdownOpen === item.name ? null : item.name)
+            }
           >
             {item.name}
-            <motion.div animate={{ rotate: dropdownOpen === item.name ? 180 : 0 }} transition={{ duration: 0.2 }}>
-              <IconWrapper icon={LuChevronDown} className="px-1 w-7 h-7 text-text-tertiary" />
+            <motion.div
+              animate={{ rotate: dropdownOpen === item.name ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <IconWrapper
+                icon={LuChevronDown}
+                className="px-1 w-7 h-7 text-text-tertiary"
+              />
             </motion.div>
           </button>
           <AnimatePresence>
@@ -209,10 +232,21 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                   <div className="p-2">
                     {item.children.map((subItem, index) => {
                       const Icon = subItem.icon;
-                      const subHref = navMode === "single" && subItem.sectionId ? `#${subItem.sectionId}` : subItem.path || subItem.href || "/";
-                      const isSubActive = navMode === "single" ? activeSection === subItem.sectionId : pathname === subItem.path;
+                      const subHref =
+                        navMode === "single" && subItem.sectionId
+                          ? `#${subItem.sectionId}`
+                          : subItem.path || subItem.href || "/";
+                      const isSubActive =
+                        navMode === "single"
+                          ? activeSection === subItem.sectionId
+                          : pathname === subItem.path;
                       return (
-                        <motion.div key={subItem.name} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}>
+                        <motion.div
+                          key={subItem.name}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                        >
                           <div
                             className={classNames(
                               "group relative flex gap-x-6 rounded-2xl p-4",
@@ -225,18 +259,25 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                           >
                             {Icon && (
                               <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-neutral group-hover:bg-neutral-dimmed-heavy">
-                                <Icon aria-hidden="true" className="h-6 w-6 text-text-secondary" />
+                                <Icon
+                                  aria-hidden="true"
+                                  className="h-6 w-6 text-text-secondary"
+                                />
                               </div>
                             )}
                             <div>
-                              <p className="font-semibold text-text-secondary">{subItem.name}</p>
+                              <p className="font-semibold text-text-secondary">
+                                {subItem.name}
+                              </p>
                               {subItem.description && (
-                                <p className="mt-1 text-text-tertiary font-medium text-xs">{subItem.description}</p>
+                                <p className="mt-1 text-text-tertiary font-medium text-xs">
+                                  {subItem.description}
+                                </p>
                               )}
                               {!subItem.disabled && (
                                 <Link
                                   href={subHref}
-                                  scroll={href.startsWith("#")}
+                                  scroll={subHref.startsWith("#")}
                                   prefetch={false}
                                   onClick={() => {
                                     setDropdownOpen(null);
@@ -266,7 +307,16 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         key={item.name}
         href={href}
         scroll={href.startsWith("#")}
-        className={classNames(styles.navItem.base, isActive ? styles.navItem.active : styles.navItem.inactive)}
+        className={classNames(
+          "inline-flex items-center px-1 text-md font-medium",
+          isActive
+            ? glassMorphism || scrolled
+              ? "text-text-primary"
+              : "text-text-clear"
+            : glassMorphism || scrolled
+            ? "text-text-clear hover:text-text-primary transition-all duration-100 ease-out hover:scale-105"
+            : "text-text-clear hover:text-elements-secondary-main"
+        )}
         onClick={closeMenu}
       >
         {item.name}
@@ -274,100 +324,175 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
     );
   };
 
-  const renderMobileMenuButton = () => {
-    return (
-      <button
-        className="inline-flex items-center justify-center rounded-md p-2 text-text-secondary focus:outline-none"
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-      >
-        <span className="sr-only">{mobileMenuOpen ? "Close main menu" : "Open main menu"}</span>
-        <motion.div animate={{ rotate: mobileMenuOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
-          {mobileMenuOpen ? (
-            <IconWrapper icon={LuX} className="w-5 h-5 block" />
-          ) : (
-            <IconWrapper icon={LuMenu} className="block w-6 h-6" />
-          )}
-        </motion.div>
-      </button>
-    );
-  };
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: position === "top" ? -20 : 0, x: position === "left" ? -20 : 0 }}
-      animate={{ opacity: 1, y: 0, x: 0 }}
-      transition={{ duration: 0.5 }}
-      className={classNames(styles.wrapper, className)}
-    >
-      <header className={styles.container}>
-        <div className="relative px-2 sm:px-6">
-          <div className="flex h-20 items-center justify-between w-full">
-            <>
-              <div className="hidden sm:flex items-center flex-1">
-                <div className="flex items-center space-x-8">{leftItems.map(renderNavItem)}</div>
-                <div className="flex-1 flex items-center justify-end px-8">
-                  <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent to-white/30"></div>
+    <>
+      {/* Main Navigation Header */}
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: position === "top" ? -20 : 0,
+          x: position === "left" ? -20 : 0,
+        }}
+        animate={{ opacity: 1, y: 0, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className={classNames(
+          position === "top"
+            ? "fixed w-full top-0 z-50"
+            : "fixed h-full left-0 top-0 z-50 w-64",
+          className
+        )}
+      >
+        <header
+          className={classNames(
+            containerBase,
+            "min-h-[80px] transition-all duration-300 ease-in-out"
+          )}
+        >
+          <div className="relative px-2 sm:px-6">
+            <div className="flex h-20 items-center justify-between w-full">
+              {/* Desktop Navigation */}
+              <div className="hidden sm:flex items-center justify-between w-full">
+                <div className="flex items-center flex-1">
+                  <div className="flex items-center space-x-8">
+                    {leftItems.map(renderNavItem)}
+                  </div>
+                  <div className="flex-1 flex items-center justify-end px-8">
+                    <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent to-white/90"></div>
+                  </div>
+                </div>
+                <div className="flex flex-shrink-0 items-center justify-center z-10 mx-4">
+                  <Link href="/" className="relative z-10">
+                    <LogoComponent />
+                  </Link>
+                </div>
+                <div className="flex items-center flex-1">
+                  <div className="flex-1 flex items-center justify-start px-8">
+                    <div className="w-full max-w-[200px] h-px bg-gradient-to-l from-transparent to-white/90"></div>
+                  </div>
+                  <div className="flex items-center space-x-8">
+                    {rightItems.map(renderNavItem)}
+                  </div>
+                </div>
+                {showThemeSwitcher && (
+                  <div className="flex items-center ml-4">
+                    <ThemeSwitcher />
+                  </div>
+                )}
+              </div>
+
+              {/* Mobile Navigation Header */}
+              <div className="flex sm:hidden items-center justify-between w-full">
+                <div className="flex flex-shrink-0 items-center ml-2">
+                  <Link href="/">
+                    <LogoComponent />
+                  </Link>
+                </div>
+                <div className="flex items-center space-x-3">
+                  {showThemeSwitcher && <ThemeSwitcher />}
+                  <button
+                    className="inline-flex items-center justify-center rounded-md p-2 text-text-secondary focus:outline-none"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  >
+                    <span className="sr-only">
+                      {mobileMenuOpen ? "Close main menu" : "Open main menu"}
+                    </span>
+                    <motion.div
+                      animate={{ rotate: mobileMenuOpen ? 90 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {mobileMenuOpen ? (
+                        <IconWrapper
+                          icon={LuX}
+                          className="w-5 h-5 block text-white"
+                        />
+                      ) : (
+                        <IconWrapper
+                          icon={LuMenu}
+                          className="block w-6 h-6 text-white"
+                        />
+                      )}
+                    </motion.div>
+                  </button>
                 </div>
               </div>
-              <div className="flex flex-shrink-0 items-center justify-center z-10 mx-4">
-                <Link href="/" className="relative z-10">
-                  <LogoComponent />
-                </Link>
-              </div>
-              <div className="hidden sm:flex items-center flex-1">
-                <div className="flex-1 flex items-center justify-start px-8">
-                  <div className="w-full max-w-[200px] h-px bg-gradient-to-l from-transparent to-white/30"></div>
-                </div>
-                <div className="flex items-center space-x-8">{rightItems.map(renderNavItem)}</div>
-              </div>
-              {showThemeSwitcher && (
-                <div className="hidden sm:flex items-center ml-4">
-                  <ThemeSwitcher />
-                </div>
-              )}
-            </>
-            <div className="flex items-center sm:hidden space-x-3">
-              {showThemeSwitcher && <ThemeSwitcher />}
-              {renderMobileMenuButton()}
             </div>
           </div>
-        </div>
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className={classNames(styles.mobileMenu.container, "flex items-center justify-center")}
-            >
-              <div className="py-8 px-6 space-y-4" style={{ overflow: "hidden" }}>
-                {navigationItems.map((item, index) => {
-                  const href = navMode === "single" && item.sectionId ? `#${item.sectionId}` : item.path || item.href || "/";
-                  const isActive = navMode === "single" ? activeSection === item.sectionId : pathname === item.path;
-                  return (
-                    <motion.div key={item.name} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: index * 0.1 }}>
-                      <Link
-                        href={href}
-                        scroll={href.startsWith("#")}
-                        className={classNames(
-                          "flex items-center rounded-lg p-3 text-md font-medium transition-all duration-200 hover:bg-white/10 active:bg-white/20",
-                          isActive ? "bg-white/20 text-white" : "text-white/80 hover:text-white"
-                        )}
-                        onClick={closeMenu}
-                      >
-                        {item.icon && <item.icon className="mr-3 h-5 w-5 text-white/70" />}
-                        {item.name}
-                      </Link>
-                    </motion.div>
-                  );
-                })}
+        </header>
+      </motion.div>
+
+      {/* Mobile Menu Overlay - Separate Portal */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 backdrop-blur-xl bg-black/60 z-[60] flex items-center justify-center sm:hidden"
+          >
+            {/* Header overlay to show logo and close button above blur */}
+            <div className="fixed top-0 left-0 right-0 z-[70] px-2">
+              <div className="flex h-20 items-center justify-between w-full">
+                <div className="flex flex-shrink-0 items-center ml-2">
+                  <Link href="/" onClick={closeMenu}>
+                    <LogoComponent />
+                  </Link>
+                </div>
+                <div className="flex items-center space-x-3">
+                  {showThemeSwitcher && <ThemeSwitcher />}
+                  <button
+                    className="inline-flex items-center justify-center rounded-md p-2 text-white focus:outline-none"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <span className="sr-only">Close main menu</span>
+                    <IconWrapper icon={LuX} className="w-5 h-5 block" />
+                  </button>
+                </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </header>
-    </motion.div>
+            </div>
+
+            {/* Menu Items */}
+            <div className="py-8 px-6 space-y-4">
+              {navigationItems.map((item, index) => {
+                const href =
+                  navMode === "single" && item.sectionId
+                    ? `#${item.sectionId}`
+                    : item.path || item.href || "/";
+                const isActive =
+                  navMode === "single"
+                    ? activeSection === item.sectionId
+                    : pathname === item.path;
+                return (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Link
+                      href={href}
+                      scroll={href.startsWith("#")}
+                      className={classNames(
+                        "flex items-center rounded-lg p-3 text-md font-medium transition-all duration-200 hover:bg-white/10 active:bg-white/20",
+                        isActive
+                          ? "bg-white/20 text-white"
+                          : "text-white/80 hover:text-white"
+                      )}
+                      onClick={closeMenu}
+                    >
+                      {item.icon && (
+                        <item.icon className="mr-3 h-5 w-5 text-white/70" />
+                      )}
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
