@@ -208,7 +208,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.container = "bg-elements-primary-shadow";
         styles.navItem.active = "text-text-clear";
         styles.navItem.inactive =
-          "text-text-clear hover:text-elements-primary-main";
+          "text-text-clear hover:text-elements-secondary-main";
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "split":
@@ -216,24 +216,29 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         // otherwise use transparent/solid background
         if (glassMorphism || scrolled) {
           styles.container =
-            "backdrop-blur-md bg-black/40 transition-all duration-300 ease-in-out";
+            "backdrop-blur-md bg-black/40 transition-all duration-300 ease-in-out border-b border-gray-200/20";
           styles.navItem.active = "text-text-primary";
           styles.navItem.inactive = [
             "text-text-clear",
-            "hover:text-elements-primary-main",
+            "hover:text-text-primary",
             "transition-all duration-100 ease-out",
             "hover:scale-105",
           ].join(" ");
           styles.mobileMenu.container =
-            "bg-card-background/80 backdrop-blur-md transition-all duration-300 ease-in-out";
+            variant === "split"
+              ? "backdrop-blur-md bg-black/40 border-t border-white/10"
+              : "bg-card-background/80 backdrop-blur-md transition-all duration-300 ease-in-out";
         } else {
           styles.container = transparent
-            ? "bg-transparent transition-all duration-300 ease-in-out"
-            : "bg-neutral-dimmed-heavy transition-all duration-300 ease-in-out";
+            ? "bg-transparent transition-all duration-300 ease-in-out border-b border-gray-200/30"
+            : "bg-neutral-dimmed-heavy transition-all duration-300 ease-in-out border-b border-gray-200/30";
           styles.navItem.active = "text-text-clear";
           styles.navItem.inactive =
-            "text-text-clear hover:text-elements-primary-main transition-all duration-100 ease-out hover:scale-105";
-          styles.mobileMenu.container = "bg-elements-primary-shadow";
+            "text-text-clear hover:text-elements-secondary-main";
+          styles.mobileMenu.container =
+            variant === "split"
+              ? "fixed inset-0 backdrop-blur-xl bg-black/60 z-50"
+              : "bg-elements-primary-shadow";
         }
         break;
       case "standard":
@@ -782,12 +787,12 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                       {leftItems.map(renderNavItem)}
                     </div>
                     <div className="flex-1 flex items-center justify-end px-8">
-                      <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent to-white/90"></div>
+                      <div className="w-full max-w-[200px] h-px bg-gradient-to-r from-transparent to-white/30"></div>
                     </div>
                   </div>
 
                   {/* Center logo */}
-                  <div className="flex flex-shrink-0 items-center justify-center z-10">
+                  <div className="flex flex-shrink-0 items-center justify-center z-10 mx-4">
                     <Link href="/" className="relative z-10">
                       <LogoComponent />
                     </Link>
@@ -796,7 +801,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                   {/* Right decorative line and nav items */}
                   <div className="hidden sm:flex items-center flex-1">
                     <div className="flex-1 flex items-center justify-start px-8">
-                      <div className="w-full max-w-[200px] h-px bg-gradient-to-l from-transparent to-white/90"></div>
+                      <div className="w-full max-w-[200px] h-px bg-gradient-to-l from-transparent to-white/30"></div>
                     </div>
                     <div className="flex items-center space-x-8">
                       {rightItems.map(renderNavItem)}
@@ -845,44 +850,95 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           <AnimatePresence>
             {mobileMenuOpen && (
               <motion.div
-                initial={
-                  mobileFullScreen ? { opacity: 0 } : { opacity: 0, height: 0 }
-                }
-                animate={
-                  mobileFullScreen
-                    ? { opacity: 1 }
-                    : { opacity: 1, height: "auto" }
-                }
-                exit={
-                  mobileFullScreen ? { opacity: 0 } : { opacity: 0, height: 0 }
-                }
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
                 className={classNames(
-                  mobileFullScreen
-                    ? // pin left+right, span from just below header (h-20) down
-                      "fixed inset-x-0 top-20 bottom-0 z-40 flex flex-col"
+                  variant === "split"
+                    ? "fixed inset-0 backdrop-blur-xl bg-black/60 z-50 flex items-center justify-center"
+                    : mobileFullScreen
+                    ? "fixed inset-x-0 top-20 bottom-0 z-40 flex flex-col"
                     : "sm:hidden",
-                  styles.mobileMenu.container
+                  variant !== "split" && styles.mobileMenu.container
                 )}
-                // no inline paddingTop needed any more
               >
                 {/* Mobile Nav Items */}
                 <div
                   className={
                     variant === "glass" ||
-                    (variant === "split" && glassMorphism)
-                      ? "py-8 space-y-4"
+                    (variant === "split" && glassMorphism) ||
+                    variant === "split"
+                      ? "py-8 px-6 space-y-4"
                       : "px-4 py-6 space-y-4"
                   }
                   style={
                     variant === "glass" ||
-                    (variant === "split" && glassMorphism)
+                    (variant === "split" && glassMorphism) ||
+                    variant === "split"
                       ? { overflow: "hidden" }
                       : { overflowY: "auto" }
                   }
                 >
-                  {navigationItems.map((item, index) =>
-                    renderMobileNavItem(item, index)
+                  {navigationItems.map((item, index) => {
+                    if (variant === "split") {
+                      // Use glass-style mobile nav items for split variant
+                      const href =
+                        navMode === "single" && item.sectionId
+                          ? `#${item.sectionId}`
+                          : item.path || item.href || "/";
+                      const isActive =
+                        navMode === "single"
+                          ? activeSection === item.sectionId
+                          : pathname === item.path;
+
+                      return (
+                        <motion.div
+                          key={item.name}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                        >
+                          <Link
+                            href={href}
+                            scroll={href.startsWith("#")}
+                            className={classNames(
+                              "flex items-center rounded-lg p-3 text-md font-medium transition-all duration-200",
+                              "hover:bg-white/10 active:bg-white/20",
+                              isActive
+                                ? "bg-white/20 text-white"
+                                : "text-white/80 hover:text-white"
+                            )}
+                            onClick={closeMenu}
+                          >
+                            {item.icon && (
+                              <item.icon className="mr-3 h-5 w-5 text-white/70" />
+                            )}
+                            {item.name}
+                          </Link>
+                        </motion.div>
+                      );
+                    } else {
+                      return renderMobileNavItem(item, index);
+                    }
+                  })}
+
+                  {/* CTA Button for split variant */}
+                  {variant === "split" && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.5 }}
+                      className="pt-6 mt-6 border-t border-white/10"
+                    >
+                      <Link
+                        href="#"
+                        className="flex items-center justify-center w-full px-6 py-4 text-black font-medium rounded-lg bg-white hover:bg-white/90 transition-all duration-200 shadow-lg"
+                        onClick={closeMenu}
+                      >
+                        Book Now
+                      </Link>
+                    </motion.div>
                   )}
                 </div>
               </motion.div>
