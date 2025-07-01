@@ -213,26 +213,13 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "split":
-        if (transparent && glassMorphism) {
-          styles.container = scrolled
-            ? "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg transition-all duration-300"
-            : "bg-transparent transition-all duration-300";
-        } else if (transparent && !glassMorphism) {
-          styles.container = scrolled
-            ? "bg-card-background border-b border-border-dimmed shadow-lg transition-all duration-300"
-            : "bg-transparent transition-all duration-300";
-        } else if (!transparent && glassMorphism) {
-          styles.container =
-            "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg";
-        } else {
-          styles.container =
-            "bg-card-background border-b border-border-dimmed shadow-lg";
-        }
-        styles.wrapper = "sticky top-0 z-50 w-full";
-        styles.navItem.active = "text-text-primary";
+        styles.container = transparent
+          ? "bg-transparent"
+          : "bg-neutral-dimmed-heavy";
+        styles.navItem.active = "text-text-clear";
         styles.navItem.inactive =
-          "text-text-secondary hover:text-text-primary transition-colors";
-        styles.mobileMenu.container = "bg-neutral-dimmed-heavy";
+          "text-text-clear hover:text-elements-secondary-main";
+        styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "standard":
       default:
@@ -254,9 +241,6 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.container = glassMorphism
           ? "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6 min-h-[80px]" // Fixed height
           : "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6 min-h-[80px]"; // Fixed height
-      } else if (variant === "split") {
-        styles.wrapper = "sticky top-0 z-50 w-full";
-        styles.container = styles.container + " min-h-[80px]";
       } else {
         styles.wrapper = "fixed w-full top-0 z-50";
         styles.container = transparent
