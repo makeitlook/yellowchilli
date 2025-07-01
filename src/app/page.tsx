@@ -15,7 +15,7 @@ export default function Home() {
         <div
           className="relative -mt-20 px-4"
           style={{
-            zIndex: 99999,
+            zIndex: 30,
             position: "relative",
             transform: "translateZ(0)",
           }}

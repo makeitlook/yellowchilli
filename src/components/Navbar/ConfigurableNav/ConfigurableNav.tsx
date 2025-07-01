@@ -224,8 +224,6 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             "transition-all duration-100 ease-out",
             "hover:scale-105",
           ].join(" ");
-          styles.mobileMenu.container =
-            "bg-card-background/80 backdrop-blur-md transition-all duration-300 ease-in-out";
         } else {
           styles.container = transparent
             ? "bg-transparent transition-all duration-300 ease-in-out"
@@ -233,8 +231,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           styles.navItem.active = "text-text-clear";
           styles.navItem.inactive =
             "text-text-clear hover:text-elements-primary-main transition-all duration-100 ease-out hover:scale-105";
-          styles.mobileMenu.container = "bg-elements-primary-shadow";
         }
+        styles.mobileMenu.container =
+          "bg-card-background/80 backdrop-blur-md transition-all duration-300 ease-in-out";
         break;
       case "standard":
       default:
