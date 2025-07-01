@@ -216,10 +216,10 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         // otherwise use transparent/solid background
         if (glassMorphism || scrolled) {
           styles.container =
-            "backdrop-blur-md bg-card-background/80 transition-all duration-300 ease-in-out";
+            "backdrop-blur-md bg-black/40 transition-all duration-300 ease-in-out";
           styles.navItem.active = "text-text-primary";
           styles.navItem.inactive = [
-            "text-text-secondary",
+            "text-text-clear",
             "hover:text-text-primary",
             "transition-all duration-100 ease-out",
             "hover:scale-105",
@@ -270,7 +270,8 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             "bg-neutral-dimmed-heavy min-h-[80px] transition-all duration-300 ease-in-out";
         } else {
           // Add min-height to existing container styles
-          styles.container = styles.container +
+          styles.container =
+            styles.container +
             " min-h-[80px] transition-all duration-300 ease-in-out";
         }
       }
