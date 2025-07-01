@@ -215,7 +215,8 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         // Apply glassMorphism styling if enabled or when scrolled,
         // otherwise use transparent/solid background
         if (glassMorphism || scrolled) {
-          styles.container = "backdrop-blur-md bg-card-background/70";
+          styles.container =
+            "backdrop-blur-md bg-card-background/80 transition-all duration-300 ease-in-out";
           styles.navItem.active = "text-text-primary";
           styles.navItem.inactive = [
             "text-text-secondary",
@@ -224,11 +225,11 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             "hover:scale-105",
           ].join(" ");
           styles.mobileMenu.container =
-            "bg-card-background/70 backdrop-blur-md";
+            "bg-card-background/80 backdrop-blur-md transition-all duration-300 ease-in-out";
         } else {
           styles.container = transparent
-            ? "bg-transparent"
-            : "bg-neutral-dimmed-heavy";
+            ? "bg-transparent transition-all duration-300 ease-in-out"
+            : "bg-neutral-dimmed-heavy transition-all duration-300 ease-in-out";
           styles.navItem.active = "text-text-clear";
           styles.navItem.inactive =
             "text-text-clear hover:text-elements-secondary-main";
@@ -261,13 +262,16 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         if (variant === "split" && (glassMorphism || scrolled)) {
           styles.container = styles.container + " min-h-[80px]";
         } else if (transparent) {
-          styles.container = "bg-transparent min-h-[80px]";
+          styles.container =
+            "bg-transparent min-h-[80px] transition-all duration-300 ease-in-out";
         } else if (styles.container === "") {
           // Only set default if no container styles were set in variant logic
-          styles.container = "bg-neutral-dimmed-heavy min-h-[80px]";
+          styles.container =
+            "bg-neutral-dimmed-heavy min-h-[80px] transition-all duration-300 ease-in-out";
         } else {
           // Add min-height to existing container styles
-          styles.container = styles.container + " min-h-[80px]";
+          styles.container = styles.container +
+            " min-h-[80px] transition-all duration-300 ease-in-out";
         }
       }
       // no underline for top nav
