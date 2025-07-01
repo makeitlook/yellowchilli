@@ -204,7 +204,6 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         ].join(" ");
         break;
 
-        break;
       case "solid":
         styles.container = "bg-elements-primary-shadow";
         styles.navItem.active = "text-text-clear";
@@ -213,13 +212,27 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "split":
-        styles.container = transparent
-          ? "bg-transparent"
-          : "bg-neutral-dimmed-heavy";
-        styles.navItem.active = "text-text-clear";
-        styles.navItem.inactive =
-          "text-text-clear hover:text-elements-secondary-main";
-        styles.mobileMenu.container = "bg-elements-primary-shadow";
+        // Apply glassMorphism styling if enabled, otherwise use transparent/solid background
+        if (glassMorphism) {
+          styles.container = "backdrop-blur-md bg-card-background/70";
+          styles.navItem.active = "text-text-primary";
+          styles.navItem.inactive = [
+            "text-text-secondary",
+            "hover:text-text-primary",
+            "transition-all duration-100 ease-out",
+            "hover:scale-105",
+          ].join(" ");
+          styles.mobileMenu.container =
+            "bg-card-background/70 backdrop-blur-md";
+        } else {
+          styles.container = transparent
+            ? "bg-transparent"
+            : "bg-neutral-dimmed-heavy";
+          styles.navItem.active = "text-text-clear";
+          styles.navItem.inactive =
+            "text-text-clear hover:text-elements-secondary-main";
+          styles.mobileMenu.container = "bg-elements-primary-shadow";
+        }
         break;
       case "standard":
       default:
@@ -243,9 +256,18 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           : "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6 min-h-[80px]"; // Fixed height
       } else {
         styles.wrapper = "fixed w-full top-0 z-50";
-        styles.container = transparent
-          ? "bg-transparent min-h-[80px]"
-          : "bg-neutral-dimmed-heavy min-h-[80px]"; // Fixed height
+        // For split variant with glassMorphism, keep the background but add min-height
+        if (variant === "split" && glassMorphism) {
+          styles.container = styles.container + " min-h-[80px]";
+        } else if (transparent) {
+          styles.container = "bg-transparent min-h-[80px]";
+        } else if (styles.container === "") {
+          // Only set default if no container styles were set in variant logic
+          styles.container = "bg-neutral-dimmed-heavy min-h-[80px]";
+        } else {
+          // Add min-height to existing container styles
+          styles.container = styles.container + " min-h-[80px]";
+        }
       }
       // no underline for top nav
     } else {
@@ -443,7 +465,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         href={href}
         scroll={href.startsWith("#")}
         className={classNames(
-          variant === "glass"
+          variant === "glass" || (variant === "split" && glassMorphism)
             ? "text-md tracking-wide transition-colors font-medium"
             : styles.navItem.base,
           isActive ? styles.navItem.active : styles.navItem.inactive
@@ -500,14 +522,14 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           <button
             className={classNames(
               "flex w-full items-center justify-between rounded-lg p-3 text-left text-md font-medium focus:outline-none transition-all duration-200",
-              variant === "glass"
+              variant === "glass" || (variant === "split" && glassMorphism)
                 ? "hover:bg-neutral/20 active:bg-neutral/30"
                 : "hover:bg-neutral-dimmed active:bg-neutral-shadow",
               dropdownOpen === item.name
-                ? variant === "glass"
+                ? variant === "glass" || (variant === "split" && glassMorphism)
                   ? "bg-neutral/30 text-text-primary"
                   : styles.navItem.active
-                : variant === "glass"
+                : variant === "glass" || (variant === "split" && glassMorphism)
                 ? "text-text-secondary"
                 : styles.navItem.inactive
             )}
@@ -544,7 +566,8 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                 <div
                   className={classNames(
                     "space-y-1 ml-4 pl-4",
-                    variant === "glass"
+                    variant === "glass" ||
+                      (variant === "split" && glassMorphism)
                       ? "border-l-2 border-neutral-dimmed"
                       : "border-l-2 border-neutral-dimmed"
                   )}
@@ -571,14 +594,17 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                           scroll={href.startsWith("#")}
                           className={classNames(
                             "group flex items-center rounded-lg p-3 text-sm font-medium transition-all duration-200",
-                            variant === "glass"
+                            variant === "glass" ||
+                              (variant === "split" && glassMorphism)
                               ? "hover:bg-neutral/20 active:bg-neutral/30 text-text-secondary hover:text-text-primary"
                               : "hover:bg-neutral-dimmed active:bg-neutral-shadow",
                             isSubActive
-                              ? variant === "glass"
+                              ? variant === "glass" ||
+                                (variant === "split" && glassMorphism)
                                 ? "bg-neutral/30 text-text-primary"
                                 : styles.navItem.active
-                              : variant === "glass"
+                              : variant === "glass" ||
+                                (variant === "split" && glassMorphism)
                               ? "text-text-secondary"
                               : styles.navItem.inactive,
                             subItem.disabled && "opacity-50 cursor-not-allowed"
@@ -623,14 +649,14 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           scroll={href.startsWith("#")}
           className={classNames(
             "flex items-center rounded-lg p-3 text-md font-medium transition-all duration-200",
-            variant === "glass"
+            variant === "glass" || (variant === "split" && glassMorphism)
               ? "hover:bg-neutral/20 active:bg-neutral/30"
               : "hover:bg-neutral-dimmed active:bg-neutral-shadow",
             isActive
-              ? variant === "glass"
+              ? variant === "glass" || (variant === "split" && glassMorphism)
                 ? "bg-neutral/30 text-text-primary"
                 : styles.navItem.active
-              : variant === "glass"
+              : variant === "glass" || (variant === "split" && glassMorphism)
               ? "text-text-secondary"
               : styles.navItem.inactive
           )}
@@ -647,7 +673,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
   // Mobile menu hamburger button with custom animation for glass variant
   const renderMobileMenuButton = () => {
-    if (variant === "glass") {
+    if (variant === "glass" || (variant === "split" && glassMorphism)) {
       return (
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -803,12 +829,14 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                 {/* Mobile Nav Items */}
                 <div
                   className={
-                    variant === "glass"
+                    variant === "glass" ||
+                    (variant === "split" && glassMorphism)
                       ? "py-8 space-y-4"
                       : "px-4 py-6 space-y-4"
                   }
                   style={
-                    variant === "glass"
+                    variant === "glass" ||
+                    (variant === "split" && glassMorphism)
                       ? { overflow: "hidden" }
                       : { overflowY: "auto" }
                   }

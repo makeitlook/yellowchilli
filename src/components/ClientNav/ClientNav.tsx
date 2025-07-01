@@ -41,7 +41,7 @@ export default function ClientNav() {
       navMode="single"
       variant="split"
       transparent={true}
-      glassMorphism={true}
+      glassMorphism={false}
       showThemeSwitcher={false}
       logo={{
         light: "/images/logo.svg",
