@@ -147,7 +147,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
   // Handle body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen && mobileFullScreen) {
+    if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -155,7 +155,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
     return () => {
       document.body.style.overflow = "";
     };
-  }, [mobileMenuOpen, mobileFullScreen]);
+  }, [mobileMenuOpen]);
 
   // Exit early if navigation should not be shown
   if (!showNavigation) return null;
