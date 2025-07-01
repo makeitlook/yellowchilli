@@ -147,7 +147,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
   // Handle body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen && mobileFullScreen) {
+    if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -155,7 +155,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
     return () => {
       document.body.style.overflow = "";
     };
-  }, [mobileMenuOpen, mobileFullScreen]);
+  }, [mobileMenuOpen]);
 
   // Exit early if navigation should not be shown
   if (!showNavigation) return null;
@@ -237,7 +237,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             "text-text-clear hover:text-elements-secondary-main";
           styles.mobileMenu.container =
             variant === "split"
-              ? "fixed inset-0 backdrop-blur-xl bg-black/60 z-50"
+              ? "fixed inset-0 backdrop-blur-xl bg-black/60 z-40"
               : "bg-elements-primary-shadow";
         }
         break;
@@ -725,7 +725,10 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
     return (
       <button
-        className="inline-flex items-center justify-center rounded-md p-2 text-text-secondary focus:outline-none"
+        className={classNames(
+          "inline-flex items-center justify-center rounded-md p-2 focus:outline-none",
+          styles.navItem.inactive
+        )}
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
         <span className="sr-only">
@@ -856,7 +859,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                 transition={{ duration: 0.3 }}
                 className={classNames(
                   variant === "split"
-                    ? "fixed inset-0 backdrop-blur-xl bg-black/60 z-50 flex items-center justify-center"
+                    ? "fixed inset-0 backdrop-blur-xl bg-black/60 z-40 flex items-center justify-center"
                     : mobileFullScreen
                     ? "fixed inset-x-0 top-20 bottom-0 z-40 flex flex-col"
                     : "sm:hidden",
