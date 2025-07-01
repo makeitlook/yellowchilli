@@ -39,7 +39,6 @@ export default function ClientNav() {
         showNavigation,
       }}
       navMode="single"
-      variant="split"
       transparent={true}
       glassMorphism={false}
       showThemeSwitcher={false}
