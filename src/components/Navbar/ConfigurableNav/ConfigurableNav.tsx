@@ -32,7 +32,7 @@ export interface NavProps {
   navigationConfig?: NavConfig;
   items?: NavItem[];
   navMode?: "single" | "multi";
-  variant?: "standard" | "glass" | "solid";
+  variant?: "standard" | "glass" | "solid" | "split";
   position?: "top" | "left";
   theme?: "light" | "dark" | "auto";
   cta?: {
@@ -78,6 +78,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
   // Get navigation items from either navigationConfig or items prop
@@ -133,6 +134,16 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
     setMounted(true);
     return () => setMounted(false);
   }, []);
+
+  // Detect scroll for split variant
+  useEffect(() => {
+    if (variant !== "split") return;
+    const onScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [variant]);
 
   // Handle body scroll when mobile menu is open
   useEffect(() => {
@@ -201,6 +212,16 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
           "text-text-clear hover:text-elements-secondary-main";
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
+      case "split":
+        styles.container = scrolled
+          ? "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg"
+          : "bg-transparent";
+        styles.wrapper = "sticky top-0 z-50 w-full";
+        styles.navItem.active = "text-text-primary";
+        styles.navItem.inactive =
+          "text-text-secondary hover:text-text-primary transition-colors";
+        styles.mobileMenu.container = "bg-neutral-dimmed-heavy";
+        break;
       case "standard":
       default:
         styles.container = transparent
@@ -221,6 +242,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.container = glassMorphism
           ? "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6 min-h-[80px]" // Fixed height
           : "backdrop-blur-md bg-card-background/70 border-b border-border-dimmed shadow-lg rounded-xl mx-auto px-6 min-h-[80px]"; // Fixed height
+      } else if (variant === "split") {
+        styles.wrapper = "sticky top-0 z-50 w-full";
+        styles.container = styles.container + " min-h-[80px]";
       } else {
         styles.wrapper = "fixed w-full top-0 z-50";
         styles.container = transparent
@@ -237,6 +261,10 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
   };
 
   const styles = getNavStyles();
+
+  const midIndex = Math.ceil(navigationItems.length / 2);
+  const leftItems = navigationItems.slice(0, midIndex);
+  const rightItems = navigationItems.slice(midIndex);
 
   // Logo component
   const LogoComponent = () => {
@@ -692,26 +720,48 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
       <header className={styles.container}>
         <div className="relative">
           <div className={variant === "glass" ? "" : "px-2 sm:px-6"}>
-            <div className="flex h-20 items-center justify-between">
-              {/* Logo section */}
-              <div className="flex flex-shrink-0 items-center z-10">
-                <Link href="/" className="relative z-10">
-                  <LogoComponent />
-                </Link>
-              </div>
+            <div className="flex h-20 items-center justify-between w-full">
+              {variant === "split" ? (
+                <>
+                  <div className="hidden sm:flex items-center space-x-8">
+                    {leftItems.map(renderNavItem)}
+                  </div>
+                  <div className="flex flex-shrink-0 items-center z-10 mx-4">
+                    <Link href="/" className="relative z-10">
+                      <LogoComponent />
+                    </Link>
+                  </div>
+                  <div className="hidden sm:flex items-center space-x-8">
+                    {rightItems.map(renderNavItem)}
+                  </div>
+                  <div className="hidden sm:flex items-center gap-4 ml-4">
+                    {showThemeSwitcher && <ThemeSwitcher />}
+                    <CTAButton />
+                  </div>
+                </>
+              ) : (
+                <>
+                  {/* Logo section */}
+                  <div className="flex flex-shrink-0 items-center z-10">
+                    <Link href="/" className="relative z-10">
+                      <LogoComponent />
+                    </Link>
+                  </div>
 
-              {/* Desktop Navigation */}
-              <div className="hidden sm:flex sm:items-center sm:space-x-8 flex-grow justify-end">
-                <div className="flex items-center space-x-8">
-                  {navigationItems.map(renderNavItem)}
-                </div>
+                  {/* Desktop Navigation */}
+                  <div className="hidden sm:flex sm:items-center sm:space-x-8 flex-grow justify-end">
+                    <div className="flex items-center space-x-8">
+                      {navigationItems.map(renderNavItem)}
+                    </div>
 
-                {/* Desktop CTA and Theme Switcher */}
-                <div className="flex items-center gap-4">
-                  {showThemeSwitcher && <ThemeSwitcher />}
-                  <CTAButton />
-                </div>
-              </div>
+                    {/* Desktop CTA and Theme Switcher */}
+                    <div className="flex items-center gap-4">
+                      {showThemeSwitcher && <ThemeSwitcher />}
+                      <CTAButton />
+                    </div>
+                  </div>
+                </>
+              )}
 
               {/* Mobile: Menu and Action Buttons */}
               <div className="flex items-center sm:hidden space-x-3">
