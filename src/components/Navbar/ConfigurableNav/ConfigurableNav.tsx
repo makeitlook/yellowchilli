@@ -212,8 +212,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         styles.mobileMenu.container = "bg-elements-primary-shadow";
         break;
       case "split":
-        // Apply glassMorphism styling if enabled, otherwise use transparent/solid background
-        if (glassMorphism) {
+        // Apply glassMorphism styling if enabled or when scrolled,
+        // otherwise use transparent/solid background
+        if (glassMorphism || scrolled) {
           styles.container = "backdrop-blur-md bg-card-background/70";
           styles.navItem.active = "text-text-primary";
           styles.navItem.inactive = [
@@ -257,7 +258,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
       } else {
         styles.wrapper = "fixed w-full top-0 z-50";
         // For split variant with glassMorphism, keep the background but add min-height
-        if (variant === "split" && glassMorphism) {
+        if (variant === "split" && (glassMorphism || scrolled)) {
           styles.container = styles.container + " min-h-[80px]";
         } else if (transparent) {
           styles.container = "bg-transparent min-h-[80px]";
