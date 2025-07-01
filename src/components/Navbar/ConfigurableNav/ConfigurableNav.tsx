@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { LuMenu, LuX, LuChevronDown, LuPhone } from "react-icons/lu";
 import Link from "next/link";
 import Image from "next/image";
@@ -78,6 +78,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const scrollLockPosition = useRef(0);
   const [scrolled, setScrolled] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -148,11 +149,22 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
   // Handle body scroll when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
+      scrollLockPosition.current = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollLockPosition.current}px`;
+      document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
     } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
       document.body.style.overflow = "";
+      window.scrollTo(0, scrollLockPosition.current);
     }
     return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
       document.body.style.overflow = "";
     };
   }, [mobileMenuOpen]);
@@ -215,8 +227,10 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         // Apply glassMorphism styling if enabled or when scrolled,
         // otherwise use transparent/solid background
         if (glassMorphism || scrolled) {
-          styles.container =
-            "backdrop-blur-md bg-black/40 transition-all duration-300 ease-in-out border-b border-gray-200/20";
+          styles.container = classNames(
+            "relative z-50",
+            "backdrop-blur-md bg-black/40 transition-all duration-300 ease-in-out border-b border-gray-200/20"
+          );
           styles.navItem.active = "text-text-primary";
           styles.navItem.inactive = [
             "text-text-clear",
@@ -229,9 +243,12 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
               ? "backdrop-blur-md bg-black/40 border-t border-white/10"
               : "bg-card-background/80 backdrop-blur-md transition-all duration-300 ease-in-out";
         } else {
-          styles.container = transparent
-            ? "bg-transparent transition-all duration-300 ease-in-out border-b border-gray-200/30"
-            : "bg-neutral-dimmed-heavy transition-all duration-300 ease-in-out border-b border-gray-200/30";
+          styles.container = classNames(
+            "relative z-50",
+            transparent
+              ? "bg-transparent transition-all duration-300 ease-in-out border-b border-gray-200/30"
+              : "bg-neutral-dimmed-heavy transition-all duration-300 ease-in-out border-b border-gray-200/30"
+          );
           styles.navItem.active = "text-text-clear";
           styles.navItem.inactive =
             "text-text-clear hover:text-elements-secondary-main";
