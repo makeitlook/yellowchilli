@@ -39,7 +39,7 @@ export default function ClientNav() {
         showNavigation,
       }}
       navMode="single"
-      variant="standard"
+      variant="split"
       transparent={true}
       glassMorphism={true}
       showThemeSwitcher={false}
@@ -51,7 +51,7 @@ export default function ClientNav() {
       }}
       mobileFullScreen={true}
       cta={{
-        show: true,
+        show: false,
         text: "Get in Touch",
         href: "/contact",
       }}
