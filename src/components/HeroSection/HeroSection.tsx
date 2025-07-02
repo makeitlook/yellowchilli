@@ -56,7 +56,10 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-neutral-shadow-heavy">
+    <section
+      id="home"
+      className="relative min-h-screen overflow-hidden bg-neutral-shadow-heavy"
+    >
       {/* Background Video */}
       <motion.div
         className="absolute inset-0"
@@ -109,7 +112,7 @@ const HeroSection: React.FC = () => {
                 variants={lineVariants}
                 style={{ originX: 0 }}
               />
-              <p className="text-white/90 text-sm sm:text-base font-light tracking-[0.2em] uppercase">
+              <p className="text-text-primary/90 text-sm sm:text-base font-light tracking-[0.2em] uppercase">
                 Authentic Indian & Afghan Cuisine
               </p>
               <motion.div
@@ -152,7 +155,7 @@ const HeroSection: React.FC = () => {
           </motion.div>
           {/* Refined Description */}
           <motion.div variants={itemVariants}>
-            <p className="text-white/80 text-lg sm:text-2xl lg:text-lg max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-text-primary text-lg sm:text-2xl lg:text-lg max-w-4xl mx-auto leading-relaxed font-light">
               Where every dish tells a story of tradition, flavor, and passion.
             </p>
           </motion.div>
@@ -167,7 +170,7 @@ const HeroSection: React.FC = () => {
               >
                 <Link
                   href="/menu"
-                  className="relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium px-10 py-4 rounded-full text-lg transition-all duration-500 hover:bg-white/20 hover:border-white/30 hover:shadow-[0_8px_30px_rgb(255,255,255,0.1)] min-w-[220px] block"
+                  className="relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 text-text-primary font-medium px-10 py-4 rounded-full text-lg transition-all duration-500 hover:bg-white/20 hover:border-white/30 hover:shadow-[0_8px_30px_rgb(255,255,255,0.1)] min-w-[220px] block"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Explore Menu
@@ -207,7 +210,7 @@ const HeroSection: React.FC = () => {
               >
                 <Link
                   href="/contact"
-                  className="relative overflow-hidden bg-transparent border-2 border-white/40 text-white font-medium px-10 py-4 rounded-full text-lg transition-all duration-500  hover:text-gray-900 hover:border-white min-w-[220px] block"
+                  className="relative overflow-hidden bg-transparent border-2 border-white/40 text-text-primary font-medium px-10 py-4 rounded-full text-lg transition-all duration-500  hover:text-gray-900 hover:border-white min-w-[220px] block"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <motion.svg
@@ -238,10 +241,12 @@ const HeroSection: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5, duration: 0.8 }}
             >
-              <p className="text-white/40 text-sm">Or call us directly</p>
+              <p className="text-text-primary/40 text-sm">
+                Or call us directly
+              </p>
               <motion.a
                 href="tel:+1234567890"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white text-lg font-medium transition-colors duration-300"
+                className="inline-flex items-center gap-2 text-text-primary/80 hover:text-text-primary text-lg font-medium transition-colors duration-300"
                 whileHover={{ scale: 1.05 }}
               >
                 <span className="text-2xl font-light tracking-wider">
@@ -262,7 +267,7 @@ const HeroSection: React.FC = () => {
             ].map((feature, index) => (
               <motion.div
                 key={feature.text}
-                className="group text-white/60 hover:text-white/90 transition-all duration-300"
+                className="group text-text-primary/60 hover:text-text-primary/90 transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.8 + feature.delay, duration: 0.6 }}
