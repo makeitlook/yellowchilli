@@ -12,8 +12,7 @@ const OurStory = () => {
       title: "Family Grill - Hayes",
       date: "2013 - 2017",
       description: "Where it all began",
-      image:
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop", // Replace with your actual Family Grill image
+      image: "images/hayes.png", // Replace with your actual Family Grill image
       alt: "Family Grill restaurant in Hayes, our humble beginning",
     },
     {
@@ -21,8 +20,7 @@ const OurStory = () => {
       title: "Yellow Chilli - Hounslow",
       date: "2017 - 2022",
       description: "Our evolution continues",
-      image:
-        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=600&fit=crop", // Replace with your actual Hounslow location image
+      image: "images/hounslow.png", // Replace with your actual Hounslow location image
       alt: "Yellow Chilli restaurant in Hounslow, our growth phase",
     },
     {
@@ -53,25 +51,23 @@ const OurStory = () => {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.15,
+        duration: 0.6,
+        staggerChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut",
       },
     },
@@ -83,7 +79,7 @@ const OurStory = () => {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-elements-primary-main/3 via-transparent to-elements-primary-shadow/3 rounded-3xl" />
@@ -110,73 +106,137 @@ const OurStory = () => {
           </motion.div>
 
           {/* Story Timeline */}
-          <motion.div className="space-y-10" variants={itemVariants}>
+          <motion.div className="space-y-10">
             {/* Family Grill Era */}
-            <motion.div className="relative pl-8" variants={itemVariants}>
+            <motion.div
+              className="relative pl-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <div className="absolute left-0 top-2 w-3 h-3 bg-elements-primary-main rounded-full"></div>
               <div className="absolute left-1.5 top-5 w-px h-14 bg-elements-primary-main/30"></div>
 
               <motion.h3
                 className="text-text-primary text-2xl font-medium mb-2"
                 whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
               >
                 Family Grill - Hayes
               </motion.h3>
-              <p className="text-elements-primary-main font-medium mb-3">
+              <motion.p
+                className="text-elements-primary-main font-medium mb-3"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
                 2013 - 2017
-              </p>
-              <p className="text-text-secondary leading-relaxed">
+              </motion.p>
+              <motion.p
+                className="text-text-secondary leading-relaxed"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+              >
                 Our journey began in a cozy pub in Hayes, where we first
                 introduced our authentic recipes to the local community. Family
                 Grill became a beloved neighborhood spot, laying the foundation
                 for everything that followed.
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Yellow Chilli Hounslow Era */}
-            <motion.div className="relative pl-8" variants={itemVariants}>
+            <motion.div
+              className="relative pl-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
               <div className="absolute left-0 top-2 w-3 h-3 bg-helpers-warning-main rounded-full"></div>
               <div className="absolute left-1.5 top-5 w-px h-14 bg-helpers-warning-main/30"></div>
 
               <motion.h3
                 className="text-text-primary text-2xl font-medium mb-2"
                 whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 1.4 }}
               >
                 Yellow Chilli - Hounslow
               </motion.h3>
-              <p className="text-helpers-warning-main font-medium mb-3">
+              <motion.p
+                className="text-helpers-warning-main font-medium mb-3"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 1.6 }}
+              >
                 2017 - 2022
-              </p>
-              <p className="text-text-secondary leading-relaxed">
+              </motion.p>
+              <motion.p
+                className="text-text-secondary leading-relaxed"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 1.8 }}
+              >
                 We evolved and rebranded as Yellow Chilli, moving to Hounslow
                 where we refined our menu and expanded our vision. This period
                 marked our growth into a destination for exceptional Indian and
                 Afghan cuisine.
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Current Era */}
-            <motion.div className="relative pl-8" variants={itemVariants}>
+            <motion.div
+              className="relative pl-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 2.1 }}
+            >
               <div className="absolute left-0 top-2 w-3 h-3 bg-helpers-success-main rounded-full"></div>
+              <div className="absolute left-1.5 top-5 w-px h-14 bg-helpers-success-main/30"></div>
 
               <motion.h3
                 className="text-text-primary text-2xl font-medium mb-2"
                 whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 2.3 }}
               >
                 Yellow Chilli - Southall
               </motion.h3>
-              <p className="text-helpers-success-main font-medium mb-3">
+              <motion.p
+                className="text-helpers-success-main font-medium mb-3"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 2.5 }}
+              >
                 2022 - Present
-              </p>
-              <p className="text-text-secondary leading-relaxed">
+              </motion.p>
+              <motion.p
+                className="text-text-secondary leading-relaxed"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 2.7 }}
+              >
                 Today, we've found our home in the heart of Southall, surrounded
                 by the vibrant culture that inspires our cuisine. Here, we
                 continue to honour our heritage while creating new memories for
                 families and friends.
-              </p>
+              </motion.p>
             </motion.div>
           </motion.div>
 

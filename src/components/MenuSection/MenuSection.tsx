@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { BookNowCTA } from "../Button/BookNowCTA";
 
 const MenuSection = () => {
   const handleDownloadMenu = () => {
@@ -59,27 +60,28 @@ const MenuSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div>
-              <p className="text-orange-400 font-light text-lg mb-4 italic">
-                Taste perception
-              </p>
               <h3 className="text-3xl lg:text-4xl font-light text-text-primary tracking-[0.15em] mb-6">
                 TRADITIONAL
                 <span className="block">& MODERN</span>
               </h3>
-              <p className="text-gray-400 text-sm lg:text-base leading-relaxed max-w-sm mx-auto">
-                Sed ut perspiciatis unde omnis iste sunt lorem ipsum distinctio
-                equa do.
+              <p className="text-text-secondary text-sm lg:text-base leading-relaxed max-w-sm mx-auto">
+                Our menu blends time-honoured recipes with bold, contemporary
+                twists — crafted with care, spiced with passion.
               </p>
             </div>
 
-            <motion.button
-              onClick={handleDownloadMenu}
-              className="inline-block px-8 py-3 bg-orange-500 text-text-primary font-medium text-sm tracking-wider hover:bg-orange-600 transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              VIEW MENU
-            </motion.button>
+            <BookNowCTA
+              variant="outline"
+              size="small"
+              shape="pill"
+              text="View Menu"
+              useGradient={false}
+              gradientFrom="from-elements-primary-main"
+              gradientTo="to-elements-primary-shadow"
+              textColor="text-text-primary"
+              shadowColor="shadow-black"
+              onClick={() => window.open("/menu.pdf", "_blank")}
+            />
           </motion.div>
 
           {/* Right Image */}

@@ -73,13 +73,30 @@ const CateringSection = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content Layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-16 items-center">
+          {/* Mobile Title - Only visible on mobile */}
+          <motion.div
+            className="lg:hidden mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div className="flex items-center gap-6 mb-6">
+              <div className="w-12 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
+              <h2 className="text-elements-primary-main text-3xl font-light uppercase tracking-[0.2em]">
+                catering
+              </h2>
+              <div className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-shadow/60" />
+            </motion.div>
+          </motion.div>
+
           {/* Left Side - Image */}
           <motion.div
             className="relative"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="relative">
@@ -107,10 +124,10 @@ const CateringSection = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Header */}
-            <motion.div variants={itemVariants}>
+            {/* Header - Hidden on mobile, visible on desktop */}
+            <motion.div variants={itemVariants} className="hidden lg:block">
               <motion.div className="flex items-center gap-6 mb-8">
                 <div className="w-12 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
                 <h2 className="text-elements-primary-main text-3xl lg:text-4xl font-light uppercase tracking-[0.2em]">
@@ -119,6 +136,23 @@ const CateringSection = () => {
                 <div className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-shadow/60" />
               </motion.div>
 
+              <p className="text-base sm:text-lg text-text-primary/80 leading-relaxed">
+                Our catering service specialises in creating unforgettable
+                culinary experiences for weddings, birthdays, graduations, and
+                all types of events. With exceptional attention to detail and a
+                passion for flavour, we turn every celebration into a lasting
+                memory.
+              </p>
+            </motion.div>
+
+            {/* Description - Only visible on mobile */}
+            <motion.div
+              className="lg:hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <p className="text-base sm:text-lg text-text-primary/80 leading-relaxed">
                 Our catering service specialises in creating unforgettable
                 culinary experiences for weddings, birthdays, graduations, and
@@ -194,8 +228,8 @@ const CateringSection = () => {
                     className="flex items-start space-x-3"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ delay: 0.4 + index * 0.1, duration: 0.6 }}
                   >
                     <svg
                       className="w-5 h-5 text-text-primary mt-0.5 flex-shrink-0"
@@ -220,14 +254,14 @@ const CateringSection = () => {
 
         {/* Services Section */}
         <motion.div
-          className="mt-24"
+          className="mt-12 sm:mt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
+            <h3 className="text-2xl sm:text-3xl font-medium text-text-primary mb-4">
               Perfect for Every Occasion
             </h3>
             <p className="text-text-primary/70 max-w-2xl mx-auto">
@@ -242,7 +276,6 @@ const CateringSection = () => {
                 key={index}
                 className="bg-white/10 backdrop-blur-sm rounded-lg p-8 hover:bg-white/15 transition-all duration-300"
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
               >
                 <h4 className="text-xl font-semibold text-text-primary mb-4">
                   {service.title}
@@ -260,7 +293,7 @@ const CateringSection = () => {
           className="mt-20 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-2xl font-bold text-text-primary mb-4">

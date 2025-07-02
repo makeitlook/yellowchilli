@@ -1,5 +1,6 @@
 import AnimatedDiv from "@/components/AnimatedDiv/AnimatedDiv";
 import CateringSection from "@/components/CateringSection/CateringSection";
+import FindUsSection from "@/components/FindUs/FindUs";
 import AnimatedGradientBackground from "@/components/GradientBackground/AnimatedGradientBackground";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import InfoCard from "@/components/InfoCard/InfoCard";
@@ -33,6 +34,9 @@ export default function Home() {
         </div>
         <div id="menu">
           <MenuSection />
+        </div>
+        <div id="find-us">
+          <FindUsSection />
         </div>
       </section>
     </>

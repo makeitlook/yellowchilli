@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { BookNowCTA } from "../Button/BookNowCTA";
 
 const HeroSection: React.FC = () => {
   // Animation variants
@@ -162,79 +163,33 @@ const HeroSection: React.FC = () => {
           {/* Sophisticated CTA Section */}
           <motion.div variants={itemVariants} className="space-y-8">
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              {/* Primary CTA */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group"
-              >
-                <Link
-                  href="/menu"
-                  className="relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 text-text-primary font-medium px-10 py-4 rounded-full text-lg transition-all duration-500 hover:bg-white/20 hover:border-white/30 hover:shadow-[0_8px_30px_rgb(255,255,255,0.1)] min-w-[220px] block"
-                >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    Explore Menu
-                    <motion.svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      initial={{ x: 0 }}
-                      whileHover={{ x: 3 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </motion.svg>
-                  </span>
-
-                  {/* Hover Effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                  />
-                </Link>
-              </motion.div>
-
-              {/* Secondary CTA */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="group"
-              >
-                <Link
-                  href="/contact"
-                  className="relative overflow-hidden bg-transparent border-2 border-white/40 text-text-primary font-medium px-10 py-4 rounded-full text-lg transition-all duration-500  hover:text-gray-900 hover:border-white min-w-[220px] block"
-                >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    <motion.svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      whileHover={{ rotate: 15 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </motion.svg>
-                    Reserve Table
-                  </span>
-                </Link>
-              </motion.div>
+              <BookNowCTA
+                variant="ghost"
+                size="medium"
+                shape="pill"
+                text="View Menu"
+                useGradient={false}
+                gradientFrom="from-elements-primary-main"
+                gradientTo="to-elements-primary-shadow"
+                textColor="text-text-primary"
+                shadowColor="shadow-black"
+                onClick={() => window.open("/menu.pdf", "_blank")}
+              />
+              <BookNowCTA
+                variant="outline"
+                size="medium"
+                shape="pill"
+                text="Get In Touch"
+                useGradient={false}
+                gradientFrom="from-elements-primary-main"
+                gradientTo="to-elements-primary-shadow"
+                textColor="text-text-primary"
+                shadowColor="shadow-black"
+                phoneNumber="+1 (555) 123-4567"
+              />
             </div>
 
-            {/* Elegant Contact Info */}
+            {/* Elegant Contact Info 
             <motion.div
               className="text-center space-y-2"
               initial={{ opacity: 0 }}
@@ -254,6 +209,7 @@ const HeroSection: React.FC = () => {
                 </span>
               </motion.a>
             </motion.div>
+            */}
           </motion.div>
 
           <motion.div

@@ -17,6 +17,7 @@ export interface BookNowCTAProps {
   variant?: ButtonVariant;
   shape?: ButtonShape;
   useGradient?: boolean;
+  onClick?: () => void; // New onClick prop
 
   // Color props with fallbacks
   backgroundColor?: string;
@@ -44,6 +45,7 @@ export const BookNowCTA: React.FC<BookNowCTAProps> = ({
   variant = "primary",
   shape = "rounded",
   useGradient = true,
+  onClick, // New onClick prop
 
   // Color props with fallbacks
   backgroundColor = "bg-blue-600",
@@ -141,9 +143,24 @@ export const BookNowCTA: React.FC<BookNowCTAProps> = ({
 
   const currentVariant = variants[variant];
 
+  // Handle click - either call onClick prop or default phone behavior
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    } else {
+      window.open(`tel:${phoneNumber}`, "_self");
+    }
+  };
+
+  // Determine if it should be a button or link
+  const Component = onClick ? motion.button : motion.a;
+  const componentProps = onClick
+    ? { onClick: handleClick }
+    : { href: `tel:${phoneNumber}` };
+
   return (
-    <motion.a
-      href={`tel:${phoneNumber}`}
+    <Component
+      {...componentProps}
       className={`
         relative overflow-hidden font-semibold tracking-wide
         transition-all duration-500 ease-out transform-gpu
@@ -183,7 +200,7 @@ export const BookNowCTA: React.FC<BookNowCTAProps> = ({
         }}
       />
 
-      {/* Phone icon with elegant styling */}
+      {/* Icon with elegant styling - changes based on onClick */}
       <motion.div
         className="relative z-10"
         initial={{ rotate: 0, scale: 1 }}
@@ -193,13 +210,31 @@ export const BookNowCTA: React.FC<BookNowCTAProps> = ({
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <svg
-          className="w-5 h-5 opacity-90"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-        </svg>
+        {onClick ? (
+          // Download icon for menu
+          <svg
+            className="w-5 h-5 opacity-90"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+        ) : (
+          // Phone icon for booking
+          <svg
+            className="w-5 h-5 opacity-90"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+          </svg>
+        )}
       </motion.div>
 
       <span className="relative z-10 font-medium">{text}</span>
@@ -252,6 +287,6 @@ export const BookNowCTA: React.FC<BookNowCTAProps> = ({
           transition={{ duration: 0.3 }}
         />
       )}
-    </motion.a>
+    </Component>
   );
 };
