@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 import { usePathname } from "next/navigation";
 import IconWrapper from "@/components/IconWrapper/IconWrapper";
+import { BookNowCTA } from "@/components/Button/BookNowCTA";
 
 export interface NavItem {
   name: string;
@@ -428,7 +429,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 backdrop-blur-xl bg-black/60 z-[60] flex items-center justify-center sm:hidden"
+            className="fixed inset-0 backdrop-blur-xl bg-black/60 z-[60] items-center justify-center sm:hidden flex flex-col"
           >
             {/* Header overlay to show logo and close button above blur */}
             <div className="fixed top-0 left-0 right-0 z-[70] px-2">
@@ -488,6 +489,20 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                   </motion.div>
                 );
               })}
+            </div>
+            <div>
+              <BookNowCTA
+                variant="outline"
+                size="small"
+                shape="subtle"
+                text="Reserve Table"
+                useGradient={true}
+                gradientFrom="from-elements-primary-main"
+                gradientTo="to-elements-primary-shadow"
+                textColor="text-white"
+                shadowColor="shadow-black"
+                phoneNumber="+1 (555) 123-4567"
+              />
             </div>
           </motion.div>
         )}
