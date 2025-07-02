@@ -238,7 +238,7 @@ const ContactForm: React.FC<FormsProps> = ({
                   id="phone"
                   name="phone" // Changed to match common form field names
                   type="tel"
-                  placeholder="07911 123456"
+                  placeholder="0203 518 5930"
                   required
                   value={formData.phone}
                   onChange={handleChange}

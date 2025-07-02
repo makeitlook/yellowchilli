@@ -185,7 +185,7 @@ const HeroSection: React.FC = () => {
                 gradientTo="to-elements-primary-shadow"
                 textColor="text-text-primary"
                 shadowColor="shadow-black"
-                phoneNumber="+1 (555) 123-4567"
+                phoneNumber="02035185930"
               />
             </div>
 
@@ -200,12 +200,12 @@ const HeroSection: React.FC = () => {
                 Or call us directly
               </p>
               <motion.a
-                href="tel:+1234567890"
+                href="tel:02035185930"
                 className="inline-flex items-center gap-2 text-text-primary/80 hover:text-text-primary text-lg font-medium transition-colors duration-300"
                 whileHover={{ scale: 1.05 }}
               >
                 <span className="text-2xl font-light tracking-wider">
-                  +44 20 8574 1234
+                  0203 518 5930
                 </span>
               </motion.a>
             </motion.div>

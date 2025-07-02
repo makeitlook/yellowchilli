@@ -39,7 +39,7 @@ export interface BookNowCTAProps {
 }
 
 export const BookNowCTA: React.FC<BookNowCTAProps> = ({
-  phoneNumber = "+1-555-0123",
+  phoneNumber = "02035185930",
   text = "Book Now",
   size = "large",
   variant = "primary",

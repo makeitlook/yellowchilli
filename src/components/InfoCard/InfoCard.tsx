@@ -77,7 +77,7 @@ const InfoCard = () => {
             <div className="text-text-primary leading-relaxed space-y-4 text-sm lg:text-base font-light">
               <p>
                 Nestled in the vibrant heart of Southall, Yellow Chilli is more
-                than just a restaurant—it's a celebration of India's rich
+                than just a restaurant—it&apos;s a celebration of India&apos;s rich
                 culinary heritage blended with the bold flavours of Afghanistan.
               </p>
               <p className="text-text-primary text-sm lg:text-base">
@@ -138,25 +138,16 @@ const InfoCard = () => {
               </span>
               Opening Times
             </h4>
-            <div className="bg-neutral-dimmed/60 backdrop-blur-sm rounded-xl p-4 space-y-3 border border-border-dimmed/30 hover:border-border-dimmed/50 transition-colors duration-300">
-              <div className="flex justify-between items-center">
-                <span className="font-medium text-text-secondary text-sm">
-                  Sun – Tues:
-                </span>
-                <span className="text-text-secondary font-light text-sm">
-                  11am – 9pm
-                </span>
+              <div className="bg-neutral-dimmed/60 backdrop-blur-sm rounded-xl p-4 space-y-3 border border-border-dimmed/30 hover:border-border-dimmed/50 transition-colors duration-300">
+                <div className="flex justify-between items-center">
+                  <span className="font-medium text-text-secondary text-sm">
+                    Mon – Sun:
+                  </span>
+                  <span className="text-text-secondary font-light text-sm">
+                    3pm – 11:30pm
+                  </span>
+                </div>
               </div>
-              <div className="w-full h-px bg-border-dimmed/30" />
-              <div className="flex justify-between items-center">
-                <span className="font-medium text-text-secondary text-sm">
-                  Wed – Sat:
-                </span>
-                <span className="text-text-secondary font-light text-sm">
-                  11am – 10pm
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Location */}
@@ -182,13 +173,13 @@ const InfoCard = () => {
                 Yellow Chilli
               </p>
               <p className="text-text-primary font-light text-sm">
-                123 Southall Road
+                72-76 Western Rd
               </p>
               <p className="text-text-primary font-light text-sm mb-3">
-                London, UB1 1AA
+                Southall UB2 5DZ
               </p>
               <a
-                href="https://goo.gl/maps/yourlink"
+                href="https://maps.google.com/?q=72-76+Western+Rd,+Southall+UB2+5DZ"
                 className="inline-flex items-center gap-2 text-text-secondary font-medium hover:text-text-primary/90 transition-all duration-300 group hover:translate-x-1 text-sm"
               >
                 <span>View on Map</span>
@@ -223,10 +214,10 @@ const InfoCard = () => {
             </h4>
             <div className="bg-neutral-dimmed/60 backdrop-blur-sm rounded-xl p-4 border border-border-dimmed/30 hover:border-border-dimmed/50 transition-colors duration-300">
               <a
-                href="tel:02041234567"
+                href="tel:02035185930"
                 className="text-text-primary font-medium text-md hover:text-elements-primary-main transition-colors duration-300 hover:scale-105 inline-block"
               >
-                0204 123 4567
+                0203 518 5930
               </a>
             </div>
           </div>

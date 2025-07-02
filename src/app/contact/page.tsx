@@ -31,9 +31,9 @@ export default function Contact() {
                     />
                   </dt>
                   <dd>
-                    545 Mavis Island
+                    72-76 Western Rd
                     <br />
-                    Chicago, IL 99191
+                    Southall UB2 5DZ
                   </dd>
                 </div>
                 <div className="flex gap-x-4">
@@ -46,10 +46,10 @@ export default function Contact() {
                   </dt>
                   <dd>
                     <a
-                      href="tel:+1 (555) 234-5678"
+                      href="tel:02035185930"
                       className="hover:text-gray-900"
                     >
-                      +1 (555) 234-5678
+                      0203 518 5930
                     </a>
                   </dd>
                 </div>
