@@ -32,6 +32,13 @@ export function useNavigationConfig(): {
 
   const navigationItems: NavigationItem[] = useMemo(
     () => [
+      // {
+      //   name: "Home",
+      //   path: "/home",
+      //   sectionId: "home",
+      //   current: pathname === "/home",
+      //   icon: LuHouse,
+      // },
       {
         name: "About",
         path: "/about",

@@ -4,6 +4,7 @@ import AnimatedGradientBackground from "@/components/GradientBackground/Animated
 import HeroSection from "@/components/HeroSection/HeroSection";
 import InfoCard from "@/components/InfoCard/InfoCard";
 import PageLayout from "@/components/Layouts/PageLayout";
+import OurStory from "@/components/OurStory/OurStory";
 
 export default function Home() {
   return (
@@ -22,8 +23,12 @@ export default function Home() {
         >
           <PageLayout noPadding className="pb-12">
             <InfoCard />
-            <CateringSection />
           </PageLayout>
+
+          <OurStory />
+        </div>
+        <div>
+          <CateringSection />
         </div>
       </section>
     </>

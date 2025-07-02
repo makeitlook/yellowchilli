@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { escapeSingleQuotes } from "@/lib/utils";
 
 const InfoCard = () => {
   const containerVariants = {
@@ -32,7 +31,7 @@ const InfoCard = () => {
   return (
     <motion.section
       id="about"
-      className="relative z-20 overflow-hidden bg-card-background/80 backdrop-blur-md text-text-primary md:flex md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30"
+      className="relative z-20 overflow-hidden bg-card-background/80 backdrop-blur-md text-text-primary md:flex md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30  md:p-10 mt-12 sm:mt-0"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -44,7 +43,7 @@ const InfoCard = () => {
       </div>
 
       {/* Subtle Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-elements-primary-main/5 via-transparent to-elements-primary-shadow/5 rounded-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-elements-primary-main/10 via-transparent to-elements-primary-shadow/10 rounded-3xl" />
 
       {/* Left Section: Our Story */}
       <motion.div
@@ -52,80 +51,22 @@ const InfoCard = () => {
         variants={itemVariants}
       >
         {/* Decorative Chilli Background */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute inset-0  pointer-events-none">
           <svg
-            className="absolute -right-8 top-4 w-40 h-60 text-elements-primary-main/60 transform rotate-12 drop-shadow-lg"
+            className="absolute right-16 -bottom-5 w-12 h-44 scale-150 text-text-primary/10 transform rotate-45 drop-shadow-md"
             viewBox="0 0 232.26 693.11"
             fill="currentColor"
           >
             <path d="M174.71,164.15c6.4,7.86,17.56,9.07,29.35,26.87,43.43,65.59,26.58,137.03,11.23,209.48-19.86,93.73-73.73,258.21-177.72,287.9-79.03,22.57-8.93-52.23,2.91-72.33,66.14-112.25,29.91-234.48,26.71-348.86-2.53-90.48,82.32-95.47,67.26-201.82C127.47,16.13,103.63,28.41,74.89,1.18c117.27-11.65,72.14,129.01,99.82,162.97Z" />
           </svg>
-
-          <svg
-            className="absolute -left-8 bottom-8 w-28 h-42 text-helpers-error-main/50 transform -rotate-45 scale-75 drop-shadow-md"
-            viewBox="0 0 232.26 693.11"
-            fill="currentColor"
-          >
-            <path d="M174.71,164.15c6.4,7.86,17.56,9.07,29.35,26.87,43.43,65.59,26.58,137.03,11.23,209.48-19.86,93.73-73.73,258.21-177.72,287.9-79.03,22.57-8.93-52.23,2.91-72.33,66.14-112.25,29.91-234.48,26.71-348.86-2.53-90.48,82.32-95.47,67.26-201.82C127.47,16.13,103.63,28.41,74.89,1.18c117.27-11.65,72.14,129.01,99.82,162.97Z" />
-          </svg>
-
-          <svg
-            className="absolute right-8 bottom-16 w-20 h-30 text-elements-primary-shadow/40 transform rotate-45 scale-50 drop-shadow-sm"
-            viewBox="0 0 232.26 693.11"
-            fill="currentColor"
-          >
-            <path d="M174.71,164.15c6.4,7.86,17.56,9.07,29.35,26.87,43.43,65.59,26.58,137.03,11.23,209.48-19.86,93.73-73.73,258.21-177.72,287.9-79.03,22.57-8.93-52.23,2.91-72.33,66.14-112.25,29.91-234.48,26.71-348.86-2.53-90.48,82.32-95.47,67.26-201.82C127.47,16.13,103.63,28.41,74.89,1.18c117.27-11.65,72.14,129.01,99.82,162.97Z" />
-          </svg>
-
-          {/* Gradient overlay chilli for more visual interest */}
-          <div className="absolute top-12 left-4 w-24 h-36 opacity-30">
-            <svg
-              className="w-full h-full transform rotate-12"
-              viewBox="0 0 232.26 693.11"
-            >
-              <defs>
-                <linearGradient
-                  id="chilliGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop
-                    offset="0%"
-                    className="text-elements-primary-main"
-                    stopColor="currentColor"
-                    stopOpacity="0.6"
-                  />
-                  <stop
-                    offset="50%"
-                    className="text-helpers-error-main"
-                    stopColor="currentColor"
-                    stopOpacity="0.8"
-                  />
-                  <stop
-                    offset="100%"
-                    className="text-elements-primary-shadow"
-                    stopColor="currentColor"
-                    stopOpacity="0.4"
-                  />
-                </linearGradient>
-              </defs>
-              <path
-                d="M174.71,164.15c6.4,7.86,17.56,9.07,29.35,26.87,43.43,65.59,26.58,137.03,11.23,209.48-19.86,93.73-73.73,258.21-177.72,287.9-79.03,22.57-8.93-52.23,2.91-72.33,66.14-112.25,29.91-234.48,26.71-348.86-2.53-90.48,82.32-95.47,67.26-201.82C127.47,16.13,103.63,28.41,74.89,1.18c117.27-11.65,72.14,129.01,99.82,162.97Z"
-                fill="url(#chilliGradient)"
-                className="drop-shadow-lg"
-              />
-            </svg>
-          </div>
         </div>
         <div className="relative z-10">
           {/* Elegant Title with Decorative Line */}
-          <div className="mb-6">
+          <div className="mb-4">
             <div className="inline-flex items-center gap-4 mb-4">
               <div className="w-6 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
               <h2 className="text-elements-primary-main text-2xl lg:text-3xl font-light tracking-wide">
-                Our Story
+                About
               </h2>
               <div className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-shadow/60" />
             </div>
@@ -133,20 +74,20 @@ const InfoCard = () => {
 
           {/* Refined Content */}
           <div className="mb-8 space-y-4">
-            <div className="text-text-secondary leading-relaxed space-y-4 text-base lg:text-lg font-light">
+            <div className="text-text-primary leading-relaxed space-y-4 text-base lg:text-lg font-light">
               <p>
-                {escapeSingleQuotes(
-                  "Nestled in the vibrant heart of Southall, Yellow Chilli is more than just a restaurant—it's a celebration of India's rich culinary heritage blended with the bold flavors of Afghanistan."
-                )}
+                Nestled in the vibrant heart of Southall, Yellow Chilli is more
+                than just a restaurant—it's a celebration of India's rich
+                culinary heritage blended with the bold flavors of Afghanistan.
               </p>
-              <p className="text-text-tertiary text-sm lg:text-base">
+              <p className="text-text-primary text-sm lg:text-base">
                 Our kitchen tells stories through spices, where every dish is
                 crafted with passion and authenticity. From the sizzle of our
                 tandoor grills to the aromatic symphony of our signature
                 curries, we bring you flavors that dance on your palate and warm
                 your soul.
               </p>
-              <p className="text-text-tertiary text-sm lg:text-base">
+              <p className="text-text-primary text-sm lg:text-base">
                 Our flagship venue offers an elegant and versatile space with a
                 capacity of up to 140 guests, perfect for hosting weddings,
                 birthdays, graduations, and all types of special events.
@@ -157,7 +98,7 @@ const InfoCard = () => {
           </div>
 
           {/* Elegant Feature Highlights */}
-          <div className="flex items-center gap-6 text-text-tertiary">
+          {/* <div className="flex items-center gap-6 text-text-tertiary">
             {[
               { text: "Authentic Flavors", color: "bg-helpers-success-main" },
               { text: "Family Owned", color: "bg-elements-primary-main" },
@@ -172,17 +113,17 @@ const InfoCard = () => {
                 </span>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </motion.div>
 
       {/* Right Section: Info Blocks */}
-      <div className="relative md:w-1/3 bg-gradient-to-br from-card-background/60 to-card-background/40 backdrop-blur-lg px-6 py-8 rounded-3xl border border-border-dimmed/40 shadow-xl">
+      <div className="relative md:w-1/3 bg-gradient-to-br from-card-background/70 to-card-background/50 backdrop-blur-lg px-6 py-8 rounded-3xl border border-border-dimmed/40 shadow-xl">
         <div className="space-y-6">
           {/* Opening Times */}
           <div className="group">
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
-              <span className="w-5 h-5 text-elements-primary-main hover:rotate-12 transition-transform duration-200">
+              <span className="w-5 h-5 text-text-primary hover:rotate-12 transition-transform duration-200">
                 <svg
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -202,7 +143,7 @@ const InfoCard = () => {
                 <span className="font-medium text-text-secondary text-sm">
                   Sun – Tues:
                 </span>
-                <span className="text-text-tertiary font-light text-sm">
+                <span className="text-text-secondary font-light text-sm">
                   11am – 9pm
                 </span>
               </div>
@@ -211,7 +152,7 @@ const InfoCard = () => {
                 <span className="font-medium text-text-secondary text-sm">
                   Wed – Sat:
                 </span>
-                <span className="text-text-tertiary font-light text-sm">
+                <span className="text-text-secondary font-light text-sm">
                   11am – 10pm
                 </span>
               </div>
@@ -221,7 +162,7 @@ const InfoCard = () => {
           {/* Location */}
           <div className="group">
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
-              <span className="w-5 h-5 text-elements-primary-shadow hover:scale-110 transition-transform duration-200">
+              <span className="w-5 h-5 text-text-primary hover:scale-110 transition-transform duration-200">
                 <svg
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -240,19 +181,19 @@ const InfoCard = () => {
               <p className="font-medium text-text-primary text-base mb-1">
                 Yellow Chilli
               </p>
-              <p className="text-text-tertiary font-light text-sm">
+              <p className="text-text-primary font-light text-sm">
                 123 Southall Road
               </p>
-              <p className="text-text-tertiary font-light text-sm mb-3">
+              <p className="text-text-primary font-light text-sm mb-3">
                 London, UB1 1AA
               </p>
               <a
                 href="https://goo.gl/maps/yourlink"
-                className="inline-flex items-center gap-2 text-elements-primary-shadow font-medium hover:text-elements-primary-main transition-all duration-300 group hover:translate-x-1 text-sm"
+                className="inline-flex items-center gap-2 text-text-secondary font-medium hover:text-text-primary/90 transition-all duration-300 group hover:translate-x-1 text-sm"
               >
                 <span>View on Map</span>
                 <svg
-                  className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300"
+                  className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300 text-text-primary"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -269,7 +210,7 @@ const InfoCard = () => {
           {/* Contact */}
           <div className="group">
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
-              <span className="w-5 h-5 text-helpers-success-main hover:rotate-12 transition-transform duration-200">
+              <span className="w-5 h-5 text-text-primary hover:rotate-12 transition-transform duration-200">
                 <svg
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -283,7 +224,7 @@ const InfoCard = () => {
             <div className="bg-neutral-dimmed/60 backdrop-blur-sm rounded-xl p-4 border border-border-dimmed/30 hover:border-border-dimmed/50 transition-colors duration-300">
               <a
                 href="tel:02041234567"
-                className="text-text-primary font-medium text-xl hover:text-elements-primary-main transition-colors duration-300 hover:scale-105 inline-block"
+                className="text-text-primary font-medium text-md hover:text-elements-primary-main transition-colors duration-300 hover:scale-105 inline-block"
               >
                 0204 123 4567
               </a>
