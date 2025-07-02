@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { escapeSingleQuotes } from "@/lib/utils";
 
 const InfoCard = () => {
   const containerVariants = {
@@ -54,7 +53,7 @@ const InfoCard = () => {
         {/* Decorative Chilli Background */}
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <svg
-            className="absolute -right-8 top-4 w-40 h-60 text-elements-primary-main/60 transform rotate-12 drop-shadow-lg"
+            className="absolute -right-8 top-4 w-40 h-60 text-white/60 transform rotate-12 drop-shadow-lg"
             viewBox="0 0 232.26 693.11"
             fill="currentColor"
           >
@@ -62,7 +61,7 @@ const InfoCard = () => {
           </svg>
 
           <svg
-            className="absolute -left-8 bottom-8 w-28 h-44 text-helpers-error-main/50 transform -rotate-45 scale-75 drop-shadow-md"
+            className="absolute -left-8 bottom-8 w-28 h-44 text-white/50 transform -rotate-45 scale-75 drop-shadow-md"
             viewBox="0 0 232.26 693.11"
             fill="currentColor"
           >
@@ -70,7 +69,7 @@ const InfoCard = () => {
           </svg>
 
           <svg
-            className="absolute right-8 bottom-16 w-20 h-32 text-elements-primary-shadow/40 transform rotate-45 scale-50 drop-shadow-sm"
+            className="absolute right-8 bottom-16 w-20 h-32 text-white/40 transform rotate-45 scale-50 drop-shadow-sm"
             viewBox="0 0 232.26 693.11"
             fill="currentColor"
           >
@@ -93,19 +92,19 @@ const InfoCard = () => {
                 >
                   <stop
                     offset="0%"
-                    className="text-elements-primary-main"
+                    className="text-white"
                     stopColor="currentColor"
                     stopOpacity="0.6"
                   />
                   <stop
                     offset="50%"
-                    className="text-helpers-error-main"
+                    className="text-white"
                     stopColor="currentColor"
                     stopOpacity="0.8"
                   />
                   <stop
                     offset="100%"
-                    className="text-elements-primary-shadow"
+                    className="text-white"
                     stopColor="currentColor"
                     stopOpacity="0.4"
                   />
@@ -135,9 +134,9 @@ const InfoCard = () => {
           <div className="mb-8 space-y-4">
             <div className="text-text-secondary leading-relaxed space-y-4 text-base lg:text-lg font-light">
               <p>
-                {escapeSingleQuotes(
-                  "Nestled in the vibrant heart of Southall, Yellow Chilli is more than just a restaurant—it's a celebration of India's rich culinary heritage blended with the bold flavors of Afghanistan."
-                )}
+                Nestled in the vibrant heart of Southall, Yellow Chilli is more
+                than just a restaurant—it's a celebration of India's rich
+                culinary heritage blended with the bold flavors of Afghanistan.
               </p>
               <p className="text-text-tertiary text-sm lg:text-base">
                 Our kitchen tells stories through spices, where every dish is
@@ -182,7 +181,7 @@ const InfoCard = () => {
           {/* Opening Times */}
           <div className="group">
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
-              <span className="w-5 h-5 text-elements-primary-main hover:rotate-12 transition-transform duration-200">
+              <span className="w-5 h-5 text-white hover:rotate-12 transition-transform duration-200">
                 <svg
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -221,7 +220,7 @@ const InfoCard = () => {
           {/* Location */}
           <div className="group">
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
-              <span className="w-5 h-5 text-elements-primary-shadow hover:scale-110 transition-transform duration-200">
+              <span className="w-5 h-5 text-white hover:scale-110 transition-transform duration-200">
                 <svg
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -248,11 +247,11 @@ const InfoCard = () => {
               </p>
               <a
                 href="https://goo.gl/maps/yourlink"
-                className="inline-flex items-center gap-2 text-elements-primary-shadow font-medium hover:text-elements-primary-main transition-all duration-300 group hover:translate-x-1 text-sm"
+                className="inline-flex items-center gap-2 text-white font-medium hover:text-white/90 transition-all duration-300 group hover:translate-x-1 text-sm"
               >
                 <span>View on Map</span>
                 <svg
-                  className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300"
+                  className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -269,7 +268,7 @@ const InfoCard = () => {
           {/* Contact */}
           <div className="group">
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
-              <span className="w-5 h-5 text-helpers-success-main hover:rotate-12 transition-transform duration-200">
+              <span className="w-5 h-5 text-white hover:rotate-12 transition-transform duration-200">
                 <svg
                   fill="currentColor"
                   viewBox="0 0 20 20"
