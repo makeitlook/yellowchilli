@@ -63,7 +63,7 @@ const FindUsSection = () => {
             </div>
             <p className="text-lg text-gray-600 leading-relaxed">
               Visit us in the heart of Southall for an authentic dining
-              experience. We're easily accessible and ready to welcome you.
+              experience. We&apos;re easily accessible and ready to welcome you.
             </p>
           </motion.div>
         </motion.div>
@@ -256,11 +256,11 @@ const FindUsSection = () => {
             <h3 className="text-lg font-semibold text-text-primary mb-3">
               Easy to Find, Hard to Forget
             </h3>
-            <p className="text-text-primary max-w-3xl mx-auto">
-              Located in the bustling heart of Southall, we're just a short walk
-              from Guru Nanak Darbar on King Street. Free parking available
-              nearby, and we're easily accessible by public transport.
-            </p>
+              <p className="text-text-primary max-w-3xl mx-auto">
+                Located in the bustling heart of Southall, we&apos;re just a short walk
+                from Guru Nanak Darbar on King Street. Free parking available
+                nearby, and we&apos;re easily accessible by public transport.
+              </p>
           </div>
         </motion.div>
       </div>

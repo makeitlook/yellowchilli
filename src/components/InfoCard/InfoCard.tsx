@@ -77,7 +77,7 @@ const InfoCard = () => {
             <div className="text-text-primary leading-relaxed space-y-4 text-sm lg:text-base font-light">
               <p>
                 Nestled in the vibrant heart of Southall, Yellow Chilli is more
-                than just a restaurant—it's a celebration of India's rich
+                than just a restaurant—it&apos;s a celebration of India&apos;s rich
                 culinary heritage blended with the bold flavours of Afghanistan.
               </p>
               <p className="text-text-primary text-sm lg:text-base">

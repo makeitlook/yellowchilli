@@ -232,7 +232,7 @@ const OurStory = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 2.7 }}
               >
-                Today, we've found our home in the heart of Southall, surrounded
+                Today, we&apos;ve found our home in the heart of Southall, surrounded
                 by the vibrant culture that inspires our cuisine. Here, we
                 continue to honour our heritage while creating new memories for
                 families and friends.
