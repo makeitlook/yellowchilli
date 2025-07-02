@@ -51,22 +51,29 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-neutral-shadow-heavy">
-      {/* Background Image */}
+      {/* Background Video */}
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
-        <Image
-          src="/images/food/header.png"
-          alt="Yellow Chilli Restaurant Food"
-          fill
-          className="object-cover"
-          priority
-          quality={85}
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-30"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/2620043/2620043-uhd_2560_1440_25fps.mp4"
+            type="video/mp4"
+          />
+        </video>
       </motion.div>
+
+      {/* Glass Overlay */}
+      <div className="absolute inset-0 w-full h-full bg-black/10 backdrop-blur-md" />
 
       {/* Enhanced Overlay with Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-gray/70 to-black/90" />
