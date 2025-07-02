@@ -9,6 +9,7 @@ import {
   LuPhone,
   LuUtensilsCrossed,
   LuMapPin,
+  LuChefHat,
 } from "react-icons/lu";
 
 // Define navigation item structure
@@ -51,7 +52,7 @@ export function useNavigationConfig(): {
         path: "/catering",
         sectionId: "catering",
         current: pathname === "/catering",
-        icon: LuUtensilsCrossed,
+        icon: LuChefHat,
       },
       {
         name: "Menu",
