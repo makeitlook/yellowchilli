@@ -7,16 +7,21 @@ const instance = getInstance();
 
 // Custom color palette based on provided colors
 const customColors = {
-  black: "#000000",
-  oxfordBlue: "#14213d",
-  orange: "#fca311",
+  // Base background colour for the entire site
+  black: "#272727",
+  // Used for card backgrounds and neutral UI elements
+  oxfordBlue: "#d4aa7d",
+  // Primary brand colour
+  orange: "#f8da01",
+  // Secondary accent colour
+  red: "#df0613",
   whiteSmoke: "#f2f2f2",
   white: "#ffffff",
 };
 
 // Map custom colors to theme
-const primary = "orange"; // Using standard tailwind orange as closest match
-const secondary = "slate"; // Using slate to complement oxford blue
+const primary = "orange"; // Tailwind palette used for convenience
+const secondary = "red"; // Palette approximating the accent colour
 const success = "emerald";
 const error = "red";
 const info = "blue";
@@ -25,13 +30,14 @@ const progress = "yellow";
 const neutral = "slate"; // Using slate for neutrals to complement oxford blue
 
 const dark = {
+  name: "base",
   value: "dark",
   type: "dark",
   label: "Dark",
-  selectors: [".dark"],
+  selectors: [":root", ".dark"],
   theme: {
     colors: {
-      // Primary and Secondary colours - using custom orange
+      // Primary colours
       "elements-primary-dimmed": tinycolor(customColors.orange)
         .darken(5)
         .toString(),
@@ -53,18 +59,18 @@ const dark = {
         .darken(10)
         .toString(),
 
-      // Secondary colors - using oxford blue
-      "elements-secondary-dimmed": tinycolor(customColors.oxfordBlue)
+      // Secondary accent colours
+      "elements-secondary-dimmed": tinycolor(customColors.red)
         .lighten(20)
         .toString(),
-      "elements-secondary-main": tinycolor(customColors.oxfordBlue)
-        .lighten(10)
+      "elements-secondary-main": customColors.red,
+      "elements-secondary-shadow": tinycolor(customColors.red)
+        .darken(10)
         .toString(),
-      "elements-secondary-shadow": customColors.oxfordBlue,
-      "elements-secondary-shadow-heavy": tinycolor(customColors.oxfordBlue)
-        .darken(5)
+      "elements-secondary-shadow-heavy": tinycolor(customColors.red)
+        .darken(20)
         .toString(),
-      "elements-secondary-highlight": tinycolor(customColors.oxfordBlue)
+      "elements-secondary-highlight": tinycolor(customColors.red)
         .lighten(30)
         .toString(),
       "elements-secondary-contrastText": customColors.white,
@@ -85,10 +91,10 @@ const dark = {
       "helpers-warning-button": colors[warning]["500"],
       "helpers-warning-button-hover": colors[warning]["400"],
 
-      "helpers-remove-button": tinycolor(customColors.oxfordBlue)
+      "helpers-remove-button": tinycolor(customColors.red)
         .lighten(10)
         .toString(),
-      "helpers-remove-button-hover": tinycolor(customColors.oxfordBlue)
+      "helpers-remove-button-hover": tinycolor(customColors.red)
         .lighten(20)
         .toString(),
 
@@ -178,7 +184,7 @@ const dark = {
         main: customColors.orange,
       },
       secondary: {
-        main: tinycolor(customColors.oxfordBlue).lighten(20).toString(),
+        main: tinycolor(customColors.red).lighten(10).toString(),
       },
       error: {
         main: colors[error]["400"],
