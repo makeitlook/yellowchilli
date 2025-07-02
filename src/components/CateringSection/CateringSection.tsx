@@ -55,9 +55,9 @@ const CateringSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden py-16 lg:py-24 bg-[#d4aa7d]">
+    <section className="relative overflow-hidden py-16 lg:py-24">
       <Image
-        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
+        src="/images/food/catering-hero.jpg"
         alt="Catering background"
         fill
         priority
@@ -82,7 +82,7 @@ const CateringSection = () => {
               {/* Main image container */}
               <div className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/catering-hero.jpg"
+                  src="/images/food/catering-hero.jpg"
                   alt="Yellow Chilli Catering Experience"
                   fill
                   className="object-cover"
@@ -259,7 +259,7 @@ const CateringSection = () => {
           <h3 className="text-2xl font-bold text-white mb-4">
             Ready to Plan Your Event?
           </h3>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
             Contact our catering team today to discuss your requirements and
             receive a customised quote
           </p>
