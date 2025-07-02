@@ -56,14 +56,22 @@ const CateringSection = () => {
 
   return (
     <section className="relative overflow-hidden py-16 lg:py-24">
-      <Image
-        src="/images/food/catering-hero.jpg"
-        alt="Catering background"
-        fill
-        priority
-        className="object-cover object-center -z-10"
-      />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/food/catering-bg.jpg"
+          alt="Catering background"
+          fill
+          priority
+          className="object-cover object-top sm:object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral/90 via-neutral/10 to-neutral/20" />
+        {/* Glass blur overlay */}
+        <div className="absolute inset-0 bg-neutral/60 backdrop-blur-sm" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content Layout */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Image */}
