@@ -32,7 +32,7 @@ const InfoCard = () => {
   return (
     <motion.section
       id="about"
-      className="relative z-20 overflow-hidden bg-card-background/80 backdrop-blur-md text-text-primary md:flex md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30"
+      className="relative z-20 overflow-hidden bg-card-background/80 backdrop-blur-md text-text-primary md:flex md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30 p-6 md:p-10"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -44,7 +44,7 @@ const InfoCard = () => {
       </div>
 
       {/* Subtle Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-elements-primary-main/5 via-transparent to-elements-primary-shadow/5 rounded-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-elements-primary-main/10 via-transparent to-elements-primary-shadow/10 rounded-3xl" />
 
       {/* Left Section: Our Story */}
       <motion.div
@@ -62,7 +62,7 @@ const InfoCard = () => {
           </svg>
 
           <svg
-            className="absolute -left-8 bottom-8 w-28 h-42 text-helpers-error-main/50 transform -rotate-45 scale-75 drop-shadow-md"
+            className="absolute -left-8 bottom-8 w-28 h-44 text-helpers-error-main/50 transform -rotate-45 scale-75 drop-shadow-md"
             viewBox="0 0 232.26 693.11"
             fill="currentColor"
           >
@@ -70,7 +70,7 @@ const InfoCard = () => {
           </svg>
 
           <svg
-            className="absolute right-8 bottom-16 w-20 h-30 text-elements-primary-shadow/40 transform rotate-45 scale-50 drop-shadow-sm"
+            className="absolute right-8 bottom-16 w-20 h-32 text-elements-primary-shadow/40 transform rotate-45 scale-50 drop-shadow-sm"
             viewBox="0 0 232.26 693.11"
             fill="currentColor"
           >
@@ -177,7 +177,7 @@ const InfoCard = () => {
       </motion.div>
 
       {/* Right Section: Info Blocks */}
-      <div className="relative md:w-1/3 bg-gradient-to-br from-card-background/60 to-card-background/40 backdrop-blur-lg px-6 py-8 rounded-3xl border border-border-dimmed/40 shadow-xl">
+      <div className="relative md:w-1/3 bg-gradient-to-br from-card-background/70 to-card-background/50 backdrop-blur-lg px-6 py-8 rounded-3xl border border-border-dimmed/40 shadow-xl">
         <div className="space-y-6">
           {/* Opening Times */}
           <div className="group">
