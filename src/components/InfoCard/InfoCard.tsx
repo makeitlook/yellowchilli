@@ -64,8 +64,8 @@ const InfoCard = () => {
           {/* Elegant Title with Decorative Line */}
           <div className="mb-4">
             <div className="inline-flex items-center gap-4 mb-4">
-              <div className="w-6 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
-              <h2 className="text-elements-primary-main text-2xl lg:text-3xl font-light tracking-wide">
+              <div className="w-12 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
+              <h2 className="text-elements-primary-main text-3xl lg:text-4xl font-light uppercase tracking-[0.2em]">
                 About
               </h2>
               <div className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-shadow/60" />
@@ -74,7 +74,7 @@ const InfoCard = () => {
 
           {/* Refined Content */}
           <div className="mb-8 space-y-4">
-            <div className="text-text-primary leading-relaxed space-y-4 text-base lg:text-lg font-light">
+            <div className="text-text-primary leading-relaxed space-y-4 text-sm lg:text-base font-light">
               <p>
                 Nestled in the vibrant heart of Southall, Yellow Chilli is more
                 than just a restaurant—it's a celebration of India's rich
@@ -84,8 +84,8 @@ const InfoCard = () => {
                 Our kitchen tells stories through spices, where every dish is
                 crafted with passion and authenticity. From the sizzle of our
                 tandoor grills to the aromatic symphony of our signature
-                curries, we bring you flavours that dance on your palate and warm
-                your soul.
+                curries, we bring you flavours that dance on your palate and
+                warm your soul.
               </p>
               <p className="text-text-primary text-sm lg:text-base">
                 Our flagship venue offers an elegant and versatile space with a

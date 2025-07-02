@@ -112,9 +112,9 @@ const HeroSection: React.FC = () => {
                 variants={lineVariants}
                 style={{ originX: 0 }}
               />
-              <p className="text-text-primary/90 text-sm sm:text-base font-light tracking-[0.2em] uppercase">
+              <h2 className="text-text-primary/90 text-sm sm:text-base font-light tracking-[0.2em] uppercase">
                 Authentic Indian & Afghan Cuisine
-              </p>
+              </h2>
               <motion.div
                 className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-main/40"
                 variants={lineVariants}

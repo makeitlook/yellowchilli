@@ -111,16 +111,15 @@ const CateringSection = () => {
           >
             {/* Header */}
             <motion.div variants={itemVariants}>
-              <div className="mb-6">
-                <span className="text-white/70 text-sm font-medium tracking-wider uppercase">
-                  Catering Services
-                </span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Enjoy An Exceptional
-                <span className="block">Journey of Taste</span>
-              </h2>
-              <p className="text-base sm:text-lg text-white/80 leading-relaxed">
+              <motion.div className="flex items-center gap-6 mb-8">
+                <div className="w-12 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
+                <h2 className="text-elements-primary-main text-3xl lg:text-4xl font-light uppercase tracking-[0.2em]">
+                  catering
+                </h2>
+                <div className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-shadow/60" />
+              </motion.div>
+
+              <p className="text-base sm:text-lg text-text-primary/80 leading-relaxed">
                 Our catering service specialises in creating unforgettable
                 culinary experiences for weddings, birthdays, graduations, and
                 all types of events. With exceptional attention to detail and a
@@ -135,7 +134,7 @@ const CateringSection = () => {
                 <div>
                   <div className="flex items-center mb-4">
                     <svg
-                      className="w-6 h-6 text-white mr-3"
+                      className="w-6 h-6 text-text-primary mr-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -147,11 +146,11 @@ const CateringSection = () => {
                         d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                       />
                     </svg>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white">
+                    <h3 className="text-lg sm:text-xl font-semibold text-text-primary">
                       Specialist
                     </h3>
                   </div>
-                  <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+                  <p className="text-text-primary/70 text-sm sm:text-base leading-relaxed">
                     Expert culinary team with years of experience in traditional
                     Indian and Afghan cuisine, bringing authentic flavours to
                     your celebration.
@@ -161,7 +160,7 @@ const CateringSection = () => {
                 <div>
                   <div className="flex items-center mb-4">
                     <svg
-                      className="w-6 h-6 text-white mr-3"
+                      className="w-6 h-6 text-text-primary mr-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -173,11 +172,11 @@ const CateringSection = () => {
                         d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                       />
                     </svg>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white">
+                    <h3 className="text-lg sm:text-xl font-semibold text-text-primary">
                       Restaurant
                     </h3>
                   </div>
-                  <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+                  <p className="text-text-primary/70 text-sm sm:text-base leading-relaxed">
                     Bringing the same quality and taste from our renowned Yellow
                     Chilli restaurant directly to your venue with professional
                     service.
@@ -199,7 +198,7 @@ const CateringSection = () => {
                     transition={{ delay: 0.4 + index * 0.1 }}
                   >
                     <svg
-                      className="w-5 h-5 text-white mt-0.5 flex-shrink-0"
+                      className="w-5 h-5 text-text-primary mt-0.5 flex-shrink-0"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -209,7 +208,7 @@ const CateringSection = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="text-white/80 text-sm leading-relaxed">
+                    <span className="text-text-primary/80 text-sm leading-relaxed">
                       {feature}
                     </span>
                   </motion.div>
@@ -228,10 +227,10 @@ const CateringSection = () => {
           viewport={{ once: true }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-text-primary mb-4">
               Perfect for Every Occasion
             </h3>
-            <p className="text-white/70 max-w-2xl mx-auto">
+            <p className="text-text-primary/70 max-w-2xl mx-auto">
               From intimate gatherings to grand celebrations, we bring
               excellence to every event
             </p>
@@ -245,10 +244,10 @@ const CateringSection = () => {
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
               >
-                <h4 className="text-xl font-semibold text-white mb-4">
+                <h4 className="text-xl font-semibold text-text-primary mb-4">
                   {service.title}
                 </h4>
-                <p className="text-white/70 text-md leading-relaxed">
+                <p className="text-text-primary/70 text-md leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -264,10 +263,10 @@ const CateringSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-2xl font-bold text-text-primary mb-4">
             Ready to Plan Your Event?
           </h3>
-          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+          <p className="text-text-primary/70 mb-8 max-w-2xl mx-auto">
             Contact our catering team today to discuss your requirements and
             receive a customised quote
           </p>
@@ -281,7 +280,7 @@ const CateringSection = () => {
               useGradient={false}
               gradientFrom="from-elements-primary-main"
               gradientTo="to-elements-primary-shadow"
-              textColor="text-white"
+              textColor="text-text-primary"
               shadowColor="shadow-black"
               phoneNumber="+1 (555) 123-4567"
             />

@@ -94,16 +94,11 @@ const OurStory = () => {
           {/* Title Section */}
           <motion.div variants={itemVariants}>
             <motion.div className="flex items-center gap-6 mb-8">
-              <motion.div
-                className="w-12 h-px bg-gradient-to-r from-elements-primary-main to-transparent"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 1.2, delay: 0.3 }}
-                viewport={{ once: true }}
-              />
-              <h2 className="text-elements-primary-main text-2xl lg:text-3xl font-light tracking-wide">
-                Our Story
+              <div className="w-12 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
+              <h2 className="text-elements-primary-main text-3xl lg:text-4xl font-light uppercase tracking-[0.2em] text-center">
+                our story
               </h2>
+              <div className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-shadow/60" />
             </motion.div>
             <motion.p
               className="text-text-secondary text-lg leading-relaxed font-light"

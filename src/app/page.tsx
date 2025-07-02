@@ -4,6 +4,7 @@ import AnimatedGradientBackground from "@/components/GradientBackground/Animated
 import HeroSection from "@/components/HeroSection/HeroSection";
 import InfoCard from "@/components/InfoCard/InfoCard";
 import PageLayout from "@/components/Layouts/PageLayout";
+import MenuSection from "@/components/MenuSection/MenuSection";
 import OurStory from "@/components/OurStory/OurStory";
 
 export default function Home() {
@@ -27,8 +28,11 @@ export default function Home() {
 
           <OurStory />
         </div>
-        <div>
+        <div id="catering">
           <CateringSection />
+        </div>
+        <div id="menu">
+          <MenuSection />
         </div>
       </section>
     </>
