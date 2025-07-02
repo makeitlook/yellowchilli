@@ -32,10 +32,34 @@ export function useNavigationConfig(): {
 
   const navigationItems: NavigationItem[] = useMemo(
     () => [
-      { name: "About", path: "/about", current: pathname === "/about", icon: LuInfo },
-      { name: "Catering", path: "/catering", current: pathname === "/catering", icon: LuUtensilsCrossed },
-      { name: "Menu", path: "/menu", current: pathname === "/menu", icon: LuUtensilsCrossed },
-      { name: "Find Us", path: "/find-us", current: pathname === "/find-us", icon: LuMapPin },
+      {
+        name: "About",
+        path: "/about",
+        sectionId: "about",
+        current: pathname === "/about",
+        icon: LuInfo,
+      },
+      {
+        name: "Catering",
+        path: "/catering",
+        sectionId: "catering",
+        current: pathname === "/catering",
+        icon: LuUtensilsCrossed,
+      },
+      {
+        name: "Menu",
+        path: "/menu",
+        sectionId: "menu",
+        current: pathname === "/menu",
+        icon: LuUtensilsCrossed,
+      },
+      {
+        name: "Find Us",
+        path: "/find-us",
+        sectionId: "find-us",
+        current: pathname === "/find-us",
+        icon: LuMapPin,
+      },
     ],
     [pathname]
   );

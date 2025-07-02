@@ -494,7 +494,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
               <BookNowCTA
                 variant="outline"
                 size="small"
-                shape="subtle"
+                shape="pill"
                 text="Reserve Table"
                 useGradient={true}
                 gradientFrom="from-elements-primary-main"

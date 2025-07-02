@@ -10,7 +10,7 @@ const customColors = {
   // Base background colour for the entire site
   black: "#272727",
   // Used for card backgrounds and neutral UI elements
-  oxfordBlue: "#d4aa7d",
+  darkBlack: "#0A0A0A",
   // Primary brand colour
   orange: "#f8da01",
   // Secondary accent colour
@@ -157,22 +157,20 @@ const dark = {
       "border-white": customColors.white,
       "border-dimmed": tinycolor(customColors.black).lighten(8).toString(),
 
-      "button-hover": tinycolor(customColors.oxfordBlue).lighten(5).toString(),
+      "button-hover": tinycolor(customColors.darkBlack).lighten(5).toString(),
 
       // Backgrounds
       "main-background": customColors.black,
-      "card-background": customColors.oxfordBlue,
-      "modal-background": tinycolor(customColors.oxfordBlue)
+      "card-background": customColors.darkBlack,
+      "modal-background": tinycolor(customColors.darkBlack)
         .lighten(5)
         .toString(),
 
-      "neutral-dimmed-heavy": tinycolor(customColors.oxfordBlue)
+      "neutral-dimmed-heavy": tinycolor(customColors.darkBlack)
         .lighten(10)
         .toString(),
-      "neutral-dimmed": tinycolor(customColors.oxfordBlue)
-        .lighten(5)
-        .toString(),
-      neutral: customColors.oxfordBlue,
+      "neutral-dimmed": tinycolor(customColors.darkBlack).lighten(5).toString(),
+      neutral: customColors.darkBlack,
       "neutral-shadow": tinycolor(customColors.black).lighten(5).toString(),
       "neutral-shadow-heavy": customColors.black,
     },
@@ -197,7 +195,7 @@ const dark = {
       },
       background: {
         default: customColors.black,
-        paper: customColors.oxfordBlue,
+        paper: customColors.darkBlack,
       },
     },
   },

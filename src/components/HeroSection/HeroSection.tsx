@@ -12,40 +12,46 @@ const HeroSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.2,
+        delayChildren: 0.3,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 40, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: [0.25, 0.25, 0, 1],
       },
     },
   };
 
-  const floatingAnimation = {
-    y: [-10, 10, -10],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut",
+  const logoVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 1.2,
+        ease: [0.25, 0.25, 0, 1],
+        delay: 0.2,
+      },
     },
   };
 
-  const pulseAnimation = {
-    scale: [1, 1.2, 1],
-    opacity: [0.3, 0.8, 0.3],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      ease: "easeInOut",
+  const lineVariants = {
+    hidden: { scaleX: 0 },
+    visible: {
+      scaleX: 1,
+      transition: {
+        duration: 1.5,
+        ease: [0.25, 0.25, 0, 1],
+        delay: 0.8,
+      },
     },
   };
 
@@ -73,173 +79,212 @@ const HeroSection: React.FC = () => {
       </motion.div>
 
       {/* Glass Overlay */}
-      <div className="absolute inset-0 w-full h-full bg-black/10 backdrop-blur-md" />
+      <div className="absolute inset-0 w-full h-full bg-neutral/5 backdrop-blur-md" />
 
-      {/* Enhanced Overlay with Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-gray/70 to-black/90" />
-
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Spice Particles */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 w-3 h-3 bg-elements-primary-main/80 rounded-full shadow-lg"
-          animate={floatingAnimation}
-        />
-        <motion.div
-          className="absolute top-1/3 right-1/4 w-2.5 h-2.5 bg-elements-primary-light/90 rounded-full shadow-lg"
-          animate={{
-            y: [-8, 12, -8],
-            transition: {
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            },
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-elements-primary-shadow/80 rounded-full shadow-lg"
-          animate={{
-            y: [-6, 14, -6],
-            transition: {
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            },
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 right-1/3 w-2 h-2 bg-helpers-warning-main/70 rounded-full shadow-lg"
-          animate={{
-            y: [-12, 8, -12],
-            transition: {
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 3,
-            },
-          }}
-        />
+      {/* Elegant Grid Pattern Overlay */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgba(255,255,255,0.3)_1px,_transparent_0)] bg-[length:32px_32px]" />
       </div>
 
+      {/* Subtle Gradient Borders */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
       {/* Main Content */}
-      <div className="relative flex flex-col items-center justify-center min-h-screen px-4 py-20">
+      <div className="relative flex flex-col items-center justify-center min-h-screen px-6 py-20">
         <motion.div
-          className="text-center space-y-12 max-w-4xl mx-auto"
+          className="text-center space-y-12 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Subtitle */}
-          <motion.div variants={itemVariants}>
-            <p className="text-text-clear text-lg sm:text-xl font-medium tracking-wider uppercase mb-4 mt-10 sm:mt-0">
-              Authentic Indian & Afghan Cuisine
-            </p>
-            <motion.div
-              className="w-24 h-0.5 bg-gradient-to-r from-elements-primary-main to-elements-primary-shadow mx-auto"
-              initial={{ width: 0 }}
-              animate={{ width: 96 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            />
-          </motion.div>
-
-          {/* Main Title */}
-          <motion.div variants={itemVariants}>
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-text-clear mb-6">
-              <motion.span
-                className="inline-block"
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.3 },
-                }}
-              >
-                <Image
-                  src="/images/text.png"
-                  alt="Yellow Chilli Text Logo"
-                  width={400}
-                  height={100}
-                  className="w-full h-auto max-w-2xl"
-                />
-              </motion.span>
-            </h1>
-          </motion.div>
-
-          {/* Description */}
-          <motion.div variants={itemVariants}>
-            <p className="text-text-clear text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-              Experience the vibrant flavors of Southall where tradition meets
-              taste. Every dish tells a story of heritage, spices, and passion.
-            </p>
-          </motion.div>
-
-          {/* CTA Buttons */}
+          {/* Elegant Subtitle with refined typography */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
             variants={itemVariants}
+            className="space-y-6 mt-6 sm:mt-0"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/menu"
-                className="group relative overflow-hidden bg-gradient-to-r from-elements-primary-main to-elements-primary-light hover:from-elements-primary-shadow hover:to-elements-primary-main text-elements-primary-contrastText font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:shadow-2xl min-w-[200px] block"
-              >
-                <span className="relative z-10">Explore Menu</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-elements-primary-shadow to-helpers-error-main"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originX: 0 }}
-                />
-              </Link>
+            <motion.div className="inline-flex items-center gap-4">
+              <motion.div
+                className="w-12 h-px bg-gradient-to-r from-transparent to-elements-primary-main/40"
+                variants={lineVariants}
+                style={{ originX: 0 }}
+              />
+              <p className="text-white/90 text-sm sm:text-base font-light tracking-[0.2em] uppercase">
+                Authentic Indian & Afghan Cuisine
+              </p>
+              <motion.div
+                className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-main/40"
+                variants={lineVariants}
+                style={{ originX: 1 }}
+              />
             </motion.div>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/contact"
-                className="group relative overflow-hidden border-2 border-text-clear text-text-clear hover:text-elements-primary-main font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:shadow-2xl min-w-[200px] block"
+          </motion.div>
+          {/* Logo with sophisticated presentation */}
+          <motion.div variants={logoVariants} className="relative">
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 rounded-3xl blur-xl"
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+                scale: [0.98, 1.02, 0.98],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.div
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.3, ease: "easeOut" },
+              }}
+              className="relative z-10"
+            >
+              <Image
+                src="/images/text.png"
+                alt="Yellow Chilli"
+                width={300}
+                height={120}
+                className="w-full h-auto max-w-xl mx-auto filter drop-shadow-2xl"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+          {/* Refined Description */}
+          <motion.div variants={itemVariants}>
+            <p className="text-white/80 text-lg sm:text-2xl lg:text-lg max-w-4xl mx-auto leading-relaxed font-light">
+              Where every dish tells a story of tradition, flavor, and passion.
+            </p>
+          </motion.div>
+          {/* Sophisticated CTA Section */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              {/* Primary CTA */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="group"
               >
-                <span className="relative z-10">Book Table</span>
-                <motion.div
-                  className="absolute inset-0 bg-text-clear"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originX: 0 }}
-                />
-              </Link>
+                <Link
+                  href="/menu"
+                  className="relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium px-10 py-4 rounded-full text-lg transition-all duration-500 hover:bg-white/20 hover:border-white/30 hover:shadow-[0_8px_30px_rgb(255,255,255,0.1)] min-w-[220px] block"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    Explore Menu
+                    <motion.svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      initial={{ x: 0 }}
+                      whileHover={{ x: 3 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </motion.svg>
+                  </span>
+
+                  {/* Hover Effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                  />
+                </Link>
+              </motion.div>
+
+              {/* Secondary CTA */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="group"
+              >
+                <Link
+                  href="/contact"
+                  className="relative overflow-hidden bg-transparent border-2 border-white/40 text-white font-medium px-10 py-4 rounded-full text-lg transition-all duration-500  hover:text-gray-900 hover:border-white min-w-[220px] block"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    <motion.svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      whileHover={{ rotate: 15 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </motion.svg>
+                    Reserve Table
+                  </span>
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Elegant Contact Info */}
+            <motion.div
+              className="text-center space-y-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
+            >
+              <p className="text-white/40 text-sm">Or call us directly</p>
+              <motion.a
+                href="tel:+1234567890"
+                className="inline-flex items-center gap-2 text-white/80 hover:text-white text-lg font-medium transition-colors duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="text-2xl font-light tracking-wider">
+                  +44 20 8574 1234
+                </span>
+              </motion.a>
             </motion.div>
           </motion.div>
 
-          {/* Features */}
           <motion.div
             className="flex flex-wrap justify-center gap-8 pt-8"
             variants={itemVariants}
           >
             {[
-              { color: "bg-helpers-success-main", text: "Fresh Daily" },
-              { color: "bg-elements-primary-main", text: "Family Recipes" },
-              { color: "bg-helpers-error-main", text: "Authentic Spices" },
+              { text: "Unique Taste", delay: 0 },
+              { text: "Family Recipes", delay: 0.1 },
+              { text: "Premium Ingredients", delay: 0.2 },
             ].map((feature, index) => (
               <motion.div
                 key={feature.text}
-                className="flex items-center gap-2 text-text-clear"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.2 + index * 0.1 }}
+                className="group text-white/60 hover:text-white/90 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.8 + feature.delay, duration: 0.6 }}
+                whileHover={{ y: -2 }}
               >
-                <motion.div
-                  className={`w-2 h-2 ${feature.color} rounded-full`}
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    transition: {
-                      duration: 2,
+                <div className="flex items-center gap-3">
+                  <motion.div
+                    className="w-1 h-1 bg-white/50 rounded-full group-hover:bg-white/80 transition-colors duration-300"
+                    animate={{
+                      scale: [1, 1.3, 1],
+                    }}
+                    transition={{
+                      duration: 3,
                       repeat: Infinity,
-                      delay: index * 0.3,
-                    },
-                  }}
-                />
-                <span className="text-sm font-medium">{feature.text}</span>
+                      delay: index * 0.5,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <span className="text-sm font-light tracking-wide uppercase">
+                    {feature.text}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </motion.div>
