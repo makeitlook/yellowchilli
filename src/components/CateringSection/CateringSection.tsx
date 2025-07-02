@@ -33,29 +33,36 @@ const CateringSection = () => {
     {
       title: "Weddings & Celebrations",
       description:
-        "Create magical moments with our exquisite wedding menus featuring traditional and contemporary dishes that honor your special day.",
+        "Create magical moments with our exquisite wedding menus featuring traditional and contemporary dishes that honour your special day.",
     },
     {
       title: "Corporate Events",
       description:
-        "Professional catering for meetings, conferences, and corporate celebrations with authentic flavors that impress clients and colleagues.",
+        "Professional catering for meetings, conferences, and corporate celebrations with authentic flavours that impress clients and colleagues.",
     },
     {
       title: "Private Gatherings",
       description:
-        "Intimate family celebrations and special occasions with personalized menus tailored to your preferences and dietary requirements.",
+        "Intimate family celebrations and special occasions with personalised menus tailored to your preferences and dietary requirements.",
     },
   ];
 
   const features = [
     "Fresh ingredients sourced daily from trusted local suppliers",
-    "Customizable menus designed to meet your specific requirements",
+    "Customisable menus designed to meet your specific requirements",
     "Professional presentation with elegant setup and attentive service",
     "Flexible packages to accommodate events of any size",
   ];
 
   return (
-    <section className="bg-[#d4aa7d] py-24">
+    <section className="relative overflow-hidden py-16 lg:py-24 bg-[#d4aa7d]">
+      <Image
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80"
+        alt="Catering background"
+        fill
+        priority
+        className="object-cover object-center -z-10"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Content Layout */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -101,15 +108,15 @@ const CateringSection = () => {
                   Catering Services
                 </span>
               </div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                 Enjoy An Exceptional
                 <span className="block">Journey of Taste</span>
               </h2>
-              <p className="text-lg text-white/80 leading-relaxed">
-                Our catering service specializes in creating unforgettable
+              <p className="text-base sm:text-lg text-white/80 leading-relaxed">
+                Our catering service specialises in creating unforgettable
                 culinary experiences for weddings, birthdays, graduations, and
                 all types of events. With exceptional attention to detail and a
-                passion for flavor, we turn every celebration into a lasting
+                passion for flavour, we turn every celebration into a lasting
                 memory.
               </p>
             </motion.div>
@@ -132,13 +139,13 @@ const CateringSection = () => {
                         d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                       />
                     </svg>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white">
                       Specialist
                     </h3>
                   </div>
-                  <p className="text-white/70 text-md leading-relaxed">
+                  <p className="text-white/70 text-sm sm:text-base leading-relaxed">
                     Expert culinary team with years of experience in traditional
-                    Indian and Afghan cuisine, bringing authentic flavors to
+                    Indian and Afghan cuisine, bringing authentic flavours to
                     your celebration.
                   </p>
                 </div>
@@ -158,11 +165,11 @@ const CateringSection = () => {
                         d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                       />
                     </svg>
-                    <h3 className="text-xl font-semibold text-white">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white">
                       Restaurant
                     </h3>
                   </div>
-                  <p className="text-white/70 text-md leading-relaxed">
+                  <p className="text-white/70 text-sm sm:text-base leading-relaxed">
                     Bringing the same quality and taste from our renowned Yellow
                     Chilli restaurant directly to your venue with professional
                     service.
@@ -213,7 +220,7 @@ const CateringSection = () => {
           viewport={{ once: true }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-white mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
               Perfect for Every Occasion
             </h3>
             <p className="text-white/70 max-w-2xl mx-auto">
@@ -252,9 +259,9 @@ const CateringSection = () => {
           <h3 className="text-2xl font-bold text-white mb-4">
             Ready to Plan Your Event?
           </h3>
-          <p className="text-white/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
             Contact our catering team today to discuss your requirements and
-            receive a customized quote
+            receive a customised quote
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

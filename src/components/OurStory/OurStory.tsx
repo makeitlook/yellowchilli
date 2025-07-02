@@ -110,7 +110,7 @@ const OurStory = () => {
               variants={itemVariants}
             >
               From humble beginnings to culinary excellence, discover the story
-              behind our passion for authentic flavors.
+              behind our passion for authentic flavours.
             </motion.p>
           </motion.div>
 
@@ -179,7 +179,7 @@ const OurStory = () => {
               <p className="text-text-secondary leading-relaxed">
                 Today, we've found our home in the heart of Southall, surrounded
                 by the vibrant culture that inspires our cuisine. Here, we
-                continue to honor our heritage while creating new memories for
+                continue to honour our heritage while creating new memories for
                 families and friends.
               </p>
             </motion.div>
