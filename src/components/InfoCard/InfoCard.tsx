@@ -1,4 +1,5 @@
 import React from "react";
+import { escapeSingleQuotes } from "@/lib/utils";
 
 const InfoCard = () => {
   return (
@@ -20,9 +21,9 @@ const InfoCard = () => {
           <div className="mb-8">
             <div className="text-text-secondary leading-relaxed space-y-4">
               <p className="text-lg">
-                Nestled in the vibrant heart of Southall, Yellow Chilli is more
-                than just a restaurant—it's a celebration of India's rich
-                culinary heritage blended with the bold flavors of Afghanistan.
+                {escapeSingleQuotes(
+                  "Nestled in the vibrant heart of Southall, Yellow Chilli is more than just a restaurant—it's a celebration of India's rich culinary heritage blended with the bold flavors of Afghanistan."
+                )}
               </p>
               <p>
                 Our kitchen tells stories through spices, where every dish is
@@ -32,10 +33,9 @@ const InfoCard = () => {
                 your soul.
               </p>
               <p>
-                Whether you're gathering with family, celebrating with friends,
-                or discovering new tastes, Yellow Chilli welcomes you to
-                experience the true essence of South Asian hospitality—where
-                every meal is a journey and every guest becomes family.
+                {escapeSingleQuotes(
+                  "Whether you're gathering with family, celebrating with friends, or discovering new tastes, Yellow Chilli welcomes you to experience the true essence of South Asian hospitality—where every meal is a journey and every guest becomes family."
+                )}
               </p>
             </div>
           </div>
