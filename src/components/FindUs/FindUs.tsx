@@ -28,18 +28,17 @@ const FindUsSection = () => {
   };
 
   const openingHours = [
-    { day: "Monday", hours: "5:00 PM - 11:00 PM" },
-    { day: "Tuesday", hours: "5:00 PM - 11:00 PM" },
-    { day: "Wednesday", hours: "5:00 PM - 11:00 PM" },
-    { day: "Thursday", hours: "5:00 PM - 11:00 PM" },
-    { day: "Friday", hours: "5:00 PM - 11:30 PM" },
-    { day: "Saturday", hours: "5:00 PM - 11:30 PM" },
-    { day: "Sunday", hours: "5:00 PM - 11:00 PM" },
+    { day: "Monday", hours: "3:00 PM - 11:30 PM" },
+    { day: "Tuesday", hours: "3:00 PM - 11:30 PM" },
+    { day: "Wednesday", hours: "3:00 PM - 11:30 PM" },
+    { day: "Thursday", hours: "3:00 PM - 11:30 PM" },
+    { day: "Friday", hours: "3:00 PM - 11:30 PM" },
+    { day: "Saturday", hours: "3:00 PM - 11:30 PM" },
+    { day: "Sunday", hours: "3:00 PM - 11:30 PM" },
   ];
 
-  // Check if today is Friday or Saturday for highlighting
-  const today = new Date().getDay(); // 0 = Sunday, 5 = Friday, 6 = Saturday
-  const isWeekend = today === 5 || today === 6;
+  // Determine current day for highlighting
+  const today = new Date().getDay(); // 0 = Sunday
 
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-b from-card-background to-neutral">
@@ -134,11 +133,11 @@ const FindUsSection = () => {
                     Our Location
                   </h3>
                   <p className="text-text-primary leading-relaxed mb-4">
-                    123 High Street
+                    72-76 Western Rd
                     <br />
-                    Southall, London
+                    Southall
                     <br />
-                    UB1 3AB, United Kingdom
+                    UB2 5DZ, United Kingdom
                   </p>
                   <motion.button
                     className="text-elements-primary-dimmed hover:text-elements-primary-shadow font-medium flex items-center gap-2 transition-colors"
@@ -174,9 +173,7 @@ const FindUsSection = () => {
                     Opening Hours
                   </h3>
                   <p className="text-elements-primary-main font-medium">
-                    {isWeekend
-                      ? "Open until 11:30 PM today"
-                      : "Open until 11:00 PM today"}
+                    Open until 11:30 PM today
                   </p>
                 </div>
               </div>
@@ -234,10 +231,10 @@ const FindUsSection = () => {
                     <div className="flex items-center gap-3 text-gray-700">
                       <span>Phone:</span>
                       <a
-                        href="tel:+441234567890"
+                        href="tel:02035185930"
                         className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
                       >
-                        +44 123 456 7890
+                        0203 518 5930
                       </a>
                     </div>
                   </div>
