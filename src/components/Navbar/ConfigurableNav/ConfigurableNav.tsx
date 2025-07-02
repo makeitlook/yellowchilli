@@ -196,14 +196,17 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         <div key={item.name} className="relative self-center">
           <button
             className={classNames(
-              "inline-flex items-center px-1 text-md font-medium",
+              "inline-flex items-center px-1 pb-1 text-md font-medium border-b-2",
               isActive
                 ? glassMorphism || scrolled
-                  ? "text-text-primary"
-                  : "text-text-clear"
-                : glassMorphism || scrolled
-                ? "text-text-clear hover:text-text-primary transition-all duration-100 ease-out hover:scale-105"
-                : "text-text-clear hover:text-elements-secondary-main"
+                  ? "text-text-primary border-text-primary"
+                  : "text-text-clear border-text-clear"
+                : classNames(
+                    glassMorphism || scrolled
+                      ? "text-text-clear hover:text-text-primary transition-all duration-100 ease-out hover:scale-105"
+                      : "text-text-clear hover:text-elements-secondary-main",
+                    "border-transparent"
+                  )
             )}
             onClick={() =>
               setDropdownOpen(dropdownOpen === item.name ? null : item.name)
@@ -309,14 +312,17 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         href={href}
         scroll={href.startsWith("#")}
         className={classNames(
-          "inline-flex items-center px-1 text-md font-medium",
+          "inline-flex items-center px-1 pb-1 text-md font-medium border-b-2",
           isActive
             ? glassMorphism || scrolled
-              ? "text-text-primary"
-              : "text-text-clear"
-            : glassMorphism || scrolled
-            ? "text-text-clear hover:text-text-primary transition-all duration-100 ease-out hover:scale-105"
-            : "text-text-clear hover:text-elements-secondary-main"
+              ? "text-text-primary border-text-primary"
+              : "text-text-clear border-text-clear"
+            : classNames(
+                glassMorphism || scrolled
+                  ? "text-text-clear hover:text-text-primary transition-all duration-100 ease-out hover:scale-105"
+                  : "text-text-clear hover:text-elements-secondary-main",
+                "border-transparent"
+              )
         )}
         onClick={closeMenu}
       >
