@@ -156,7 +156,7 @@ const HeroSection: React.FC = () => {
           {/* Refined Description */}
           <motion.div variants={itemVariants}>
             <p className="text-text-primary text-lg sm:text-2xl lg:text-lg max-w-4xl mx-auto leading-relaxed font-light">
-              Where every dish tells a story of tradition, flavor, and passion.
+              Where every dish tells a story of tradition, flavour, and passion.
             </p>
           </motion.div>
           {/* Sophisticated CTA Section */}

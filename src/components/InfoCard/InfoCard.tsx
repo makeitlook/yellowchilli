@@ -78,13 +78,13 @@ const InfoCard = () => {
               <p>
                 Nestled in the vibrant heart of Southall, Yellow Chilli is more
                 than just a restaurant—it's a celebration of India's rich
-                culinary heritage blended with the bold flavors of Afghanistan.
+                culinary heritage blended with the bold flavours of Afghanistan.
               </p>
               <p className="text-text-primary text-sm lg:text-base">
                 Our kitchen tells stories through spices, where every dish is
                 crafted with passion and authenticity. From the sizzle of our
                 tandoor grills to the aromatic symphony of our signature
-                curries, we bring you flavors that dance on your palate and warm
+                curries, we bring you flavours that dance on your palate and warm
                 your soul.
               </p>
               <p className="text-text-primary text-sm lg:text-base">
