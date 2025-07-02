@@ -61,7 +61,7 @@ export default function ClientLayout({
       {isLoading ? (
         <Loader />
       ) : (
-        <ThemeProvider defaultTheme="light">
+        <ThemeProvider defaultTheme="dark">
           <div className="flex flex-col min-h-screen overflow-x-hidden">
             {!isComingSoon && <ClientNav />}
 
