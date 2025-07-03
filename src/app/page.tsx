@@ -17,7 +17,7 @@ export default function Home() {
         </div>
         <div
           id="about"
-          className="relative -mt-20 px-4 scroll-mt-48"
+          className="relative -mt-20 px-4 scroll-mt-12 sm:scroll-mt-48"
           style={{
             zIndex: 30,
             position: "relative",
@@ -30,13 +30,13 @@ export default function Home() {
 
           <OurStory />
         </div>
-        <div id="catering" className="scroll-mt-24">
+        <div id="catering" className="scroll-mt-4 sm:scroll-mt-24">
           <CateringSection />
         </div>
-        <div id="menu" className="scroll-mt-12">
+        <div id="menu" className="scroll-mt-4 sm:scroll-mt-24">
           <MenuSection />
         </div>
-        <div id="find-us" className="scroll-mt-24">
+        <div id="find-us" className="scroll-mt-4 sm:scroll-mt-24">
           <FindUsSection />
         </div>
       </section>
