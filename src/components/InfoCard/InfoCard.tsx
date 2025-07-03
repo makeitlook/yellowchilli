@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const InfoCard = () => {
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 0 },
     visible: {
       opacity: 1,
       y: 0,
@@ -31,7 +31,7 @@ const InfoCard = () => {
   return (
     <motion.section
       id="about"
-      className="relative z-20 bg-card-background/80 backdrop-blur-md text-text-primary flex flex-col md:flex-row md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30 p-6 md:p-10 mt-12 sm:mt-0"
+      className="relative z-20 bg-card-background/80 backdrop-blur-md text-text-primary flex flex-col md:flex-row md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30 p-6 md:p-10 mt-12 sm:mt-0 overflow-hidden"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

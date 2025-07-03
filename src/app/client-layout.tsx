@@ -44,7 +44,10 @@ export default function ClientLayout({
   const isComingSoon = pathname === "/comingsoon";
 
   useEffect(() => {
-    const handleLoad = () => setIsLoading(false);
+    const handleLoad = () => {
+      // Add slight delay to ensure dynamic imports mount smoothly
+      setTimeout(() => setIsLoading(false), 500);
+    };
 
     if (document.readyState === "complete") {
       handleLoad();
