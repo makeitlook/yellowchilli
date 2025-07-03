@@ -32,7 +32,7 @@ export default function Home() {
         <div id="catering" className="scroll-mt-24">
           <CateringSection />
         </div>
-        <div id="menu" className="scroll-mt-24">
+        <div id="menu" className="scroll-mt-12">
           <MenuSection />
         </div>
         <div id="find-us" className="scroll-mt-24">
