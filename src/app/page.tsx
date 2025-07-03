@@ -16,7 +16,8 @@ export default function Home() {
           <HeroSection />
         </div>
         <div
-          className="relative -mt-20 px-4"
+          id="about"
+          className="relative -mt-20 px-4 scroll-mt-48"
           style={{
             zIndex: 30,
             position: "relative",
