@@ -31,7 +31,7 @@ const InfoCard = () => {
   return (
     <motion.section
       id="about"
-      className="relative z-20 overflow-hidden bg-card-background/80 backdrop-blur-md text-text-primary md:flex md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30  md:p-10 mt-12 sm:mt-0"
+      className="relative z-20 bg-card-background/80 backdrop-blur-md text-text-primary flex flex-col md:flex-row md:justify-between md:gap-16 max-w-7xl mx-auto rounded-3xl shadow-2xl border border-border-dimmed/30 p-6 md:p-10 mt-12 sm:mt-0"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -47,13 +47,13 @@ const InfoCard = () => {
 
       {/* Left Section: Our Story */}
       <motion.div
-        className="relative md:w-2/3 px-6 py-8 mb-6 md:mb-0 overflow-hidden"
+        className="relative flex-1 md:w-2/3 mb-6 md:mb-0"
         variants={itemVariants}
       >
         {/* Decorative Chilli Background */}
-        <div className="absolute inset-0  pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <svg
-            className="absolute right-16 -bottom-5 w-12 h-44 scale-150 text-text-primary/10 transform rotate-45 drop-shadow-md"
+            className="absolute right-4 md:right-16 -bottom-5 w-8 h-32 md:w-12 md:h-44 scale-150 text-text-primary/10 transform rotate-45 drop-shadow-md"
             viewBox="0 0 232.26 693.11"
             fill="currentColor"
           >
@@ -63,9 +63,9 @@ const InfoCard = () => {
         <div className="relative z-10">
           {/* Elegant Title with Decorative Line */}
           <div className="mb-4">
-            <div className="inline-flex items-center gap-4 mb-4">
+            <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
               <div className="w-12 h-px bg-gradient-to-r from-transparent to-elements-primary-main/60" />
-              <h2 className="text-elements-primary-main text-3xl lg:text-4xl font-light uppercase tracking-[0.2em]">
+              <h2 className="text-elements-primary-main text-2xl md:text-3xl lg:text-4xl font-light uppercase tracking-[0.2em]">
                 About
               </h2>
               <div className="w-12 h-px bg-gradient-to-l from-transparent to-elements-primary-shadow/60" />
@@ -77,8 +77,9 @@ const InfoCard = () => {
             <div className="text-text-primary leading-relaxed space-y-4 text-sm lg:text-base font-light">
               <p>
                 Nestled in the vibrant heart of Southall, Yellow Chilli is more
-                than just a restaurant—it&apos;s a celebration of India&apos;s rich
-                culinary heritage blended with the bold flavours of Afghanistan.
+                than just a restaurant—it&apos;s a celebration of India&apos;s
+                rich culinary heritage blended with the bold flavours of
+                Afghanistan.
               </p>
               <p className="text-text-primary text-sm lg:text-base">
                 Our kitchen tells stories through spices, where every dish is
@@ -96,32 +97,14 @@ const InfoCard = () => {
               </p>
             </div>
           </div>
-
-          {/* Elegant Feature Highlights */}
-          {/* <div className="flex items-center gap-6 text-text-tertiary">
-            {[
-              { text: "Authentic Flavors", color: "bg-helpers-success-main" },
-              { text: "Family Owned", color: "bg-elements-primary-main" },
-              { text: "Event Catering", color: "bg-helpers-error-main" },
-            ].map((feature, index) => (
-              <div key={feature.text} className="flex items-center gap-2 group">
-                <div
-                  className={`w-1 h-1 ${feature.color} rounded-full group-hover:scale-125 transition-transform duration-300`}
-                />
-                <span className="text-xs font-light tracking-wide uppercase group-hover:text-text-secondary transition-colors duration-300">
-                  {feature.text}
-                </span>
-              </div>
-            ))}
-          </div> */}
         </div>
       </motion.div>
 
       {/* Right Section: Info Blocks */}
-      <div className="relative md:w-1/3 bg-gradient-to-br from-card-background/70 to-card-background/50 backdrop-blur-lg px-6 py-8 rounded-3xl border border-border-dimmed/40 shadow-xl">
+      <div className="relative w-full md:w-1/3 bg-gradient-to-br from-card-background/70 to-card-background/50 backdrop-blur-lg p-6 rounded-3xl border border-border-dimmed/40 shadow-xl">
         <div className="space-y-6">
           {/* Opening Times */}
-          <div className="group">
+          <motion.div className="group" variants={itemVariants}>
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
               <span className="w-5 h-5 text-text-primary hover:rotate-12 transition-transform duration-200">
                 <svg
@@ -138,20 +121,20 @@ const InfoCard = () => {
               </span>
               Opening Times
             </h4>
-              <div className="bg-neutral-dimmed/60 backdrop-blur-sm rounded-xl p-4 space-y-3 border border-border-dimmed/30 hover:border-border-dimmed/50 transition-colors duration-300">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium text-text-secondary text-sm">
-                    Mon – Sun:
-                  </span>
-                  <span className="text-text-secondary font-light text-sm">
-                    3pm – 11:30pm
-                  </span>
-                </div>
+            <div className="bg-neutral-dimmed/60 backdrop-blur-sm rounded-xl p-4 space-y-3 border border-border-dimmed/30 hover:border-border-dimmed/50 transition-colors duration-300">
+              <div className="flex justify-between items-center">
+                <span className="font-medium text-text-secondary text-sm">
+                  Mon – Sun:
+                </span>
+                <span className="text-text-secondary font-light text-sm">
+                  3pm – 11:30pm
+                </span>
               </div>
-          </div>
+            </div>
+          </motion.div>
 
           {/* Location */}
-          <div className="group">
+          <motion.div className="group" variants={itemVariants}>
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
               <span className="w-5 h-5 text-text-primary hover:scale-110 transition-transform duration-200">
                 <svg
@@ -196,10 +179,10 @@ const InfoCard = () => {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div className="group">
+          <motion.div className="group" variants={itemVariants}>
             <h4 className="text-elements-primary-main font-medium text-lg mb-4 flex items-center gap-2">
               <span className="w-5 h-5 text-text-primary hover:rotate-12 transition-transform duration-200">
                 <svg
@@ -220,27 +203,9 @@ const InfoCard = () => {
                 0203 518 5930
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out forwards;
-          opacity: 0;
-        }
-      `}</style>
     </motion.section>
   );
 };

@@ -62,8 +62,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body>
+    <html lang="en" className="scroll-smooth dark" suppressHydrationWarning>
+      <body className="bg-black">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
