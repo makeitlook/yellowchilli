@@ -8,7 +8,7 @@ import {
 
 export default function Contact() {
   return (
-    <section id="contact">
+    <section id="contact" className="scroll-mt-24">
       <PageLayout>
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 space-y-12">
           <div className="relative ">
