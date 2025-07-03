@@ -285,6 +285,9 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                                   prefetch={false}
                                   onClick={() => {
                                     setDropdownOpen(null);
+                                    if (navMode === "single" && subItem.sectionId) {
+                                      setActiveSection(subItem.sectionId);
+                                    }
                                     closeMenu();
                                   }}
                                   className="absolute inset-0"
@@ -324,7 +327,12 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                 "border-transparent"
               )
         )}
-        onClick={closeMenu}
+        onClick={() => {
+          if (navMode === "single" && item.sectionId) {
+            setActiveSection(item.sectionId);
+          }
+          closeMenu();
+        }}
       >
         {item.name}
       </Link>
@@ -485,7 +493,12 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
                           ? "bg-white/20 text-white"
                           : "text-white/80 hover:text-white"
                       )}
-                      onClick={closeMenu}
+                      onClick={() => {
+                        if (navMode === "single" && item.sectionId) {
+                          setActiveSection(item.sectionId);
+                        }
+                        closeMenu();
+                      }}
                     >
                       {item.icon && (
                         <item.icon className="mr-3 h-5 w-5 text-white/70" />
