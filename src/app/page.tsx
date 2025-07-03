@@ -11,7 +11,7 @@ import OurStory from "@/components/OurStory/OurStory";
 export default function Home() {
   return (
     <>
-      <section id="home" className="relative bg-neutral">
+      <section id="home" className="relative bg-neutral scroll-mt-24">
         <div className="relative">
           <HeroSection />
         </div>
@@ -29,13 +29,13 @@ export default function Home() {
 
           <OurStory />
         </div>
-        <div id="catering">
+        <div id="catering" className="scroll-mt-24">
           <CateringSection />
         </div>
-        <div id="menu">
+        <div id="menu" className="scroll-mt-12">
           <MenuSection />
         </div>
-        <div id="find-us">
+        <div id="find-us" className="scroll-mt-24">
           <FindUsSection />
         </div>
       </section>
