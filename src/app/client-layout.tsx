@@ -44,16 +44,15 @@ export default function ClientLayout({
   const isComingSoon = pathname === "/comingsoon";
 
   useEffect(() => {
-    // Simulate initial loading state (can be customised)
-    const timer = setTimeout(() => setIsLoading(false), 1000);
+    const handleLoad = () => setIsLoading(false);
 
-    // Optional: preload assets
-    const preloadAssets = () => {
-      // Example: new Image().src = "/images/hero.jpg";
-    };
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
 
-    preloadAssets();
-    return () => clearTimeout(timer);
+    return () => window.removeEventListener("load", handleLoad);
   }, []);
 
   return (
