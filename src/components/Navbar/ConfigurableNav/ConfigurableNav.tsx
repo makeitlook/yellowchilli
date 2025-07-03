@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { LuMenu, LuX, LuChevronDown } from "react-icons/lu";
 import Link from "next/link";
 import Image from "next/image";
@@ -84,6 +84,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
 
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const scrollPosition = useRef(0);
 
   const currentTheme = theme === "auto" ? resolvedTheme : theme;
   const isDark = currentTheme === "dark";
@@ -127,21 +128,27 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
     }
   }, [glassMorphism, transparent]);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when mobile menu is open and restore on close
   useEffect(() => {
     if (mobileMenuOpen) {
+      scrollPosition.current = window.scrollY;
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollPosition.current}px`;
       document.body.style.width = "100%";
     } else {
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.width = "";
+      const y = Math.abs(parseInt(document.body.style.top || "0", 10));
+      document.body.style.top = "";
+      window.scrollTo(0, y);
     }
     return () => {
       document.body.style.overflow = "";
       document.body.style.position = "";
       document.body.style.width = "";
+      document.body.style.top = "";
     };
   }, [mobileMenuOpen]);
 
