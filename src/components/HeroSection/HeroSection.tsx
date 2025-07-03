@@ -213,41 +213,87 @@ const HeroSection: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap justify-center gap-8 pt-8"
+            className="flex flex-col justify-center gap-1"
             variants={itemVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
           >
-            {[
-              { text: "Unique Taste", delay: 0 },
-              { text: "Family Recipes", delay: 0.1 },
-              { text: "Premium Ingredients", delay: 0.2 },
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.text}
-                className="group text-text-primary/60 hover:text-text-primary/90 transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.8 + feature.delay, duration: 0.6 }}
-                whileHover={{ y: -2 }}
-              >
-                <div className="flex items-center gap-3">
-                  <motion.div
-                    className="w-1 h-1 bg-white/50 rounded-full group-hover:bg-white/80 transition-colors duration-300"
-                    animate={{
-                      scale: [1, 1.3, 1],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      delay: index * 0.5,
-                      ease: "easeInOut",
-                    }}
-                  />
-                  <span className="text-sm font-light tracking-wide uppercase">
-                    {feature.text}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+            <motion.div variants={itemVariants}>
+              <span className="text-lg font-semibold text-text-primary">
+                Order Online
+              </span>
+            </motion.div>
+
+            <motion.div
+              className="flex justify-center gap-4 sm:gap-8 pt-8"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2,
+                  },
+                },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
+              {[
+                {
+                  name: "Uber Eats",
+                  url: "https://www.ubereats.com/gb/store/yellow-chilli-southall/",
+                  logo: "/images/icons/ubereats.jpg",
+                },
+                {
+                  name: "Deliveroo",
+                  url: "https://deliveroo.co.uk/menu/london/southall/yellow-chilli-southall",
+                  logo: "/images/icons/deliveroo.jpg",
+                },
+                {
+                  name: "Just Eat",
+                  url: "https://www.just-eat.co.uk/restaurants-yellow-chilli-southall",
+                  logo: "/images/icons/justeat.jpg",
+                },
+              ].map((platform) => (
+                <motion.a
+                  key={platform.name}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group duration-25 cursor-pointer"
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.6, ease: "easeOut" },
+                    },
+                  }}
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="flex flex-col items-center gap-2 min-w-[100px] sm:min-w-[120px]">
+                    <Image
+                      src={platform.logo}
+                      alt={`${platform.name} logo`}
+                      width={48}
+                      height={48}
+                      className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-md"
+                      priority
+                    />
+
+                    <div className="text-center">
+                      <p className="text-xs sm:text-sm font-semibold text-text-primary group-hover:text-elements-primary-main transition-colors">
+                        {platform.name}
+                      </p>
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
