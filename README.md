@@ -208,6 +208,10 @@ You can deploy this template instantly using [Vercel](https://vercel.com), the p
    switch between `development` and `production` modes. Use `.env.development`
    for your dev branch and `.env.production` for the live site.
 
+   For preview deployments, set `NEXT_PUBLIC_SITE_URL` to your Vercel preview
+   URL (e.g. `https://your-project-name.vercel.app`) and keep
+   `NEXT_PUBLIC_SITE_MODE=development` so the full site is accessible.
+
 5. **Build the Project Locally (Optional but Recommended)**
    Run the build locally to make sure everything compiles before deploying:
 
@@ -263,7 +267,7 @@ export default function AboutPage() {
       <SEO
         title="About Us"
         description="Learn more about our mission and team."
-        url="https://yellowchilli.co.uk/about"
+        url={`${process.env.NEXT_PUBLIC_SITE_URL}/about`}
         image="/images/about-og.jpg"
         keywords={["About", "Company", "Team"]}
       />
