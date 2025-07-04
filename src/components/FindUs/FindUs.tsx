@@ -396,14 +396,39 @@ const FindUsSection = () => {
                     Contact
                   </h3>
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-gray-700">
-                      <span>Phone:</span>
-                      <a
-                        href="tel:02035185930"
-                        className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
-                      >
-                        0203 518 5930
-                      </a>
+                    <div className="flex flex-col items-left space-y-3 text-gray-700">
+                      <div className="flex space-x-2">
+                        <span className="text-text-primary">Restaurant:</span>
+                        <a
+                          href="tel:02035185930"
+                          className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                        >
+                          0203 518 5930
+                        </a>
+                      </div>
+                      <div className="flex space-x-2">
+                        <span className="text-text-primary">
+                          Aman (Director):
+                        </span>
+                        <a
+                          href="tel:07842905555"
+                          className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                        >
+                          078 429 05555
+                        </a>
+                      </div>
+
+                      <div className="flex space-x-2">
+                        <span className="text-text-primary">
+                          Kulwant (Director):
+                        </span>
+                        <a
+                          href="tel:07913135555"
+                          className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                        >
+                          079 131 35555
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

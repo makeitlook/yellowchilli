@@ -315,7 +315,7 @@ const CateringSection = () => {
               gradientTo="to-elements-primary-shadow"
               textColor="text-text-primary"
               shadowColor="shadow-black"
-              phoneNumber="02035185930"
+              phoneNumber="07842905555"
             />
           </div>
         </motion.div>
