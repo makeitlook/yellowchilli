@@ -102,8 +102,7 @@ const ConfigurableNavigation: React.FC<NavProps> = ({
         });
       },
       {
-        threshold: 0.3,
-        rootMargin: "-50% 0px -50% 0px",
+        threshold: 0.5,
       }
     );
     navigationItems.forEach((item) => {
