@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     "South Asian food Southall",
     "tandoori grill Southall",
   ],
-  metadataBase: new URL("https://yellowchilli.co.uk"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://yellowchilli.co.uk"),
   openGraph: {
     title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
     description:
       "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
-    url: "https://yellowchilli.co.uk",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://yellowchilli.co.uk",
     siteName: "Yellow Chilli",
     images: [
       {

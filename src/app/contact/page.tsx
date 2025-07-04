@@ -65,10 +65,10 @@ export default function Contact() {
                   </dt>
                   <dd>
                     <a
-                      href="mailto:hello@example.com"
+                      href="mailto:hello@yellowchilli.co.uk"
                       className="hover:text-gray-900"
                     >
-                      hello@example.com
+                      hello@yellowchilli.co.uk
                     </a>
                   </dd>
                 </div>
