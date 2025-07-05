@@ -2,6 +2,15 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Coming Soon",
+  description: "Yellow Chilli will be opening soon in Southall.",
+  alternates: {
+    canonical: "/comingsoon",
+  },
+};
 
 export default function ComingSoon(): JSX.Element {
   const containerVariants = {

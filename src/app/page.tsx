@@ -7,6 +7,16 @@ import InfoCard from "@/components/InfoCard/InfoCard";
 import PageLayout from "@/components/Layouts/PageLayout";
 import MenuSection from "@/components/MenuSection/MenuSection";
 import OurStory from "@/components/OurStory/OurStory";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
