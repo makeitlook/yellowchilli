@@ -5,6 +5,16 @@ import {
   PhoneIcon,
   BuildingOffice2Icon,
 } from "@heroicons/react/24/outline";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with Yellow Chilli to enquire about bookings or catering.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function Contact() {
   return (

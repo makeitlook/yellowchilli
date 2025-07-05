@@ -54,6 +54,9 @@ export const metadata: Metadata = {
       url: "/android-chrome-192x192.png",
     },
   },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
