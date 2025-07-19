@@ -23,7 +23,7 @@ export default function ServerErrorPage() {
 
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_SITE_MODE === "production") {
-      router.replace("/comingsoon");
+      router.replace("/");
     }
   }, [router]);
 
