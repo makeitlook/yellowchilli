@@ -8,6 +8,8 @@ import {
   LuCalendarDays,
   LuPhone,
   LuUtensilsCrossed,
+  LuMapPin,
+  LuChefHat,
 } from "react-icons/lu";
 
 // Define navigation item structure
@@ -32,18 +34,39 @@ export function useNavigationConfig(): {
   const navigationItems: NavigationItem[] = useMemo(
     () => [
       // {
-      //   name: "",
+      //   name: "Home",
+      //   path: "/home",
       //   sectionId: "home",
-      //   path: "/",
-      //   current: pathname === "/",
+      //   current: pathname === "/home",
       //   icon: LuHouse,
       // },
       {
+        name: "About",
+        path: "/about",
+        sectionId: "about",
+        current: pathname === "/about",
+        icon: LuInfo,
+      },
+      {
+        name: "Catering",
+        path: "/catering",
+        sectionId: "catering",
+        current: pathname === "/catering",
+        icon: LuChefHat,
+      },
+      {
         name: "Menu",
-        sectionId: "menu",
         path: "/menu",
+        sectionId: "menu",
         current: pathname === "/menu",
         icon: LuUtensilsCrossed,
+      },
+      {
+        name: "Find Us",
+        path: "/find-us",
+        sectionId: "find-us",
+        current: pathname === "/find-us",
+        icon: LuMapPin,
       },
     ],
     [pathname]
@@ -61,8 +84,10 @@ export const mainNavigation: {
   showNavigation: boolean;
 } = {
   navigationItems: [
-    // { name: "Home", sectionId: "home", path: "/", current: true },
-    { name: "Menu", sectionId: "menu", path: "/menu", current: false },
+    { name: "About", path: "/about", current: false },
+    { name: "Catering", path: "/catering", current: false },
+    { name: "Menu", path: "/menu", current: false },
+    { name: "Find Us", path: "/find-us", current: false },
   ],
   showNavigation: true,
 };
@@ -72,8 +97,10 @@ export const minimalistNavigation: {
   showNavigation: boolean;
 } = {
   navigationItems: [
-    // { name: "Home", sectionId: "home", path: "/", current: true },
-    { name: "Menu", sectionId: "menu", path: "/menu", current: false },
+    { name: "About", path: "/about", current: false },
+    { name: "Catering", path: "/catering", current: false },
+    { name: "Menu", path: "/menu", current: false },
+    { name: "Find Us", path: "/find-us", current: false },
   ],
   showNavigation: true,
 };
@@ -83,8 +110,10 @@ export const fullNavigation: {
   showNavigation: boolean;
 } = {
   navigationItems: [
-    // { name: "Home", sectionId: "home", path: "/", current: true },
-    { name: "Menu", sectionId: "menu", path: "/menu", current: false },
+    { name: "About", path: "/about", current: false },
+    { name: "Catering", path: "/catering", current: false },
+    { name: "Menu", path: "/menu", current: false },
+    { name: "Find Us", path: "/find-us", current: false },
   ],
   showNavigation: true,
 };

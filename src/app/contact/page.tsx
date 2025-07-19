@@ -6,11 +6,25 @@ import {
   PhoneIcon,
   BuildingOffice2Icon,
 } from "@heroicons/react/24/outline";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with Yellow Chilli to enquire about bookings or catering.",
+  alternates: {
+    canonical: "/contact",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function Contact() {
   redirectIfProduction();
   return (
-    <section id="contact">
+    <section id="contact" className="scroll-mt-24">
       <PageLayout>
         <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2 space-y-12">
           <div className="relative ">
@@ -33,9 +47,9 @@ export default function Contact() {
                     />
                   </dt>
                   <dd>
-                    545 Mavis Island
+                    72-76 Western Rd
                     <br />
-                    Chicago, IL 99191
+                    Southall UB2 5DZ
                   </dd>
                 </div>
                 <div className="flex gap-x-4">
@@ -48,10 +62,10 @@ export default function Contact() {
                   </dt>
                   <dd>
                     <a
-                      href="tel:+1 (555) 234-5678"
+                      href="tel:02035185930"
                       className="hover:text-gray-900"
                     >
-                      +1 (555) 234-5678
+                      0203 518 5930
                     </a>
                   </dd>
                 </div>

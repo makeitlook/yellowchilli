@@ -44,16 +44,18 @@ export default function ClientLayout({
   const isComingSoon = pathname === "/comingsoon";
 
   useEffect(() => {
-    // Simulate initial loading state (can be customised)
-    const timer = setTimeout(() => setIsLoading(false), 1000);
-
-    // Optional: preload assets
-    const preloadAssets = () => {
-      // Example: new Image().src = "/images/hero.jpg";
+    const handleLoad = () => {
+      // Add slight delay to ensure dynamic imports mount smoothly
+      setTimeout(() => setIsLoading(false), 500);
     };
 
-    preloadAssets();
-    return () => clearTimeout(timer);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => window.removeEventListener("load", handleLoad);
   }, []);
 
   return (
@@ -61,7 +63,7 @@ export default function ClientLayout({
       {isLoading ? (
         <Loader />
       ) : (
-        <ThemeProvider defaultTheme="light">
+        <ThemeProvider defaultTheme="dark">
           <div className="flex flex-col min-h-screen overflow-x-hidden">
             {!isComingSoon && <ClientNav />}
 

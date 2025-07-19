@@ -39,9 +39,8 @@ export default function ClientNav() {
         showNavigation,
       }}
       navMode="single"
-      variant="standard"
       transparent={true}
-      glassMorphism={true}
+      glassMorphism={false}
       showThemeSwitcher={false}
       logo={{
         light: "/images/logo.svg",
@@ -51,7 +50,7 @@ export default function ClientNav() {
       }}
       mobileFullScreen={true}
       cta={{
-        show: true,
+        show: false,
         text: "Get in Touch",
         href: "/contact",
       }}

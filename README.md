@@ -9,7 +9,7 @@ A modern, opinionated Next.js starter template featuring Tailwind CSS, TypeScrip
 - **Framer Motion** for smooth animations
 - **Dynamic Navigation** supporting single and multi-page layouts
 - **Theme Switching** with light/dark mode support
-- **SEO Optimized** with customizable metadata
+- **SEO Optimised** with customisable metadata
 - **Responsive Design** out-of-the-box
 - **Pre-built Components**: Navbar, Footer, Loader, etc.
 - **Analytics Integration** with Vercel Analytics and Speed Insights
@@ -69,7 +69,7 @@ To create a new repository based on this template:
 
 ### Metadata
 
-Customize your site's metadata in `app/metadata.ts`:
+Customise your site's metadata in `app/metadata.ts`:
 
 ```ts
 import { Metadata } from "next";
@@ -99,10 +99,10 @@ import { Metadata } from "next";
     siteName: "Yellow Chilli",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/og-default.png",
         width: 1200,
         height: 630,
-        alt: "Yellow Chilli logo",
+        alt: "Yellow Chilli social image",
       },
     ],
     locale: "en_GB",
@@ -150,7 +150,7 @@ export const navigationItems = [
 
 ### Theme Colors
 
-Customize your theme colors in `tailwind.config.js`:
+Customise your theme colours in `tailwind.config.js`:
 
 ```js
 module.exports = {

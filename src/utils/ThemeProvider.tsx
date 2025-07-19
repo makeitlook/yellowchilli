@@ -6,16 +6,16 @@ import { ReactNode } from "react";
 // Define a custom ThemeProvider component.
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
+  defaultTheme = "dark",
 }: {
   children: ReactNode;
   defaultTheme?: string;
 }) {
   return (
     <Provider
-      defaultTheme={defaultTheme} // Set the default theme to 'system', which follows the user's system theme.
-      attribute="class" // Specify that the theme should be applied using CSS classes.
-      enableSystem={true} // Enable system theme detection.
+      defaultTheme={defaultTheme} // Default to dark mode
+      attribute="class" // Apply theme using CSS classes
+      enableSystem={false} // Disable system theme detection
     >
       {children}{" "}
       {/* Render the children components wrapped within the ThemeProvider. */}

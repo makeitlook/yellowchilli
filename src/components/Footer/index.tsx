@@ -3,7 +3,7 @@ import AppFooterCopyright from "./AppFooterCopyright";
 
 function AppFooter() {
   return (
-    <div className="container mx-auto">
+    <div className="bg-neutral">
       <div className="py-8 border-t border-border-dimmed">
         {/* Footer social links */}
         {/* <div className="font-medium flex flex-col justify-center items-center mb-12 sm:my-10">

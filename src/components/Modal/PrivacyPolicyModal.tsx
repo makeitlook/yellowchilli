@@ -31,7 +31,7 @@ const PrivacyPolicyContent = () => (
     <section>
       <h3 className="text-lg font-semibold mb-2">3. Data Protection</h3>
       <p>
-        We implement appropriate technical and organizational measures to
+        We implement appropriate technical and organisational measures to
         protect your personal data, including:
       </p>
       <ul className="list-disc list-inside ml-2">
