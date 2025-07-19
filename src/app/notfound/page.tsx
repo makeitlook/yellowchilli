@@ -12,7 +12,7 @@ export default function NotFound() {
   const router = useRouter();
   useEffect(() => {
     if (process.env.NEXT_PUBLIC_SITE_MODE === "production") {
-      router.replace("/comingsoon");
+      router.replace("/");
     }
   }, [router]);
   return (
