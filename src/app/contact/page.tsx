@@ -15,6 +15,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function Contact() {

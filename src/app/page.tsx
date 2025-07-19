@@ -7,6 +7,7 @@ import InfoCard from "@/components/InfoCard/InfoCard";
 import PageLayout from "@/components/Layouts/PageLayout";
 import MenuSection from "@/components/MenuSection/MenuSection";
 import OurStory from "@/components/OurStory/OurStory";
+import { redirectIfProduction } from "@/utils/redirectIfProduction";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,6 +16,10 @@ export const metadata: Metadata = {
     "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall.",
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

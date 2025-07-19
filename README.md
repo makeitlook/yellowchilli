@@ -99,10 +99,10 @@ import { Metadata } from "next";
     siteName: "Yellow Chilli",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/og-default.png",
         width: 1200,
         height: 630,
-        alt: "Yellow Chilli logo",
+        alt: "Yellow Chilli social image",
       },
     ],
     locale: "en_GB",
