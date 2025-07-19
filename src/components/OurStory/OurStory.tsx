@@ -223,7 +223,7 @@ const OurStory = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 2.5 }}
               >
-                2022 - Present
+                2025 - Present
               </motion.p>
               <motion.p
                 className="text-text-secondary leading-relaxed"
