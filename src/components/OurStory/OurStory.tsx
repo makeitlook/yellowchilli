@@ -26,7 +26,7 @@ const OurStory = () => {
     {
       id: 3,
       title: "Yellow Chilli - Southall",
-      date: "2022 - Present",
+      date: "2025 - Present",
       description: "Our vibrant new home",
       image:
         "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop", // Replace with your actual Southall location image
@@ -232,10 +232,10 @@ const OurStory = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 2.7 }}
               >
-                Today, we&apos;ve found our home in the heart of Southall, surrounded
-                by the vibrant culture that inspires our cuisine. Here, we
-                continue to honour our heritage while creating new memories for
-                families and friends.
+                Today, we&apos;ve found our home in the heart of Southall,
+                surrounded by the vibrant culture that inspires our cuisine.
+                Here, we continue to honour our heritage while creating new
+                memories for families and friends.
               </motion.p>
             </motion.div>
           </motion.div>
@@ -252,7 +252,6 @@ const OurStory = () => {
             </p>
           </motion.div>
         </motion.div>
-
       </div>
     </motion.section>
   );
