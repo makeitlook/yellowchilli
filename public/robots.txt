@@ -7,3 +7,4 @@ Host: https://yellowchilli.co.uk
 
 # Sitemaps
 Sitemap: https://yellowchilli.co.uk/sitemap.xml
+Sitemap: https://yellowchilli.co.uk/sitemap-0.xml

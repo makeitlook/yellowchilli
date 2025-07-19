@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://yellowchilli.co.uk", // 🔁 Replace with your actual domain (no trailing slash)
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://yellowchilli.co.uk", // 🔁 Replace with your actual domain (no trailing slash)
   generateRobotsTxt: true, // ✅ Generate robots.txt file
   changefreq: "weekly", // Optional: change frequency for crawlers
   priority: 0.7, // Optional: priority for pages
@@ -19,8 +19,8 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      "https://yellowchilli.co.uk/sitemap-0.xml",
-      // "https://yellowchilli.co.uk/extra-sitemap.xml", // Add any custom ones here
+      `${process.env.NEXT_PUBLIC_SITE_URL || "https://yellowchilli.co.uk"}/sitemap-0.xml`,
+      // `${process.env.NEXT_PUBLIC_SITE_URL || "https://yellowchilli.co.uk"}/extra-sitemap.xml`, // Add any custom ones here
     ],
   },
 };

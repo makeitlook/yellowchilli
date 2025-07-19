@@ -1,5 +1,6 @@
 import Web3ContactForm from "@/components/ContactForm/ContactForm";
 import PageLayout from "@/components/Layouts/PageLayout";
+import { redirectIfProduction } from "@/utils/redirectIfProduction";
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default function Contact() {
+  redirectIfProduction();
   return (
     <section id="contact" className="scroll-mt-24">
       <PageLayout>
@@ -73,10 +75,10 @@ export default function Contact() {
                   </dt>
                   <dd>
                     <a
-                      href="mailto:hello@example.com"
+                      href="mailto:hello@yellowchilli.co.uk"
                       className="hover:text-gray-900"
                     >
-                      hello@example.com
+                      hello@yellowchilli.co.uk
                     </a>
                   </dd>
                 </div>

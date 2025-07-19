@@ -14,7 +14,7 @@ const defaultMetadata = {
   title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
   description:
     "Discover the rich flavours of Indian and Afghan cuisine at Yellow Chilli in Southall. From aromatic biryanis to sizzling grills, enjoy authentic dishes in a warm, welcoming setting.",
-  url: "https://yellowchilli.co.uk",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://yellowchilli.co.uk",
   image: "/images/og-default.png",
   keywords: [
     "Yellow Chilli Southall",

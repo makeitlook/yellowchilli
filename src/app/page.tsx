@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  redirectIfProduction();
   return (
     <>
       <section id="home" className="relative bg-neutral scroll-mt-24">
