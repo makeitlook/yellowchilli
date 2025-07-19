@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     siteName: "Yellow Chilli",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/og-default.png",
         width: 1200,
         height: 630,
-        alt: "Your Site Logo or Social Image",
+        alt: "Yellow Chilli social image",
       },
     ],
     locale: "en_GB",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   //   card: "summary_large_image",
   //   title: "Yellow Chilli | Indian & Afghan Cuisine in Southall",
   //   description: "Twitter description here",
-  //   images: ["/images/og-image.png"],
+  //   images: ["/images/og-default.png"],
   //   site: "@yourhandle",
   // },
   icons: {
@@ -53,5 +53,9 @@ export const metadata: Metadata = {
       sizes: "192x192",
       url: "/android-chrome-192x192.png",
     },
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
