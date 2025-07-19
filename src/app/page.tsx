@@ -7,7 +7,6 @@ import InfoCard from "@/components/InfoCard/InfoCard";
 import PageLayout from "@/components/Layouts/PageLayout";
 import MenuSection from "@/components/MenuSection/MenuSection";
 import OurStory from "@/components/OurStory/OurStory";
-import { redirectIfProduction } from "@/utils/redirectIfProduction";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,7 +23,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  redirectIfProduction();
   return (
     <>
       <section id="home" className="relative bg-neutral scroll-mt-24">

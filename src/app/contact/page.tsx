@@ -1,6 +1,5 @@
 import Web3ContactForm from "@/components/ContactForm/ContactForm";
 import PageLayout from "@/components/Layouts/PageLayout";
-import { redirectIfProduction } from "@/utils/redirectIfProduction";
 import {
   EnvelopeIcon,
   PhoneIcon,
@@ -22,7 +21,6 @@ export const metadata: Metadata = {
 };
 
 export default function Contact() {
-  redirectIfProduction();
   return (
     <section id="contact" className="scroll-mt-24">
       <PageLayout>
