@@ -4,7 +4,13 @@ function AppFooterCopyright() {
       <div className="text-sm text-ternary-dark dark:text-ternary-light">
         &copy; {new Date().getFullYear()} Yellow Chilli, All Rights Reserved.
       </div>
-      <span className="text-sm">Created by Make It Look</span>
+      <a
+        href="https://www.makeitlook.co.uk"
+        target="_blank"
+        className="text-sm text-text-secondary cursor-pointer"
+      >
+        Designed by Make It Look
+      </a>
     </div>
   );
 }
