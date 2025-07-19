@@ -43,10 +43,10 @@ export default function Home() {
         <div id="catering" className="scroll-mt-4 sm:scroll-mt-24">
           <CateringSection />
         </div>
-        <div id="menu" className="scroll-mt-4 sm:scroll-mt-24">
+        <div id="menu" className="scroll-mt-4 sm:scroll-mt-20">
           <MenuSection />
         </div>
-        <div id="find-us" className="scroll-mt-4 sm:scroll-mt-24">
+        <div id="find-us" className="scroll-mt-4 sm:scroll-mt-18">
           <FindUsSection />
         </div>
       </section>

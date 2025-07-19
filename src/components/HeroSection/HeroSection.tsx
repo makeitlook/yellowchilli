@@ -226,7 +226,7 @@ const HeroSection: React.FC = () => {
             </motion.div>
 
             <motion.div
-              className="flex justify-center gap-4 sm:gap-8 pt-8"
+              className="flex justify-center gap-4 sm:gap-8 pt-8 pointer-events-none"
               variants={{
                 hidden: { opacity: 0 },
                 visible: {

@@ -17,7 +17,7 @@ const MenuSection = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-neutral/10">
+    <section className="py-32 relative overflow-hidden bg-neutral/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex items-center justify-center text-center mb-12">
